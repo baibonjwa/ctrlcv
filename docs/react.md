@@ -16,20 +16,14 @@ intro: |
   [React](https://reactjs.org/) is a JavaScript library for building user interfaces. This guide targets React v15 to v16.
 ---
 
-{%raw%}
+## 组件
 
-组件
-----------
-{: .-three-column}
-
-### 组件
-{: .-prime}
+### 组件相关
 
 ```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
 ```
-{: .-setup}
 
 ```jsx
 class Hello extends React.Component {
@@ -46,16 +40,14 @@ const el = document.body
 ReactDOM.render(<Hello name='John' />, el)
 ```
 
-可以使用 [React.js jsfiddle ](http://jsfiddle.net/reactjs/69z2wepo/) (或者 [jsbin](http://jsbin.com/yafixat/edit?js,output)) 进行代码调试。
+可以使用 [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) (或者 [jsbin](http://jsbin.com/yafixat/edit?js,output)) 进行代码调试。
 
 ### 引入多个输出
-{: .-prime}
 
 ```jsx
 import React, {Component} from 'react'
 import ReactDOM from 'react-dom'
 ```
-{: .-setup}
 
 ```jsx
 class Hello extends Component {
@@ -68,7 +60,6 @@ class Hello extends Component {
 ```html
 <Video fullscreen={true} autoplay={false} />
 ```
-{: .-setup}
 
 ```jsx
 render () {
@@ -77,7 +68,6 @@ render () {
   ···
 }
 ```
-{: data-line="2,3"}
 
 使用 this.props 获取传递给组件的属性。
 
@@ -103,13 +93,10 @@ render () {
   ···
 }
 ```
-{: data-line="2,3"}
 
 使用 states ( this.state ) 管理动态数据。
 
 通过 [Babel](https://babeljs.io/) 您可以使用  [proposal-class-fields](https://github.com/tc39/proposal-class-fields) 并摆脱构造函数。
-
-
 
 ```jsx
 class Hello extends Component {
@@ -119,7 +106,6 @@ class Hello extends Component {
 ```
 
 查看: [States](https://reactjs.org/docs/tutorial.html#reactive-state)
-
 
 ### 组合组件
 
@@ -135,6 +121,7 @@ class Info extends Component {
   }
 }
 ```
+
 从React v16.2.0开始，Fragment可以用于返回多个子组件，而无需向DOM添加额外的包装节点。
 
 ```jsx
@@ -170,7 +157,6 @@ class Info extends Component {
   <h1>You have pending notifications</h1>
 </AlertBox>
 ```
-{: data-line="2"}
 
 ```jsx
 class AlertBox extends Component {
@@ -181,12 +167,10 @@ class AlertBox extends Component {
   }
 }
 ```
-{: data-line="4"}
 
 每个组件都可以获取到 this.props.children，它包含组件的开始标签和结束标签之间的内容。
 
-Defaults
---------
+## Defaults
 
 ### 设置默认props
 
@@ -195,7 +179,6 @@ Hello.defaultProps = {
   color: 'blue'
 }
 ```
-{: data-line="1"}
 
 See: [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
 
@@ -209,7 +192,6 @@ class Hello extends Component {
   }
 }
 ```
-{: data-line="4"}
 
 在`constructor()`中设置默认状态。
 
@@ -220,13 +202,12 @@ class Hello extends Component {
   state = { visible: true }
 }
 ```
+
 {: data-line="2"}
 
 查看: [Setting the default state](https://reactjs.org/docs/react-without-es6.html#setting-the-initial-state)
 
-其它组件
-----------------
-{: .-three-column}
+## 其它组件
 
 ### 函数式组件
 
@@ -237,7 +218,6 @@ function MyComponent ({ name }) {
   </div>
 }
 ```
-{: data-line="1"}
 
 Functional components have no state. Also, their `props` are passed as the first parameter to a function.
 
@@ -254,7 +234,6 @@ class MessageBox extends PureComponent {
   ···
 }
 ```
-{: data-line="3"}
 
 PureComponent是React 组件性能优化的版本，如果props 或者 state 不变的话不进行渲染。
 
@@ -282,9 +261,7 @@ this.props
 
 查看: [Component API](http://facebook.github.io/react/docs/component-api.html)
 
-生命周期
----------
-{: .-two-column}
+## 生命周期
 
 ### Mounting
 
@@ -318,9 +295,7 @@ Called when parents change properties and `.setState()`. These are not called fo
 
 查看: [Component specs](http://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops)
 
-Hooks (新特征)
------------
-{: .-two-column}
+## Hooks (新特征)
 
 ### State Hook
 
@@ -341,7 +316,6 @@ function Example() {
   );
 }
 ```
-{: data-line="5,10"}
 
 *Hook* 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。
 
@@ -383,7 +357,6 @@ function Example() {
   );
 }
 ```
-{: data-line="6,7,8,9,10"}
 
 如果您熟悉React类的生命周期方法，则可以将`useEffect Hook 视为` componentDidMount`，`componentDidUpdate`和`componentWillUnmount 的组合。
 
@@ -392,6 +365,7 @@ function Example() {
 ### 构建自己的 hooks
 
 #### 定义 FriendStatus
+
 ```jsx
 import React, { useState, useEffect } from 'react';
 
@@ -415,7 +389,6 @@ function FriendStatus(props) {
   return isOnline ? 'Online' : 'Offline';
 }
 ```
-{: data-line="11,12,13,14"}
 
 Effects 也可以有选择地指定如何通过返回函数来进行“清理”。
 
@@ -431,7 +404,6 @@ function FriendStatus(props) {
   return isOnline ? 'Online' : 'Offline';
 }
 ```
-{: data-line="2"}
 
 查看: [Building Your Own Hooks](https://reactjs.org/docs/hooks-custom.html)
 
@@ -463,9 +435,7 @@ function FriendStatus(props) {
 
 查看更多: [Additional Hooks](https://reactjs.org/docs/hooks-reference.html#additional-hooks)
 
-DOM 元素
----------
-{: .-two-column}
+## DOM 元素
 
 ### 参考
 
@@ -482,7 +452,6 @@ class MyComponent extends Component {
   }
 }
 ```
-{: data-line="4,9"}
 
 允许访问 DOM 元素
 
@@ -503,7 +472,6 @@ class MyComponent extends Component {
   }
 }
 ```
-{: data-line="5,9"}
 
 以属性的方式传递函数，例如上述 onChange
 
@@ -516,7 +484,6 @@ class MyComponent extends Component {
 ```html
 <VideoPlayer src="video.mp4" />
 ```
-{: .-setup}
 
 ```jsx
 class VideoPlayer extends Component {
@@ -525,7 +492,6 @@ class VideoPlayer extends Component {
   }
 }
 ```
-{: data-line="3"}
 
 将 src =“ ...” 向下传递到子组件。
 
@@ -552,9 +518,7 @@ ReactDOMServer.renderToStaticMarkup(<Component />)
 
 查看: [React top-level API](https://reactjs.org/docs/react-api.html)
 
-JSX 模式
-------------
-{: .-two-column}
+## JSX 模式
 
 ### Style 简写
 
@@ -592,7 +556,6 @@ class TodoList extends Component {
   }
 }
 ```
-{: data-line="6,7"}
 
 列表项要包含一个 key 属性
 
@@ -615,9 +578,7 @@ class TodoList extends Component {
 </Fragment>
 ```
 
-新特性
-------------
-{: .-three-column}
+## 新特性
 
 ### 返回多个元素
 
@@ -634,9 +595,9 @@ render () {
   ]
 }
 ```
-{: data-line="3,4,5,6"}
 
 #### Fragments
+
 ```js
 render () {
   // Fragments don't require keys!
@@ -648,7 +609,6 @@ render () {
   )
 }
 ```
-{: data-line="3,4,5,6,7,8"}
 
 查看: [Fragments and strings](https://reactjs.org/blog/2017/09/26/react-v16.0.html#new-render-return-types-fragments-and-strings)
 
@@ -659,7 +619,6 @@ render() {
   return 'Look ma, no spans!';
 }
 ```
-{: data-line="2"}
 
 可以直接返回一个字符串
 
@@ -675,9 +634,8 @@ class MyComponent extends Component {
   }
 }
 ```
-{: data-line="3,4,5"}
 
-通过`componentDidCatch`捕获 errors。 (React 16+) 
+通过`componentDidCatch`捕获 errors。 (React 16+)
 
 查看: [Error handling in React 16](https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html)
 
@@ -691,7 +649,6 @@ render () {
   )
 }
 ```
-{: data-line="2,3,4,5"}
 
 它可以把`this.props.children`渲染到 DOM 中的任何位置
 
@@ -703,22 +660,18 @@ render () {
 const el = document.getElementById('app')
 ReactDOM.hydrate(<App />, el)
 ```
-{: data-line="2"}
 
 与 [`render()`](https://zh-hans.reactjs.org/docs/react-dom.html#render) 相同，但它用于在 [`ReactDOMServer`](https://zh-hans.reactjs.org/docs/react-dom-server.html) 渲染的容器中对 HTML 的内容进行 hydrate 操作
 
 查看: [Hydrate](https://reactjs.org/docs/react-dom.html#hydrate)
 
-属性验证
--------------------
-{: .-three-column}
+## 属性验证
 
 ### PropTypes
 
 ```js
 import PropTypes from 'prop-types'
 ```
-{: .-setup}
 
 查看: [Typechecking with PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
 
@@ -848,8 +801,7 @@ MyCo.propTypes = {
 }
 ```
 
-另见
---------
+## 另见
 
 * [React website](https://reactjs.org) _(reactjs.org)_
 * [React cheatsheet](https://reactcheatsheet.com/) _(reactcheatsheet.com)_
