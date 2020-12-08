@@ -1,9 +1,9 @@
 import * as React from "react";
 import { graphql, Link } from "gatsby";
-import mainLogo from "../../public/static/logo.png";
-import searchIcon from "../../public/static/search-icon.png";
-import toTopIcon from "../../public/static/to-top.png";
-import newIcon from "../../public/static/new.png";
+import mainLogo from "../assets/images/logo.png";
+import searchIcon from "../assets/images/search-icon.png";
+import toTopIcon from "../assets/images/to-top.png";
+import newIcon from "../assets/images/new.png";
 
 // markup
 const IndexPage = ({ data }) => {
@@ -108,7 +108,7 @@ const IndexPage = ({ data }) => {
         .list div {
           text-align: left;
           width: 250px;
-          margin-top: 20px;
+          margin-top: 30px;
           position: relative;
         }
         .list div .new-icon {
