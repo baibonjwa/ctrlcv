@@ -144,8 +144,6 @@ class Info extends Component {
 }
 ```
 
-{: data-line="5,6,7,8,9,10"}
-
 嵌套组件以分离关注点。
 
 查看: [Composing Components](https://reactjs.org/docs/components-and-props.html#composing-components)
@@ -203,11 +201,9 @@ class Hello extends Component {
 }
 ```
 
-{: data-line="2"}
-
 查看: [Setting the default state](https://reactjs.org/docs/react-without-es6.html#setting-the-initial-state)
 
-## 其它组件
+## 其它组件 {data-columns="3"}
 
 ### 函数式组件
 
@@ -295,7 +291,7 @@ Called when parents change properties and `.setState()`. These are not called fo
 
 查看: [Component specs](http://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops)
 
-## Hooks (新特征)
+## Hooks (新特征)  {data-columns="2"}
 
 ### State Hook
 

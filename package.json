@@ -21,17 +21,25 @@
     "babel-plugin-styled-components": "^1.12.0",
     "gatsby": "^2.26.1",
     "gatsby-plugin-mdx": "^1.6.0",
+    "gatsby-plugin-postcss": "^3.3.0",
     "gatsby-plugin-react-helmet": "^3.6.0",
     "gatsby-plugin-sharp": "^2.10.0",
     "gatsby-plugin-styled-components": "^3.6.0",
+    "gatsby-remark-attr": "^0.1.0",
     "gatsby-remark-autolink-headers": "^2.7.0",
     "gatsby-remark-images": "^3.7.0",
     "gatsby-remark-prismjs": "^3.9.0",
     "gatsby-source-filesystem": "^2.7.0",
+    "macy": "^2.5.1",
+    "postcss": "^8.1.14",
     "prismjs": "^1.22.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
+    "remark-sectionize": "file:./plugins/remark-sectionize",
     "styled-components": "^5.2.1"
+  },
+  "devDependencies": {
+    "tailwindcss": "^2.0.1"
   }
 }

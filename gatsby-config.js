@@ -4,14 +4,17 @@ module.exports = {
     description: "CtrlCV",
   },
   plugins: [
+    `gatsby-plugin-postcss`,
     "gatsby-plugin-styled-components",
     "gatsby-plugin-react-helmet",
     {
       resolve: "gatsby-plugin-mdx",
       options: {
         extensions: [`.mdx`, `.md`],
+        remarkPlugins: [require(`remark-sectionize`)],
         gatsbyRemarkPlugins: [
-          `gatsby-remark-autolink-headers`,
+          "gatsby-remark-attr",
+          "gatsby-remark-autolink-headers",
           {
             resolve: `gatsby-remark-prismjs`,
             options: {
