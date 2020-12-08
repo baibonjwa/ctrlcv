@@ -1,0 +1,26 @@
+{
+  "name": "gatsby-remark-sectionize",
+  "version": "1.1.0",
+  "description": "Gatsby plugin of remark-sectionize, which wrap content below each heading in a <section> element",
+  "author": {
+    "name": "Byron Bai",
+    "email": "baibonjwa@gmail.com",
+    "url": "https://github.com/BAI-Bonjwa"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BAI-Bonjwa/gatsby-remark-sectionize.git"
+  },
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "remark",
+    "markdown",
+    "section"
+  ],
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "remark-sectionize": "^1.1.1"
+  }
+}
