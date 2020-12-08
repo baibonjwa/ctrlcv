@@ -24,7 +24,8 @@ const IndexPage = ({ data }) => {
               return (
                 <Link
                   to={node.frontmatter.path || node.slug}
-                  style={{ textDecoration: "none", color: "#777" }}>
+                  style={{ textDecoration: "none", color: "#777" }}
+                >
                   <div>
                     {node.frontmatter.title}
                     <img className="new-icon" src={newIcon} />
