@@ -2,11 +2,12 @@ import React, { useEffect } from "react";
 import { MDXProvider } from "@mdx-js/react";
 import { MDXRenderer } from "gatsby-plugin-mdx";
 import { graphql } from "gatsby";
+import CodeBlock from "./code-block/index.js";
 import Macy from "macy";
 
 export default function Layout({ children, data: { mdx }, ...props }) {
-  console.log(mdx.body);
-  console.log(mdx.rawBody);
+  // console.log(mdx.body);
+  // console.log(mdx.rawBody);
   useEffect(() => {
     const doms = document.querySelectorAll(".section-container");
     doms.forEach((dom, index) => {
@@ -24,7 +25,6 @@ export default function Layout({ children, data: { mdx }, ...props }) {
     <MDXProvider
       components={{
         section: ({ children, ...props }) => {
-          console.log(props["data-section-depth"]);
           if (props["data-section-depth"] >= 3) {
             return <section {...props}>{children}</section>;
           } else {
@@ -35,6 +35,15 @@ export default function Layout({ children, data: { mdx }, ...props }) {
             );
           }
         },
+        pre: (props) => <div {...props} />,
+        // code: (props) => {
+        //   console.log(props);
+        //   return <div>code</div>;
+        // },
+        code: CodeBlock,
+        // pre: () => {
+        //   return <div>aaa</div>;
+        // },
         // h3: (props) => (
         //   <div>
         //     <h3 {...props} style={{ color: "red" }} />

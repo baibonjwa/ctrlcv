@@ -32,10 +32,12 @@
     "gatsby-source-filesystem": "^2.7.0",
     "macy": "^2.5.1",
     "postcss": "^8.1.14",
+    "prism-react-renderer": "^1.1.1",
     "prismjs": "^1.22.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
+    "react-live": "^2.2.3",
     "remark-sectionize": "file:./plugins/remark-sectionize",
     "styled-components": "^5.2.1"
   },

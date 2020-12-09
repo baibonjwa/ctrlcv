@@ -15,12 +15,12 @@ module.exports = {
         gatsbyRemarkPlugins: [
           "gatsby-remark-attr",
           "gatsby-remark-autolink-headers",
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              copy: true,
-            },
-          },
+          // {
+          // resolve: `gatsby-remark-prismjs`,
+          // options: {
+          //   copy: true,
+          // },
+          // },
           {
             resolve: `gatsby-remark-images`,
             options: {
