@@ -1,0 +1,11 @@
+body {
+  background-color: #ffffee;
+}
+
+svg {
+  display: inline;
+  height: 26px;
+  /* TODO: Rewrite auto linking plugin to have a better style definition */
+  margin-top: -2px;
+  margin-right: 5px;
+}

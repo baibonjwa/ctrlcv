@@ -5,19 +5,26 @@ import { graphql } from "gatsby";
 import CodeBlock from "./code-block/index.js";
 import Macy from "macy";
 
+import "../styles/cheatsheet.css";
+
 export default function Layout({ children, data: { mdx }, ...props }) {
-  // console.log(mdx.body);
-  // console.log(mdx.rawBody);
   useEffect(() => {
     const doms = document.querySelectorAll(".section-container");
     doms.forEach((dom, index) => {
       dom.id = `section-container-${index}`;
+      const columns = dom.previousSibling.dataset.columns || 2;
       const macy = Macy({
         container: `#${dom.id}`,
         trueOrder: false,
         waitForImages: false,
         margin: 24,
-        columns: dom.previousSibling.dataset.columns || 2,
+        columns,
+        breakAt: {
+          1200: columns,
+          940: columns >= 2 ? 2 : columns,
+          720: 1,
+          400: 1,
+        },
       });
     });
   }, []);
@@ -38,10 +45,19 @@ export default function Layout({ children, data: { mdx }, ...props }) {
         pre: (props) => <div {...props} />,
         code: CodeBlock,
       }}>
-      {/* <h1>{mdx.frontmatter.title}</h1> */}
-      <div style={{ margin: `0 auto`, padding: `0 1rem` }}>
+      <main className="container mx-auto mt-10">
+        <section className="mb-8">
+          <h1 className="text-xl md:text-3xl lg:text-5xl font-extralight text-gray-600 mb-4">
+            {mdx.frontmatter.title}
+            <span className="ml-3 text-gray-300">cheatsheet</span>
+          </h1>
+          {mdx.frontmatter.intro && (
+            <p className="text-gray-600">{mdx.frontmatter.intro}</p>
+          )}
+        </section>
+
         <MDXRenderer>{mdx.body}</MDXRenderer>
-      </div>
+      </main>
     </MDXProvider>
   );
 }
@@ -55,6 +71,7 @@ export const pageQuery = graphql`
       mdxAST
       frontmatter {
         title
+        intro
       }
     }
   }

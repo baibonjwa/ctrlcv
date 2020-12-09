@@ -1,8 +1,6 @@
 ---
 title: React.js
 category: React
-layout: 2017/sheet
-ads: true
 tags: [Featured]
 updated: 2020-07-05
 weight: -10
@@ -13,7 +11,7 @@ keywords:
   - props/state
   - dangerouslySetInnerHTML
 intro: |
-  [React](https://reactjs.org/) is a JavaScript library for building user interfaces. This guide targets React v15 to v16.
+  React 代码示例
 ---
 
 ## 组件

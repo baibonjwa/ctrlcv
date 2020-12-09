@@ -55,13 +55,13 @@ export default ({
               </div>
             </div>
           )}
-          <pre className={`language-${language}`}>
+          <pre className={`language-${language} relative`}>
             <Copy
               fileName={title}
               css={{
                 position: `absolute`,
-                right: 0,
-                // top: 0,
+                right: 5,
+                top: 3,
                 // borderRadius: `${radii[2]}px ${radii[2]}px`,
               }}
               content={content}

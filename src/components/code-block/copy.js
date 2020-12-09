@@ -38,12 +38,13 @@ function Copy({ className, content, duration, fileName, trim = false }) {
       name={label}
       className={className}
       disabled={copied}
+      // className="text-sm"
       css={{
         backgroundColor: `transparent`,
         border: `none`,
         // color: colors.grey[60],
         cursor: `pointer`,
-        // fontSize: fontSizes[2],
+        fontSize: 10,
         // fontFamily: fonts.header,
         // lineHeight: lineHeights.solid,
         // padding: `${space[2]} ${space[2]}`,

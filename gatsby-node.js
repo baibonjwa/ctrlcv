@@ -50,13 +50,14 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
   // you'll call `createPage` for each result
   pages.forEach(({ node }, index) => {
     const { frontmatter, slug } = node;
+    const layout = frontmatter.layout || "cheatsheet";
     if (!frontmatter) return;
     createPage({
       // This is the slug you created before
       // (or `node.frontmatter.slug`)
       path: frontmatter.path || slug,
       // This component will wrap our MDX content
-      component: path.resolve(`./src/components/layout.js`),
+      component: path.resolve(`./src/components/${layout}.js`),
       // You can use the values in this context in
       // our page layout component
       context: { id: node.id },
