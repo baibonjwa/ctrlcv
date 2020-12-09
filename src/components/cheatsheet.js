@@ -31,6 +31,12 @@ export default function Layout({ children, data: { mdx }, ...props }) {
   return (
     <MDXProvider
       components={{
+        h2: (props) => (
+          <h2 className="text-2xl mb-2 text-gray-600" {...props} />
+        ),
+        h3: (props) => (
+          <h3 className="text-lg mb-2 text-yellow-600" {...props} />
+        ),
         section: ({ children, ...props }) => {
           if (props["data-section-depth"] >= 3) {
             return <section {...props}>{children}</section>;
@@ -42,10 +48,11 @@ export default function Layout({ children, data: { mdx }, ...props }) {
             );
           }
         },
+        p: (props) => <p className="text-sm" {...props} />,
         pre: (props) => <div {...props} />,
         code: CodeBlock,
       }}>
-      <main className="container mx-auto mt-10">
+      <main className="container mx-auto mt-10 text-gray-500">
         <section className="mb-8">
           <h1 className="text-xl md:text-3xl lg:text-5xl font-extralight text-gray-600 mb-4">
             {mdx.frontmatter.title}

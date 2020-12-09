@@ -22,7 +22,7 @@ module.exports = {
               // maintainCase: true,
               // removeAccents: true,
               // isIconAfterHeader: true,
-              elements: [`h2`, `h3`, `h4`],
+              elements: [`h2`],
             },
           },
           "gatsby-remark-attr",

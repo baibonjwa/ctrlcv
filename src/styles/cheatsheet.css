@@ -2,10 +2,38 @@ body {
   background-color: #ffffee;
 }
 
+a.anchor {
+  position: absolute;
+  margin-left: -24px;
+}
+
 svg {
   display: inline;
   height: 26px;
   /* TODO: Rewrite auto linking plugin to have a better style definition */
-  margin-top: -2px;
+  margin-top: -4px;
   margin-right: 5px;
+}
+
+pre[class*="language-"] {
+  font-size: 0.75em;
+}
+
+h3 {
+  margin-top: 8px;
+  margin-bottom: 16px;
+  white-space: nowrap;
+  overflow: hidden;
+  --tw-text-opacity: 1;
+  color: rgba(209, 213, 219, var(--tw-text-opacity));
+}
+
+h3::after {
+  margin-left: 24px;
+  content: '';
+  display: inline-block;
+  vertical-align: middle;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right,rgba(180, 83, 9, .2),transparent 80%);
 }
