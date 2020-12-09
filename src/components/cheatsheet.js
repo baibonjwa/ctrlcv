@@ -35,7 +35,7 @@ export default function Layout({ children, data: { mdx }, ...props }) {
           <h2 className="text-2xl mb-2 text-gray-600" {...props} />
         ),
         h3: (props) => (
-          <h3 className="text-lg mb-2 text-yellow-600" {...props} />
+          <h3 className="text-lg mb-3 text-yellow-600" {...props} />
         ),
         section: ({ children, ...props }) => {
           if (props["data-section-depth"] >= 3) {

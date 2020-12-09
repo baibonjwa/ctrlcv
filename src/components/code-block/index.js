@@ -43,27 +43,17 @@ export default ({
       {({ tokens, getLineProps, getTokenProps }) => (
         <div className="gatsby-highlight">
           {title && (
-            <div className="gatsby-highlight-header">
-              <div
-                className="gatsby-code-title"
-                css={
-                  {
-                    // fontSize: fontSizes[0]
-                  }
-                }>
-                {title}
-              </div>
-            </div>
+            <div className="ctrlcv-cheatsheet-code-title ">{title}</div>
           )}
-          <pre className={`language-${language} relative`}>
+          <pre className={`language-${language} relative mt-0`}>
+            {language && (
+              <div className="absolute bottom-0.5 right-1 opacity-20 text-xs">
+                {language.toUpperCase()}
+              </div>
+            )}
             <Copy
               fileName={title}
-              css={{
-                position: `absolute`,
-                right: 5,
-                top: 3,
-                // borderRadius: `${radii[2]}px ${radii[2]}px`,
-              }}
+              className="absolute top-0.5 right-1"
               content={content}
             />
             {tokens.map((line, i) => {

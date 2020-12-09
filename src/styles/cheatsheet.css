@@ -16,8 +16,18 @@ svg {
 }
 
 pre[class*="language-"] {
-  font-size: 0.75em;
+  margin: 0 0 1rem 0;
+  font-size: 0.75rem;
+  border-radius: 0;
 }
+
+.ctrlcv-cheatsheet-code-title {
+  display: inline-block;
+  background-color: #fdf6e3;
+  padding: 3px 0.75rem 2px;
+  font-size: 12px;
+}
+
 
 h3 {
   margin-top: 8px;

@@ -45,6 +45,7 @@ function Copy({ className, content, duration, fileName, trim = false }) {
         // color: colors.grey[60],
         cursor: `pointer`,
         fontSize: 10,
+        opacity: 0.7,
         // fontFamily: fonts.header,
         // lineHeight: lineHeights.solid,
         // padding: `${space[2]} ${space[2]}`,

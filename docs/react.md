@@ -18,12 +18,12 @@ intro: |
 
 ### 组件相关
 
-```jsx title=Title live=true
+```jsx title=组件相关
 import React from 'react'
 import ReactDOM from 'react-dom'
 ```
 
-```jsx
+```jsx title=Title
 class Hello extends React.Component {
   render () {
     return <div className='message-box'>
