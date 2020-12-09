@@ -36,20 +36,7 @@ export default function Layout({ children, data: { mdx }, ...props }) {
           }
         },
         pre: (props) => <div {...props} />,
-        // code: (props) => {
-        //   console.log(props);
-        //   return <div>code</div>;
-        // },
         code: CodeBlock,
-        // pre: () => {
-        //   return <div>aaa</div>;
-        // },
-        // h3: (props) => (
-        //   <div>
-        //     <h3 {...props} style={{ color: "red" }} />
-        //   </div>
-        // ),
-        // p: (props) => <p {...props} style={{ color: "rebeccapurple" }} />,
       }}>
       {/* <h1>{mdx.frontmatter.title}</h1> */}
       <div style={{ margin: `0 auto`, padding: `0 1rem` }}>

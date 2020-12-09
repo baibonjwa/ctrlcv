@@ -22,9 +22,11 @@ const getParams = (name = ``) => {
  */
 export default ({
   children,
+  title,
   className = children.props ? children.props.className : ``,
+  ...props
 }) => {
-  const [language, { title = `` }] = getParams(className);
+  const [language] = getParams(className);
   const [content, highlights] = normalize(
     children.props && children.props.children
       ? children.props.children
@@ -58,8 +60,8 @@ export default ({
               fileName={title}
               css={{
                 position: `absolute`,
-                // right: space[1],
-                // top: space[1],
+                right: 0,
+                // top: 0,
                 // borderRadius: `${radii[2]}px ${radii[2]}px`,
               }}
               content={content}

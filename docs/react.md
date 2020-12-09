@@ -20,7 +20,7 @@ intro: |
 
 ### 组件相关
 
-```jsx
+```jsx title=Title live=true
 import React from 'react'
 import ReactDOM from 'react-dom'
 ```

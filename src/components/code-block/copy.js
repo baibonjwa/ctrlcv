@@ -62,14 +62,11 @@ function Copy({ className, content, duration, fileName, trim = false }) {
       }}
       onClick={async () => {
         copyToClipboard(trim ? content.trim() : content);
-
         setCopied(true);
-
         await delay(duration);
-
         setCopied(false);
       }}>
-      {copied ? `Copied` : `Copy`}
+      {copied ? `已复制` : `复制代码`}
     </button>
   );
 }
