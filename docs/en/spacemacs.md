@@ -10,7 +10,7 @@ intro: |
 
 Shortcuts
 ---------
-{: .-three-column}
+
 
 ### Layers
 
@@ -28,7 +28,7 @@ Shortcuts
 | `SPC` `l` | Layout            |
 | `SPC` `a` | Apps              |
 | `SPC` `h` | Help              |
-{: .-shortcuts.-prime}
+
 
 ### More
 
@@ -37,7 +37,7 @@ Shortcuts
 | **M-x**     | `SPC` `SPC` |
 | Terminal    | `SPC` `'`   |
 | Search      | `SPC` `/`   |
-{: .-shortcuts-right}
+
 
 ### `SPC` `h` - Help
 
@@ -49,7 +49,7 @@ Shortcuts
 | Documentation      | `r`      |
 | FAQ                | `f`      |
 | Vimtutor           | `T`      |
-{: .-shortcuts-right}
+
 
 ### `SPC` `f` - File
 
@@ -61,7 +61,7 @@ Shortcuts
 | Delete        | `D`      |
 | ---           | ---      |
 | Show filename | `y`      |
-{: .-shortcuts-right}
+
 
 ### `SPC` `b` - Buffer
 
@@ -70,7 +70,7 @@ Shortcuts
 | Next buffer (`:bnext`)     | `n`      |
 | Previous buffer (`:bprev`) | `p`      |
 | Delete buffer (`:bd`)      | `d`      |
-{: .-shortcuts-right}
+
 
 ### `SPC` `f` `e` - Config
 
@@ -80,7 +80,7 @@ Shortcuts
 | Edit config and template | `D`      |
 | ---                      | ---      |
 | Reload config            | `R`      |
-{: .-shortcuts}
+
 
 ### `SPC` `w` - Window
 
@@ -96,7 +96,7 @@ Shortcuts
 | ---                 | ---                   |
 | Split vert          | `v`                   |
 | Split vert & follow | `V`                   |
-{: .-shortcuts-right}
+
 
 ### `SPC` `p` - Project
 
@@ -112,7 +112,7 @@ Shortcuts
 | ---                     | ---      |
 | Open terminal           | `'`      |
 | Open terminal in root   | `$` `t`  |
-{: .-shortcuts-right}
+
 
 ### `SPC` `l` `w` - Workspaces
 
@@ -124,7 +124,7 @@ Shortcuts
 | **Switch to nth workspace** | `0` ... `9` |
 | ---                         | ---         |
 | Rename                      | `R`         |
-{: .-shortcuts-right}
+
 
 ### `SPC` `t` - Toggle
 
@@ -140,7 +140,7 @@ Shortcuts
 | Character   | `j`      |
 | Line        | `l`      |
 | Word        | `w`      |
-{: .-shortcuts-right}
+
 
 ## Major modes
 
@@ -150,7 +150,7 @@ Shortcuts
 | ---         | ---                    |
 | `,` `-`     | Insert horizontal rule |
 | `,` `h` `1` | Insert H1              |
-{: .-shortcuts}
+
 
 ## Other layers
 
@@ -169,7 +169,7 @@ Shortcuts
 | ---                   | ---                    |
 | `SPC` `g` `l` `l`     | Open in GitHub         |
 | `SPC` `g` `l` `L`     | Show GitHub URL        |
-{: .-shortcuts}
+
 
 Version control is provided by Magit.
 
@@ -188,7 +188,7 @@ Version control is provided by Magit.
 | ---              | ---         | ---           |
 | Confirm          | `C-c` `C-c` |               |
 | Abort            | `C-c` `C-k` |               |
-{: .-shortcuts-right}
+
 
 ## References
 

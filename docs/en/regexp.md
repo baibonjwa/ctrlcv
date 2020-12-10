@@ -14,7 +14,7 @@ description: |
 ---
 
 ## RegExp
-{: .-three-column}
+
 
 ### Character classes
 

@@ -9,7 +9,7 @@ category: Ledger
 hledger bal {query}
 hledger reg {query}
 ```
-{:.large.terminal}
+
 
 ## Query
 

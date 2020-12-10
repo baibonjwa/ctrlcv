@@ -14,7 +14,7 @@ intro: |
 ```html
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js"></script>
 ```
-{: .-wrap}
+
 
 This is the default script for Polyfill.io.
 

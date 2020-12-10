@@ -6,7 +6,7 @@ category: JavaScript libraries
 ```
 npm i -g browser-sync
 ```
-{:.terminal}
+
 
 ### Start a server
 

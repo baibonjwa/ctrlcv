@@ -11,7 +11,7 @@ description: |
 ## Testing
 
 ### Xpath test bed
-{: .-intro}
+
 
 Test queries in the Xpath test bed:
 
@@ -39,7 +39,7 @@ Works in Firefox and Chrome.
 | ----                         | ----                                                     | --                      |
 | `:root`                      | `/`                                                      | [?](#prefixes)          |
 | `:root > body`               | `/body`                                                  |                         |
-{: .xp}
+
 
 ### Attribute selectors
 
@@ -55,7 +55,7 @@ Works in Firefox and Chrome.
 | `a[href$='pdf']`             | `//a[ends-with(@href, '.pdf')]`                          |                         |
 | `a[href*='://']`             | `//a[contains(@href, '://')]`                            |                         |
 | `a[rel~='help']`             | `//a[contains(@rel, 'help')]` *...[kinda](#class-check)* |                         |
-{: .xp}
+
 
 ### Order selectors
 
@@ -67,7 +67,7 @@ Works in Firefox and Chrome.
 | `li#id:first-child`          | `//li[@id="id"][1]`                                      |                         |
 | `a:first-child`              | `//a[1]`                                                 |                         |
 | `a:last-child`               | `//a[last()]`                                            |                         |
-{: .xp}
+
 
 ### Siblings
 
@@ -76,7 +76,7 @@ Works in Firefox and Chrome.
 | `h1 ~ ul`                    | `//h1/following-sibling::ul`                             | [?](#using-axes)        |
 | `h1 + ul`                    | `//h1/following-sibling::ul[1]`                          |                         |
 | `h1 ~ #id`                   | `//h1/following-sibling::[@id="id"]`                     |                         |
-{: .xp}
+
 
 ### jQuery
 
@@ -86,7 +86,7 @@ Works in Firefox and Chrome.
 | `$('li').closest('section')` | `//li/ancestor-or-self::section`                         |                         |
 | `$('a').attr('href')`        | `//a/@href`                                              | [?](#steps)             |
 | `$('span').text()`           | `//span/text()`                                          |                         |
-{: .xp}
+
 
 ### Other things
 
@@ -100,7 +100,7 @@ Works in Firefox and Chrome.
 | Has children (specific)      | `//ul[li]`                                               |                         |
 | Or logic                     | `//a[@name or @href]`                                    | [?](#operators)         |
 | Union (joins results)        | `//a | //div`                                            | [?](#unions)            |
-{: .xp}
+
 
 <!-- <style>
 /* ensure tables align */
@@ -125,7 +125,7 @@ Expressions
 
 | `//` | `ul` | `/`  | `a[@id='link']` |
 | Axis | Step | Axis | Step            |
-{: .-css-breakdown}
+
 
 ### Prefixes
 
@@ -134,7 +134,7 @@ Expressions
 | `//`   | `//hr[@class='edge']` | Anywhere |
 | `./`   | `./a`                 | Relative |
 | `/`    | `/html/body/div`      | Root     |
-{: .-headers}
+
 
 Begin your expression with any of these.
 
@@ -144,7 +144,7 @@ Begin your expression with any of these.
 | ---  | ---                 | ---        |
 | `/`  | `//ul/li/a`         | Child      |
 | `//` | `//[@id="list"]//a` | Descendant |
-{: .-headers}
+
 
 Separate your steps with `/`. Use two (`//`) if you don't want to select direct children.
 
@@ -306,7 +306,7 @@ Steps of an expression are separated by `/`, usually used to pick child nodes. T
 
 | `//` | `ul` | `/child::` | `li` |
 | Axis | Step | Axis       | Step |
-{: .-css-breakdown}
+
 
 ### Child axis
 
@@ -367,7 +367,7 @@ Steps of an expression are separated by `/`, usually used to pick child nodes. T
 | `following-sibling`  |        |                                                  |
 | `preceding`          |        |                                                  |
 | `preceding-sibling`  |        |                                                  |
-{: .-headers}
+
 
 There are other axes you can use.
 
@@ -425,6 +425,6 @@ Finds `<item>` and check its attributes
 
 References
 ----------
-{: .-one-column}
+
 
 * [Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_

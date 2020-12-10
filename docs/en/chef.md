@@ -7,7 +7,7 @@ layout: 2017/sheet
 ### Install
 
 In your server:
-{: .-setup}
+
 
 ```bash
 $ sudo apt-get install curl

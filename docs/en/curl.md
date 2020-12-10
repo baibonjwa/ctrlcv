@@ -64,7 +64,7 @@ updated: 2020-03-09
 ```
 
 ## Examples
-{: .-one-column}
+
 
 ```bash
 # Post data:

@@ -8,10 +8,10 @@ weight: -10
 ---
 
 ## Getting started
-{: .-three-column}
+
 
 ### Hello world
-{: .-prime}
+
 
 ```elixir
 # hello.exs
@@ -29,7 +29,7 @@ Greeter.greet("world")
 elixir hello.exs
 # Hello, world!
 ```
-{: .-setup}
+
 
 ### Variables
 
@@ -49,14 +49,14 @@ user = %{
 ```elixir
 IO.puts "Hello, " <> user.name
 ```
-{: .-setup}
+
 
 ### Lists
 
 ```elixir
 users = [ "Tom", "Dick", "Harry" ]
 ```
-{: data-line="1"}
+
 
 ```elixir
 Enum.map(users, fn user ->
@@ -71,7 +71,7 @@ source
 |> transform(:hello)
 |> print()
 ```
-{: data-line="2,3"}
+
 
 ```elixir
 # Same as:
@@ -86,7 +86,7 @@ These two are equivalent.
 user = %{name: "Tom", age: 23}
 %{name: username} = user
 ```
-{: data-line="2"}
+
 
 This sets `username` to `"Tom"`.
 
@@ -99,13 +99,13 @@ end
 
 user = %{name: "Tom", age: 23}
 ```
-{: data-line="1"}
+
 
 Pattern matching works in function parameters too.
 
 Control flow
 ------------
-{: .-three-column}
+
 
 ### If
 
@@ -251,7 +251,7 @@ alias Foo.{Bar, Baz}
 ```elixir
 import String
 ```
-{: .-setup}
+
 
 ```elixir
 str = "hello"
@@ -291,12 +291,12 @@ div(a, b)   # integer division
 ```elixir
 import Float
 ```
-{: .-setup}
+
 
 ```elixir
 n = 10.3
 ```
-{: .-setup}
+
 
 ```elixir
 n |> ceil()            # → 11.0
@@ -314,12 +314,12 @@ Float.parse("34")  # → { 34.0, "" }
 ```elixir
 import Integer
 ```
-{: .-setup}
+
 
 ```elixir
 n = 12
 ```
-{: .-setup}
+
 
 ```elixir
 n |> digits()         # → [1, 2]
@@ -367,7 +367,7 @@ m = %{"name" => "hi"}   # string keys ("name")
 ```elixir
 import Map
 ```
-{: .-setup}
+
 
 ```elixir
 m = %{m | name: "yo"}  # key must exist
@@ -407,7 +407,7 @@ m |> values()       # → [1, "hi"]
 
 ```elixir
 m |> to_list()      # → [id: 1, name: "hi"]
-                    # → [{:id, 1}, {:name, "hi"}]
+                    # → []
 ```
 
 ### Deep
@@ -424,7 +424,7 @@ get_and_update_in(users, ["john", :age], &{&1, &1 + 1})
 ### Constructing from lists
 
 ```elixir
-Map.new([{:b, 1}, {:a, 2}])
+Map.new([])
 Map.new([a: 1, b: 2])
 Map.new([:a, :b], fn x -> {x, x} end)  # → %{a: :a, b: :b}
 ```
@@ -434,12 +434,12 @@ Map.new([:a, :b], fn x -> {x, x} end)  # → %{a: :a, b: :b}
 ```elixir
 import List
 ```
-{: .-setup}
+
 
 ```elixir
 l = [ 1, 2, 3, 4 ]
 ```
-{: .-setup}
+
 
 ```elixir
 l = l ++ [5]         # push (append)
@@ -466,12 +466,12 @@ Also see [Enum](#enum).
 ```elixir
 import Enum
 ```
-{: .-setup}
+
 
 ```elixir
 list = [:a, :b, :c]
 ```
-{: .-setup}
+
 
 ```elixir
 list |> at(0)         # → :a
@@ -509,7 +509,7 @@ list |> empty?(fn)
 ```elixir
 import Tuple
 ```
-{: .-setup}
+
 
 ```elixir
 t = { :a, :b }
@@ -730,6 +730,6 @@ end
 See: [Module](http://elixir-lang.org/docs/stable/elixir/Module.html)
 
 ## References
-{: .-one-column}
+
 
 - [Learn Elixir in Y minutes](https://learnxinyminutes.com/docs/elixir/)

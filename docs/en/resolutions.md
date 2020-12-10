@@ -6,7 +6,7 @@ weight: -1
 ---
 
 ## Resolutions
-{: .-one-column}
+
 
 ### Mobile
 
@@ -27,7 +27,7 @@ weight: -1
 | 360 x 640  | @3x  | 1080 x 1920       | 147 ppi | 441 ppi    | 5"   | Galaxy S4                  |
 | 360 x 640  | @3x  | 1080 x 1920       | 144 ppi | 432 ppi    | 5.1" | Galaxy S5                  |
 | 360 x 640  | @4x  | 1440 x 2560       | 144 ppi | 577 ppi    | 5.1" | Galaxy S6/Edge             |
-{: .-headers}
+
 
 ### Tablet
 
@@ -35,4 +35,4 @@ weight: -1
 | ---        | ---- | ---               | ---     | ---        | ---- | ---              |
 | 1024 x 768 | @2x  | 2048 x 1536       | 163 ppi | 326 ppi    | 7.9" | iPad Mini Retina |
 | 1024 x 768 | @2x  | 2048 x 1536       | 132 ppi | 264 ppi    | 9.7" | iPad Air         |
-{: .-headers}
+

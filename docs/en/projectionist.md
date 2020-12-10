@@ -53,7 +53,7 @@ category: Vim
 | `:Lcd` | cd to root using :lcd |
 |---------|-------------|
 | `:ProjectDo {cmd}` | run command in root |
-{:.shortcuts}
+
 
 ## Reference
 

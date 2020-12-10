@@ -10,7 +10,7 @@ intro: |
 ---
 
 ## Layout thrashing
-{: .-one-column}
+
 
 ### Things that cause invalidation
 
@@ -38,7 +38,7 @@ intro: |
   - scrollLeft
   - scrollTop
   - scrollWidth
-{: .-six-column}
+
 
 #### MouseEvent
 
@@ -46,7 +46,7 @@ intro: |
   - layerY
   - offsetX
   - offsetY
-{: .-six-column}
+
 
 #### Window
 
@@ -55,13 +55,13 @@ intro: |
   - scrollTo
   - scrollX
   - scrollY
-{: .-six-column}
+
 
 #### Frame, Document & Image
 
   - height
   - width
-{: .-six-column}
+
 
 #### jQuery
 
@@ -74,7 +74,7 @@ intro: |
   - $.fn.text('...')
   - $(':hidden')
   - $(':contains')
-{: .-six-column}
+
 
 ## Also see
 

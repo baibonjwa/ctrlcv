@@ -12,10 +12,10 @@ keywords:
 ---
 
 ## Log format
-{: .-three-column}
+
 
 ### Pretty format
-{: .-prime}
+
 
 ```bash
 git log --pretty="format:%H"

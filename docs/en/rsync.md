@@ -6,7 +6,7 @@ weight: -1
 ---
 
 ### Basic example
-{: .-prime}
+
 
 ```bash
 # syncing folder src into dest:

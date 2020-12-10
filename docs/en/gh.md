@@ -9,7 +9,7 @@ category: JavaScript libraries
 | ---- | ---- |
 | `-u rstacruz -r nprogress` | Repo name |
 | `--browser` | Browser |
-{:.no-head}
+
 
 ## Notifications
 
@@ -29,4 +29,4 @@ gh nt --watch
 | ... `-L`/`--label x,y,z` | Add label |
 | ... `-A`/`--assignee` | Assign to user |
 | ... `-c`/`--comment 'Thanks'` | Add a comment
-{:.no-head}
+

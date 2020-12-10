@@ -36,13 +36,13 @@ weight: -3
 * tel
 * **text**
 * search
-{: .-four-column}
+
 
 #### Time
 
 * date
 * time
-{: .-four-column}
+
 
 #### Time (not widely supported)
 
@@ -50,14 +50,14 @@ weight: -3
 * week
 * datetime
 * datetime-local
-{: .-four-column}
+
 
 #### Etc
 
 * **file**
 * **radio**
 * **checkbox**
-{: .-four-column}
+
 
 #### Buttons
 
@@ -65,13 +65,13 @@ weight: -3
 * reset
 * submit
 * image
-{: .-four-column}
+
 
 #### Numeric
 
 * number
 * range
-{: .-four-column}
+
 
 ## Examples
 

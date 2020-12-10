@@ -9,14 +9,14 @@ intro: |
 ---
 
 ## Common usage
-{: .-three-column}
+
 
 ### Tables
 
 ```
 :Tab /|
 ```
-{: .-setup}
+
 
 ```
 | Fruit  | Color  |
@@ -31,7 +31,7 @@ intro: |
 ```
 :Tab /=
 ```
-{: .-setup}
+
 
 ```
 title = "Hello"
@@ -44,7 +44,7 @@ width = 640
 ```
 :Tab /:\zs/l0l1
 ```
-{: .-setup}
+
 
 ```
 title:       "Hello world"
@@ -55,14 +55,14 @@ width:       640
 ```
 
 ## Tab command
-{: .-three-column}
+
 
 ### Basic example
 
 ```
 :Tab /:
 ```
-{: .-setup}
+
 
 ```bash
 title : My picture
@@ -74,7 +74,7 @@ src   : img.jpg
 ```
 :Tab /:/r0
 ```
-{: .-setup}
+
 
 ```bash
 title:My picture
@@ -86,7 +86,7 @@ title:My picture
 ```
 :Tab /:\zs
 ```
-{: .-setup}
+
 
 ```
 title:  My picture
@@ -100,7 +100,7 @@ The `\zs` atom will exclude the `:` from the search match.
 ```
 :Tab /:/r1c1l0
 ```
-{: .-setup}
+
 
 ```bash
 title : My picture
@@ -118,7 +118,7 @@ title : My picture
 ```
 :Tab /^[^,]*\zs,/r0
 ```
-{: .-setup}
+
 
 ```bash
 abc,hello

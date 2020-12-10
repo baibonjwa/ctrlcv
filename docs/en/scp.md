@@ -8,7 +8,7 @@ authors:
 ---
 
 ### Usage
-{: .-prime}
+
 
 ```bash
 scp <options> source_path destination_path

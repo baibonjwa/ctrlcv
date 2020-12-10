@@ -6,7 +6,7 @@ updated: 2019-11-17
 ---
 
 ### Usage
-{: .-prime}
+
 
 ```bash
 find <path> <conditions> <actions>

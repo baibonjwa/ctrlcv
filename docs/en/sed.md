@@ -25,7 +25,7 @@ sed -i '' -e 's/foo/bar/' example.md
  In OSX, `-i ''` is required.
 
 ## File regions
-{:.-three-column}
+
 
 ### Print until a certain line is met
 

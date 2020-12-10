@@ -12,7 +12,7 @@ t(:hello, scope: [:my, :messages])
 
 t('my.messages.hello', default: "Hello")
 ```
-{:.light}
+
 
 ```yml
 en:
@@ -26,7 +26,7 @@ en:
 ```rb
 t('hello', name: "John")
 ```
-{:.light}
+
 
 ```yml
 hello: "Hello %{name}"
@@ -38,7 +38,7 @@ hello: "Hello %{name}"
 # from the 'books/index' view
 t('.title')
 ```
-{:.light}
+
 
 ```yml
 en:
@@ -53,7 +53,7 @@ en:
 t(:inbox, count: 1)  #=> 'one message'
 t(:inbox, count: 2)  #=> '2 messages'
 ```
-{:.light}
+
 
 ```yml
 inbox:
@@ -69,7 +69,7 @@ inbox:
 l(Time.now)
 l(Time.now, format: :short)
 ```
-{:.light}
+
 
 ```yml
 en:
@@ -85,7 +85,7 @@ en:
 ```rb
 l(Date.today)
 ```
-{:.light}
+
 
 ```yml
 en:
@@ -104,7 +104,7 @@ en:
 User.model_name.human            #=> "User"
 Child.model_name.human(count: 2) #=> "Children"
 ```
-{:.light}
+
 
 ```yml
 en:
@@ -121,7 +121,7 @@ en:
 ```rb
 User.human_attribute_for :name   #=> "Name"
 ```
-{:.light}
+
 
 ```yml
 en:
@@ -138,7 +138,7 @@ en:
 ```rb
 error_messages_for(...)
 ```
-{:.light}
+
 
 ```yml
 activerecord:
@@ -181,7 +181,7 @@ validates
 form_for @post do
   f.label :body
 ```
-{:.light}
+
 
 ```yml
 helpers:
@@ -197,7 +197,7 @@ helpers:
 form_for @post do
   f.submit
 ```
-{:.light}
+
 
 ```yml
 helpers:
@@ -223,14 +223,14 @@ number_to_rounded(3.14, precision: 0) #=> "3"
 number_to_human(12_000)               #=> "12 Thousand"
 number_to_human_size(12345)           #=> "12.3 kb"
 ```
-{:.light}
+
 
 ### Delimited
 
 ```rb
 number_to_delimited(n)
 ```
-{:.light}
+
 
 ```yml
 number:
@@ -247,7 +247,7 @@ number:
 ```rb
 number_to_currency(n)
 ```
-{:.light}
+
 
 ```yml
 number:
@@ -266,7 +266,7 @@ number:
 ```rb
 number_to_percentage(n)
 ```
-{:.light}
+
 
 ```yml
 number:
@@ -288,7 +288,7 @@ I18n.available_locales
 I18n.translate :ok   # aka, I18n.t
 I18n.localize date   # aka, I18n.l
 ```
-{:.light}
+
 
 ## Reference
 

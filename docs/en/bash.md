@@ -16,10 +16,10 @@ keywords:
 
 Getting started
 ---------------
-{: .-three-column}
+
 
 ### Introduction
-{: .-intro}
+
 
 This is a quick reference to getting started with Bash scripting.
 
@@ -70,7 +70,7 @@ git commit || echo "Commit failed"
 ```
 
 ### Functions
-{: id='functions-example'}
+
 
 ```bash
 get_name() {
@@ -83,7 +83,7 @@ echo "You are $(get_name)"
 See: [Functions](#functions)
 
 ### Conditionals
-{: id='conditionals-example'}
+
 
 ```bash
 if [[ -z "$string" ]]; then
@@ -121,7 +121,7 @@ See: [Brace expansion](http://wiki.bash-hackers.org/syntax/expansion/brace)
 
 Parameter expansions
 --------------------
-{: .-three-column}
+
 
 ### Basics
 
@@ -239,7 +239,7 @@ Omitting the `:` removes the (non)nullity checks, e.g. `${FOO-val}` expands to `
 
 Loops
 -----
-{: .-three-column}
+
 
 ### Basic for loop
 
@@ -291,7 +291,7 @@ done
 
 Functions
 ---------
-{: .-three-column}
+
 
 ### Defining functions
 
@@ -355,7 +355,7 @@ See [Special parameters](http://wiki.bash-hackers.org/syntax/shellvars#special_p
 
 Conditionals
 ------------
-{: .-three-column}
+
 
 ### Conditions
 
@@ -498,7 +498,7 @@ done
 
 Dictionaries
 ------------
-{: .-three-column}
+
 
 ### Defining
 
@@ -787,7 +787,7 @@ fi
 ```
 
 ## Also see
-{: .-one-column}
+
 
 * [Bash-hackers wiki](http://wiki.bash-hackers.org/) _(bash-hackers.org)_
 * [Shell vars](http://wiki.bash-hackers.org/syntax/shellvars) _(bash-hackers.org)_

@@ -5,7 +5,7 @@ layout: 2017/sheet
 ---
 
 ### Tomdoc
-{: .-prime}
+
 
 ```ruby
 # Public: Duplicate some text an arbitrary number of times.

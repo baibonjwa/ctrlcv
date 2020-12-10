@@ -5,7 +5,7 @@ layout: 2017/sheet
 ---
 
 ## Vitamins
-{: .-three-column}
+
 
 ### Vitamin D
 

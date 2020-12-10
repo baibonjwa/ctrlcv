@@ -11,15 +11,15 @@ intro: |
 
 Testing
 -------
-{: .-three-column}
+
 
 ### Quick start
-{: .-prime}
+
 
 ```bash
 npm install --save-dev jest babel-jest
 ```
-{: data-line="1"}
+
 
 ```js
 /* Add to package.json */
@@ -104,7 +104,7 @@ See: [test.skip](http://facebook.github.io/jest/docs/en/api.html#testskipname-fn
 
 Expect
 ------
-{: .-three-column}
+
 
 ### Basic expectations
 
@@ -207,7 +207,7 @@ test('works with promises', () => {
   })
 })
 ```
-{: data-line="2"}
+
 
 ```js
 test('works with async/await', async () => {
@@ -215,7 +215,7 @@ test('works with async/await', async () => {
   ···
 })
 ```
-{: data-line="2"}
+
 
 Return promises, or use async/await.
 See: [Async tutorial](http://facebook.github.io/jest/docs/en/tutorial-async.html)
@@ -228,7 +228,7 @@ it('works', () => {
   expect(output).toMatchSnapshot()
 })
 ```
-{: data-line="3"}
+
 
 First run creates a snapshot. Subsequent runs match the saved snapshot.
 See: [Snapshot testing](http://facebook.github.io/jest/docs/en/snapshot-testing.html)
@@ -238,7 +238,7 @@ See: [Snapshot testing](http://facebook.github.io/jest/docs/en/snapshot-testing.
 ```jsx
 import renderer from 'react-test-renderer'
 ```
-{: .-setup}
+
 
 ```jsx
 it('works', () => {
@@ -249,7 +249,7 @@ it('works', () => {
   expect(tree).toMatchSnapshot()
 })
 ```
-{: data-line="2,3,4"}
+
 
 React's test renderer can be used for Jest snapshots.
 See: [Snapshot test](http://facebook.github.io/jest/docs/en/tutorial-react-native.html#snapshot-test)
@@ -317,7 +317,7 @@ b = new Fn()
 Fn.mock.instances
 // → [a, b]
 ```
-{: data-line="1"}
+
 
 See: [.mock property](http://facebook.github.io/jest/docs/en/mock-functions.html#mock-property)
 
@@ -334,7 +334,7 @@ fn.mock.calls.length   // → 2
 fn.mock.calls[0][0]    // → 123
 fn.mock.calls[1][0]    // → 456
 ```
-{: data-line="1,2,3"}
+
 
 See: [.mock property](http://facebook.github.io/jest/docs/en/mock-functions.html#mock-property)
 
@@ -358,7 +358,7 @@ const fn = jest.fn()
   .mockImplementationOnce(() => 1)
   .mockImplementationOnce(() => 2)
 ```
-{: data-line="2,3"}
+
 
 ```js
 fn()    // → 1
@@ -366,7 +366,7 @@ fn()    // → 2
 ```
 
 ## References
-{: .-one-column}
+
 
 - <http://facebook.github.io/jest/>
-{: .-also-see}
+

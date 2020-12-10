@@ -88,7 +88,7 @@ vim: ft=javascript
 ## [Components](https://github.com/RactiveJS/Ractive/wiki/Components)
 
 See: https://github.com/RactiveJS/Ractive/issues/74
-{:.center}
+
 
     Widget = Ractive.extend({ ... })
 

@@ -84,7 +84,7 @@ http://apidock.com/rails/ActionController/Base
     class ApplicationController < ActionController::Base
       # The options parameter is the hash passed in to 'url_for'
       def default_url_options(options)
-        {:locale => I18n.locale}
+        
       end
     end
 

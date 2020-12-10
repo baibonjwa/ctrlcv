@@ -110,7 +110,7 @@ category: Rails
 
     # Sort order (no MySQL support)
     add_index :accounts, [:branch_id, :party_id, :surname],
-      :order => {:branch_id => :desc, :part_id => :asc}
+      :order => 
 
 ### In console
 Use `ActiveRecord::Migration`.

@@ -9,7 +9,7 @@ category: Markup
  * `parse_span_html` - process kramdown syntax inside inlines
  * `html_to_native` - convert html elements to native elements
 
-    {::options parse_block_html="true" /}
+    
 
 For the GFM parser:
 
@@ -40,15 +40,15 @@ http://kramdown.gettalong.org/parser/gfm.html
 ### Classes and IDs (Kramdown)
 
     A simple paragraph with an ID attribute.
-    {: #para-one}
+    
 
     > A blockquote with a title
-    {:title="The blockquote title"}
-    {: #myid}
+    
+    
 
-    * {:.cls} This item has the class "cls"
+    *  This item has the class "cls"
 
-    {:.ruby}
+    
         Some code here
 
 ### References

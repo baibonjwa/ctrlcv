@@ -7,7 +7,7 @@ intro: |
 ---
 
 ## Reference
-{: .-three-column}
+
 
 ### Compiling
 

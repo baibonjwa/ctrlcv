@@ -8,7 +8,7 @@ category: Apps
 ---
 
 ### Short example
-{: .-prime}
+
 
 ```ini
 # editorconfig.org

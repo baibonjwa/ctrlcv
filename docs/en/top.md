@@ -20,4 +20,4 @@ intro: See the processes in your Unix machine.
 | `Shift+l` | searches for string   |
 | `o`       | adds a filter         |
 | `=`       | clears filters        |
-{: .-shortcuts}
+
