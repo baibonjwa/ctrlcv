@@ -1,33 +1,86 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { graphql, Link } from "gatsby";
 import mainLogo from "../assets/images/logo.png";
 import searchIcon from "../assets/images/search-icon.png";
 import toTopIcon from "../assets/images/to-top.png";
 import newIcon from "../assets/images/new.png";
+import Fuse from "fuse.js";
 
-// markup
+const options = {
+  // isCaseSensitive: false,
+  includeScore: true,
+  // shouldSort: true,
+  includeMatches: true,
+  findAllMatches: true,
+  // minMatchCharLength: 1,
+  // location: 0,
+  // threshold: 0.6,
+  // distance: 100,
+  // useExtendedSearch: false,
+  // ignoreLocation: false,
+  // ignoreFieldNorm: false,
+  include: ["score", "matches"],
+  keys: [
+    "frontmatter.title",
+    "frontmatter.author",
+    "frontmatter.keywords",
+    "rawBody",
+    "slug",
+  ],
+};
+
 const IndexPage = ({ data }) => {
+  // console.log(data.allMdx.edges);
+  const [pattern, setPattern] = useState();
+  const [results, setResults] = useState([]);
+  console.log("pattern", pattern);
+
+  useEffect(() => {
+    const nodes = data.allMdx.edges.map((o) => o.node);
+    const fuse = new Fuse(nodes, options);
+    const results = fuse.search("");
+    setResults(results);
+  }, []);
+
+  const handleSearch = () => {
+    const nodes = data.allMdx.edges.map((o) => o.node);
+    const fuse = new Fuse(nodes, options);
+    const results = fuse.search(pattern);
+    console.log("results", results);
+    setResults(results);
+  };
+
   return (
     <main>
       <div className="wrapper">
         <img className="logo" src={mainLogo}></img>
         <div className="input-wrapper">
-          <input type="text" placeholder="搜索..." />
-          <img className="search-icon" src={searchIcon} />
+          <input
+            type="text"
+            placeholder="搜索..."
+            value={pattern}
+            onChange={(e) => {
+              setPattern(e.target.value);
+            }}
+          />
+          <img
+            className="search-icon"
+            src={searchIcon}
+            onClick={handleSearch}
+          />
         </div>
         <div class="doc-list-wrapper">
           <div className="classification-title">JavaScript</div>
           <div className="line"></div>
           <div className="list">
-            {data.allMdx.edges.map(({ node }) => {
-              console.log(node.frontmatter);
+            {results.map(({ item }) => {
+              // console.log(node.frontmatter);
               return (
                 <Link
-                  to={node.frontmatter.path || node.slug}
-                  style={{ textDecoration: "none", color: "#777" }}
-                >
+                  to={item.frontmatter.path || item.slug}
+                  style={{ textDecoration: "none", color: "#777" }}>
                   <div>
-                    {node.frontmatter.title}
+                    {item.frontmatter.title}
                     <img className="new-icon" src={newIcon} />
                   </div>
                 </Link>
@@ -131,6 +184,7 @@ export const query = graphql`
       edges {
         node {
           id
+          rawBody
           slug
           frontmatter {
             ...frontmatterFields

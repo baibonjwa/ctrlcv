@@ -52,7 +52,8 @@ h3::after {
   width: 100%;
   font-size: 12px;
   text-align: left;
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.25rem;
+  margin-top: 0.25rem;
 }
 
 .ctrlcv-cheatsheet-table td:first-child {
@@ -66,7 +67,7 @@ h3::after {
 
 .ctrlcv-cheatsheet-table th {
   padding: 5px;
-  background-color :rgba(180, 83, 9, .2)
+  background-color :rgba(180, 83, 9, .12)
 }
 
 .ctrlcv-cheatsheet-table td {

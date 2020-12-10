@@ -36,7 +36,7 @@ export default function Layout({ children, data: { mdx }, ...props }) {
     <MDXProvider
       components={{
         h2: (props) => (
-          <h2 className="text-2xl mb-2 text-gray-600" {...props} />
+          <h2 className="text-2xl mb-2 mt-4 text-gray-600" {...props} />
         ),
         h3: (props) => (
           <h3 className="text-lg mb-3 text-yellow-600" {...props} />
@@ -66,7 +66,12 @@ export default function Layout({ children, data: { mdx }, ...props }) {
             <span className="ml-3 text-gray-300">cheatsheet</span>
           </h1>
           {mdx.frontmatter.intro && (
-            <p className="text-gray-600">{mdx.frontmatter.intro}</p>
+            <span className="text-gray-600">{mdx.frontmatter.intro}</span>
+          )}
+          {mdx.frontmatter.author && (
+            <p className="text-gray-400 text-xs">
+              文章贡献者：{mdx.frontmatter.author}
+            </p>
           )}
         </section>
 
@@ -85,6 +90,7 @@ export const pageQuery = graphql`
       mdxAST
       frontmatter {
         title
+        author
         intro
       }
     }
