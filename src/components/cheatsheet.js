@@ -89,9 +89,7 @@ export const pageQuery = graphql`
       rawBody
       mdxAST
       frontmatter {
-        title
-        author
-        intro
+        ...frontmatterFields
       }
     }
   }

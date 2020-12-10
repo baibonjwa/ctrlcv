@@ -1,12 +1,11 @@
 ---
 title: React.js
-author: aaa
 category: React
 layout: 2017/sheet
 ads: true
 tags: [Featured]
 updated: 2020-07-05
-language: aa
+weight: -10
 keywords:
   - React.Component
   - render()
@@ -17,17 +16,22 @@ intro: |
   [React](https://reactjs.org/) is a JavaScript library for building user interfaces. This guide targets React v15 to v16.
 ---
 
+{%raw%}
+
 Components
+----------
+{: .-three-column}
 
 ### Components
+{: .-prime}
 
-```jsx live=true
+```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
 ```
+{: .-setup}
 
 ```jsx
-// highlight-next-line
 class Hello extends React.Component {
   render () {
     return <div className='message-box'>
