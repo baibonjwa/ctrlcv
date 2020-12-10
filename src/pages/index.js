@@ -73,6 +73,22 @@ const IndexPage = ({ data }) => {
           <div className="classification-title">JavaScript</div>
           <div className="line"></div>
           <div className="list">
+            {data.allMdx.edges.map(({ node }) => {
+              // console.log(node.frontmatter);
+              return (
+                <Link
+                  to={node.frontmatter.path || node.slug}
+                  style={{ textDecoration: "none", color: "#777" }}>
+                  <div>
+                    {node.frontmatter.title}
+                    <img className="new-icon" src={newIcon} />
+                  </div>
+                </Link>
+              );
+            })}
+          </div>
+          <h2>搜索结果</h2>
+          <div className="list">
             {results.map(({ item }) => {
               // console.log(node.frontmatter);
               return (
