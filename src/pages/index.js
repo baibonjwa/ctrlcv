@@ -10,10 +10,12 @@ const IndexPage = ({ data }) => {
   return (
     <main>
       <div className="wrapper">
-        <img className="logo" src={mainLogo}></img>
-        <div className="input-wrapper">
-          <input type="text" placeholder="搜索..." />
-          <img className="search-icon" src={searchIcon} />
+        <div class="search-wrapper">
+          <img className="logo" src={mainLogo}></img>
+          <div className="input-wrapper">
+            <input type="text" placeholder="搜索..." />
+            <img className="search-icon" src={searchIcon} />
+          </div>
         </div>
         <div class="doc-list-wrapper">
           <div className="classification-title">JavaScript</div>
@@ -38,21 +40,33 @@ const IndexPage = ({ data }) => {
         <img className="to-top" src={toTopIcon} />
       </div>
       <style jsx>{`
+        body {
+          padding: 0;
+          margin: 0;
+        }
         .wrapper {
           padding-top: 90px;
-          padding-left: 290px;
+          text-align: center;
         }
         .wrapper .logo {
           vertical-align: middle;
-          height: 58px;
+          height: 48px;
+          display: inline-block;
+        }
+        .search-wrapper {
+          width: 812px;
+          text-align: left;
+          margin: 0 auto;
         }
         .input-wrapper {
           display: inline-block;
           position: relative;
           vertical-align: middle;
-          width: 617px;
-          height: 51px;
+          width: 620px;
+          height: 53px;
           border: 1px solid #acacac;
+          margin-left: 15px;
+          box-sizing: border-box !important;
         }
         .input-wrapper .search-icon {
           position: absolute;
@@ -86,15 +100,19 @@ const IndexPage = ({ data }) => {
           color: #292828;
           font-family: "AppleSymbols";
           margin-top: 33px;
+          text-align: left;
         }
         .line {
           width: 812px;
           height: 1px;
           background-color: #b7b7b7;
           margin-top: 11px;
+          margin-bottom: 15px;
         }
         .doc-list-wrapper {
+          margin: 80px auto;
           margin-top: 80px;
+          width: 812px;
         }
         .list {
           width: 750px;
@@ -102,17 +120,20 @@ const IndexPage = ({ data }) => {
           font-size: 21px;
           font-family: "AppleSymbols";
           color: #777;
-          margin-left: 150px;
           flex-wrap: wrap;
+          margin: 0 auto;
+          justify-content: space-between;
         }
         .list div {
           text-align: left;
           width: 250px;
-          margin-top: 30px;
+          margin-top: 5px;
           position: relative;
         }
         .list div .new-icon {
           width: 14px;
+          display: inline-block;
+          marign-left: 5px;
         }
         .to-top {
           position: fixed;
