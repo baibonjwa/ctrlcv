@@ -19,6 +19,7 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "babel-plugin-styled-components": "^1.12.0",
+    "fuse.js": "^6.4.3",
     "gatsby": "^2.26.1",
     "gatsby-plugin-mdx": "^1.6.0",
     "gatsby-plugin-postcss": "^3.3.0",
@@ -38,6 +39,7 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-live": "^2.2.3",
+    "react-loadable": "^5.5.0",
     "remark-sectionize": "file:./plugins/remark-sectionize",
     "styled-components": "^5.2.1"
   },

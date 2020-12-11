@@ -5,7 +5,7 @@ export const frontmatterFields = graphql`
     title
     path
     author
-    language
+    lang
     category
     layout
     ads
