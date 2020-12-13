@@ -5,6 +5,7 @@ import mainLogo from "../assets/images/logo.png";
 import searchIcon from "../assets/images/search-icon.png";
 import toTopIcon from "../assets/images/to-top.png";
 import newIcon from "../assets/images/new.png";
+import githubIcon from "../assets/images/github-120.png";
 import Fuse from "fuse.js";
 
 const AVAIL_LANGS = ["en"];
@@ -37,14 +38,12 @@ const options = {
 const IndexPage = ({ data }) => {
   // console.log(data.allMdx.edges);
   const [pattern, setPattern] = useState();
-  const [results, setResults] = useState([]);
+  const [results, setResults] = useState();
   const [indexes, setIndexes] = useState();
 
   useEffect(() => {
     const nodes = data.allMdx.edges.map((o) => o.node);
     const fuse = new Fuse(nodes, options);
-    const results = fuse.search("");
-    setResults(results);
 
     const indexMap = new Map();
     indexMap.set("zh-CN", { Other: [] });
@@ -54,7 +53,6 @@ const IndexPage = ({ data }) => {
 
     nodes.forEach((node) => {
       const category = node.frontmatter.category || "Other";
-      console.log(category);
       AVAIL_LANGS.forEach((lang) => {
         const key = node.fileAbsolutePath.includes(`/${lang}/`)
           ? lang
@@ -69,11 +67,13 @@ const IndexPage = ({ data }) => {
   }, []);
 
   const handleSearch = (e) => {
+    if (!pattern) {
+      setResults();
+      return;
+    }
     const nodes = data.allMdx.edges.map((o) => o.node);
     const fuse = new Fuse(nodes, options);
     const results = fuse.search(pattern);
-    console.log("pattern: ", pattern);
-    console.log("results: ", results);
     setResults(results);
   };
 
@@ -89,22 +89,21 @@ const IndexPage = ({ data }) => {
       .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
     for (const [key, value] of Object.entries(sortable)) {
       results.push(
-        <>
-          <div className="classification-title">{key}</div>
-          <div className="line"></div>
-          <div className="list">
+        <div className="mt-2">
+          <div className="text-yellow-500 text-xl divide-y-0">{key}</div>
+          <hr className="border-yellow-500 opacity-50"></hr>
+          <div className="flex flex-wrap">
             {value.map((item) => (
               <Link
-                to={item.frontmatter.path || item.slug}
-                style={{ textDecoration: "none", color: "#777" }}>
-                <div>
-                  {item.frontmatter.title}
-                  <img className="new-icon" src={newIcon} />
-                </div>
+                className="text-gray-500 w-4/12 pt-1 pb-1 pl-2 pr-2"
+                title={item.frontmatter.intro}
+                to={item.frontmatter.path || item.slug}>
+                <span>{item.frontmatter.title}</span>
+                {/* <img className="new-icon" src={newIcon} /> */}
               </Link>
             ))}
           </div>
-        </>
+        </div>
       );
     }
     console.log(results);
@@ -113,21 +112,45 @@ const IndexPage = ({ data }) => {
 
   return (
     <main>
-      <div className="container mx-auto">
+      <header className="mt-4 text-gray-500 text-center">
+        <span>ctrlcv-dev.com</span>
+        <a href="https://github.com/BAI-Bonjwa/ctrlcv">
+          <img
+            src={githubIcon}
+            alt="github"
+            className="absolute top-3 right-4 w-6 h-6 opacity-50"
+          />
+        </a>
+        {/* <a
+          href="https://github.com/BAI-Bonjwa/ctrlcv"
+          className="absolute right-12 top-3">
+          我要贡献
+        </a> */}
+      </header>
+      <div className="container mx-auto p-3">
+        <div className="text-center">
+          <h1 className="text-6xl mt-10 text-yellow-700">CTRLCV</h1>
+          <p className="mt-2 text-gray-500">复制粘贴拯救世界</p>
+        </div>
         {/* <img className="logo" src={mainLogo}></img> */}
-        <div className="pt-2 relative mx-auto text-gray-600 w-8/12">
+        <div className="mt-8 mb-6 relative mx-auto text-gray-600 w-12/12 lg:w-8/12">
           <input
             className="border-2 border-gray-300 bg-white h-14 w-full px-5 pr-16 rounded-lg text-lg focus:outline-none"
             type="search"
             name="search"
-            // value={pattern}
             value={pattern}
             onChange={(e) => setPattern(e.target.value)}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") {
+                handleSearch(e);
+              }
+            }}
             placeholder="Search"
           />
           <button
             type="submit"
-            className="absolute right-0 top-0 mt-6 mr-5"
+            autofocus
+            className="absolute right-0 top-0 mt-4 mr-5"
             onClick={handleSearch}>
             <svg
               class="text-gray-600 h-4 w-4 fill-current"
@@ -146,79 +169,34 @@ const IndexPage = ({ data }) => {
             </svg>
           </button>
         </div>
-      </div>
-      {results && (
-        <div className="doc-list-wrapper w-8/12 mx-auto">
-          <h2>搜索结果</h2>
-          <div className="list">
-            {results.length === 0 && <div>没有找到匹配的结果</div>}
-            {results.map(({ item }) => {
-              return (
-                <Link
-                  to={item.frontmatter.path || item.slug}
-                  style={{ textDecoration: "none", color: "#777" }}>
-                  <div>
-                    {item.frontmatter.title}
-                    <img className="new-icon" src={newIcon} />
-                  </div>
-                </Link>
-              );
-            })}
-          </div>
-          {results.length === 0 && getIndexList()}
+        <div className="doc-list-wrapper w-12/12 lg:w-8/12 mx-auto">
+          {results && (
+            <>
+              <h2>搜索结果</h2>
+              <div className="list">
+                {results.length === 0 && <div>没有找到匹配的结果</div>}
+                {results.map(({ item }) => {
+                  return (
+                    <Link
+                      to={item.frontmatter.path || item.slug}
+                      style={{ textDecoration: "none", color: "#777" }}>
+                      <div>
+                        {item.frontmatter.title}
+                        <img className="new-icon" src={newIcon} />
+                      </div>
+                    </Link>
+                  );
+                })}
+              </div>
+            </>
+          )}
+          {!results && getIndexList()}
         </div>
-      )}
-      <img className="to-top" src={toTopIcon} />
-      <style jsx>{`
-        body {
-          padding: 0;
-          margin: 0;
-        }
-        .classification-title {
-          font-size: 23.5px;
-          color: #292828;
-          font-family: "AppleSymbols";
-          margin-top: 33px;
-          text-align: left;
-        }
-        .line {
-          width: 812px;
-          height: 1px;
-          background-color: #b7b7b7;
-          margin-top: 4px;
-          margin-bottom: 15px;
-        }
-        .doc-list-wrapper {
-          margin-top: 10px;
-        }
-        .list {
-          width: 750px;
-          display: flex;
-          font-size: 21px;
-          font-family: "AppleSymbols";
-          color: #777;
-          flex-wrap: wrap;
-          margin: 0 auto;
-          justify-content: space-between;
-        }
-        .list div {
-          text-align: left;
-          width: 250px;
-          margin-top: 5px;
-          position: relative;
-        }
-        .list div .new-icon {
-          width: 14px;
-          display: inline-block;
-          marign-left: 5px;
-        }
-        .to-top {
-          position: fixed;
-          bottom: 20px;
-          right: 30px;
-          width: 50px;
-        }
-      `}</style>
+      </div>
+      <img
+        className="fixed to-top w-12 h-12 bottom-10 right-10"
+        src={toTopIcon}
+      />
     </main>
   );
 };

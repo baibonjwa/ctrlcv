@@ -36,10 +36,10 @@ export default function Layout({ children, data: { mdx }, ...props }) {
     <MDXProvider
       components={{
         h2: (props) => (
-          <h2 className="text-2xl mb-2 mt-4 text-gray-600" {...props} />
+          <h2 className="text-2xl mb-2 mt-4 text-gray-500" {...props} />
         ),
         h3: (props) => (
-          <h3 className="text-lg mb-3 text-yellow-600" {...props} />
+          <h3 className="text-lg mb-3 text-yellow-500" {...props} />
         ),
         section: ({ children, ...props }) => {
           if (props["data-section-depth"] >= 3) {
