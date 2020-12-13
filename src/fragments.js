@@ -8,7 +8,6 @@ export const frontmatterFields = graphql`
     lang
     category
     layout
-    ads
     tags
     updated
     keywords

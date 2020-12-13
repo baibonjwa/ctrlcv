@@ -145,7 +145,7 @@ const IndexPage = ({ data }) => {
                 handleSearch(e);
               }
             }}
-            placeholder="Search"
+            placeholder="请输入关键字"
           />
           <button
             type="submit"
