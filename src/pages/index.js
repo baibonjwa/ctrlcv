@@ -14,22 +14,24 @@ const DEFAULT_LANG = "zh-CN";
 const options = {
   // isCaseSensitive: false,
   includeScore: true,
-  // shouldSort: true,
+  shouldSort: true,
   includeMatches: true,
-  findAllMatches: false,
+  // findAllMatches: false,
   minMatchCharLength: 2,
-  // location: 0,
+  location: 0.6,
   // threshold: 0.6,
-  threshold: 0.6,
+  threshold: 1,
   // distance: 10000,
   useExtendedSearch: true,
   ignoreLocation: true,
   // ignoreFieldNorm: false,
-  include: ["score", "matches"],
   keys: [
-    // "frontmatter.title",
-    // "frontmatter.author",
-    // "frontmatter.keywords",
+    // { name: "frontmatter.title", weight: 1 },
+    // { name: "frontmatter.author", weight: 1 },
+    // { name: "frontmatter.keywords", weight: 1 },
+    "frontmatter.title",
+    "frontmatter.author",
+    "frontmatter.keywords",
     "rawBody",
     // "slug",
   ],
@@ -67,20 +69,20 @@ const IndexPage = ({ data }) => {
   }, []);
 
   const handleSearch = (e) => {
+    console.log("pattern", pattern);
     if (!pattern) {
       setResults();
       return;
     }
     const nodes = data.allMdx.edges.map((o) => o.node);
     const fuse = new Fuse(nodes, options);
-    const results = fuse.search(pattern);
+    const results = fuse.search(`'${pattern}`);
     setResults(results);
   };
 
   const getIndexList = () => {
     if (!indexes) return [];
     const results = [];
-    console.log(indexes.get("zh-CN"));
     const sortable = Object.entries(indexes.get("zh-CN"))
       .sort(([, a], [, b]) => {
         if (a === "Other") return -1;
@@ -106,8 +108,26 @@ const IndexPage = ({ data }) => {
         </div>
       );
     }
-    console.log(results);
     return results;
+  };
+
+  const highlightText = (text, originIndices = []) => {
+    if (originIndices.length < 0) return;
+    const indices = _.cloneDeep(originIndices);
+    let result = [];
+    let pair = indices.shift();
+    for (var i = 0; i < text.length; i++) {
+      var char = text.charAt(i);
+      if (pair && i == pair[0]) {
+        result.push("<b>");
+      }
+      result.push(char);
+      if (pair && i == pair[1]) {
+        result.push("</b>");
+        pair = indices.shift();
+      }
+    }
+    return result.join("");
   };
 
   return (
@@ -172,18 +192,54 @@ const IndexPage = ({ data }) => {
         <div className="doc-list-wrapper w-12/12 lg:w-8/12 mx-auto">
           {results && (
             <>
-              <h2>搜索结果</h2>
+              <h2 className="text-xl text-yellow-500">搜索结果</h2>
+              <hr className="border-yellow-500 opacity-50 mt-1 mb-5"></hr>
               <div className="list">
                 {results.length === 0 && <div>没有找到匹配的结果</div>}
-                {results.map(({ item }) => {
+                {results.map(({ item, matches, ...params }) => {
+                  const { path, title, keywords } = item.frontmatter;
+
+                  let hlTitle = title;
+                  let hlKeywords = keywords;
+                  let hlRawBody = item.rawBody;
+
+                  console.log(matches);
+                  console.log(params);
+                  matches.forEach((match) => {
+                    const indices = match.indices;
+                    if (match.key === "frontmatter.title") {
+                      hlTitle = highlightText(title, indices);
+                    }
+                    if (match.key === "frontmatter.keywords") {
+                      hlKeywords = highlightText(keywords.join(","), indices);
+                    }
+                    if (match.key === "rawBody") {
+                      hlRawBody = highlightText(item.rawBody, indices);
+                    }
+                  });
+
                   return (
                     <Link
-                      to={item.frontmatter.path || item.slug}
+                      to={path || item.slug}
                       style={{ textDecoration: "none", color: "#777" }}>
-                      <div>
-                        {item.frontmatter.title}
-                        <img className="new-icon" src={newIcon} />
-                      </div>
+                      <div
+                        className="text-lg text-yellow-500"
+                        dangerouslySetInnerHTML={{ __html: hlTitle }}
+                      />
+                      {keywords && (
+                        <>
+                          <p className="text-yellow-500 mt-1">关键字：</p>
+                          <div
+                            dangerouslySetInnerHTML={{ __html: hlKeywords }}
+                          />
+                        </>
+                      )}
+                      <p className="text-yellow-500 mt-1">内容：</p>
+                      <div
+                        className=""
+                        dangerouslySetInnerHTML={{ __html: hlRawBody }}
+                      />
+                      <hr className="border-yellow-500 opacity-50 mt-5 mb-5"></hr>
                     </Link>
                   );
                 })}
