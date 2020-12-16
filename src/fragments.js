@@ -5,6 +5,7 @@ export const frontmatterFields = graphql`
     title
     path
     author
+    verification
     lang
     category
     layout

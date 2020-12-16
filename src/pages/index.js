@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import { graphql, Link } from "gatsby";
+import { MDXProvider } from "@mdx-js/react";
+import { MDXRenderer } from "gatsby-plugin-mdx";
 import mainLogo from "../assets/images/logo.png";
 import searchIcon from "../assets/images/search-icon.png";
 import toTopIcon from "../assets/images/to-top.png";
 import newIcon from "../assets/images/new.png";
-import githubIcon from "../assets/images/github-120.png";
+import MDXComponents from "../components/mdx-components";
+import Header from "../components/header";
+import { Helmet } from "react-helmet";
+
 import Fuse from "fuse.js";
 
 const AVAIL_LANGS = ["en"];
@@ -119,11 +124,11 @@ const IndexPage = ({ data }) => {
     for (var i = 0; i < text.length; i++) {
       var char = text.charAt(i);
       if (pair && i == pair[0]) {
-        result.push("<b>");
+        result.push(`<span class="bg-yellow-300">`);
       }
       result.push(char);
       if (pair && i == pair[1]) {
-        result.push("</b>");
+        result.push("</span>");
         pair = indices.shift();
       }
     }
@@ -131,129 +136,136 @@ const IndexPage = ({ data }) => {
   };
 
   return (
-    <main>
-      <header className="mt-4 text-gray-500 text-center">
-        <span>ctrlcv-dev.com</span>
-        <a href="https://github.com/BAI-Bonjwa/ctrlcv">
-          <img
-            src={githubIcon}
-            alt="github"
-            className="absolute top-3 right-4 w-6 h-6 opacity-50"
-          />
-        </a>
-        {/* <a
-          href="https://github.com/BAI-Bonjwa/ctrlcv"
-          className="absolute right-12 top-3">
-          我要贡献
-        </a> */}
-      </header>
-      <div className="container mx-auto p-3">
-        <div className="text-center">
-          <h1 className="text-6xl mt-10 text-yellow-700">CTRLCV</h1>
-          <p className="mt-2 text-gray-500">复制粘贴拯救世界</p>
-        </div>
-        {/* <img className="logo" src={mainLogo}></img> */}
-        <div className="mt-8 mb-6 relative mx-auto text-gray-600 w-12/12 lg:w-8/12">
-          <input
-            className="border-2 border-gray-300 bg-white h-14 w-full px-5 pr-16 rounded-lg text-lg focus:outline-none"
-            type="search"
-            name="search"
-            value={pattern}
-            onChange={(e) => setPattern(e.target.value)}
-            onKeyPress={(e) => {
-              if (e.key === "Enter") {
-                handleSearch(e);
-              }
-            }}
-            placeholder="请输入关键字"
-          />
-          <button
-            type="submit"
-            autofocus
-            className="absolute right-0 top-0 mt-4 mr-5"
-            onClick={handleSearch}>
-            <svg
-              class="text-gray-600 h-4 w-4 fill-current"
-              xmlns="http://www.w3.org/2000/svg"
-              xmlnsXlink="http://www.w3.org/1999/xlink"
-              version="1.1"
-              id="Capa_1"
-              x="0px"
-              y="0px"
-              viewBox="0 0 56.966 56.966"
-              style={{ enableBackground: "new 0 0 56.966 56.966" }}
-              xmlSpace="preserve"
-              width="512px"
-              height="512px">
-              <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
-            </svg>
-          </button>
-        </div>
-        <div className="doc-list-wrapper w-12/12 lg:w-8/12 mx-auto">
-          {results && (
-            <>
-              <h2 className="text-xl text-yellow-500">搜索结果</h2>
-              <hr className="border-yellow-500 opacity-50 mt-1 mb-5"></hr>
-              <div className="list">
-                {results.length === 0 && <div>没有找到匹配的结果</div>}
-                {results.map(({ item, matches, ...params }) => {
-                  const { path, title, keywords } = item.frontmatter;
+    <MDXProvider components={MDXComponents}>
+      <Helmet>
+        <meta charSet="utf-8" />
+        <meta
+          name="description"
+          content="开发者代码片段整理及查询工具，复制粘贴拯救世界！"
+        />
+        <meta
+          name="keywords"
+          content="CTRLCV 复制粘贴 代码片段 Cheatsheet 开发者 拯救世界"
+        />
+        <title>CTRLCV - 复制粘贴拯救世界</title>
+      </Helmet>
+      <main>
+        <Header />
+        <div className="container mx-auto p-3">
+          <div className="text-center">
+            <h1 className="text-6xl mt-4 text-yellow-700 font-bold">
+              CTRL<span className="text-yellow-500">CV</span>
+            </h1>
+            <p className="mt-2 text-gray-500">复制粘贴拯救世界</p>
+          </div>
+          {/* <img className="logo" src={mainLogo}></img> */}
+          <div className="mt-4 mb-6 relative mx-auto text-gray-600 w-12/12 lg:w-8/12">
+            <input
+              className="border-2 border-gray-300 bg-white h-14 w-full px-5 pr-16 rounded-lg text-lg focus:outline-none"
+              type="search"
+              name="search"
+              value={pattern}
+              onChange={(e) => setPattern(e.target.value)}
+              onKeyPress={(e) => {
+                if (e.key === "Enter") {
+                  handleSearch(e);
+                }
+              }}
+              placeholder="请输入关键字"
+            />
+            <button
+              type="submit"
+              autofocus
+              className="absolute right-0 top-0 mt-4 mr-5"
+              onClick={handleSearch}>
+              <svg
+                class="text-gray-600 h-4 w-4 fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                xmlnsXlink="http://www.w3.org/1999/xlink"
+                version="1.1"
+                id="Capa_1"
+                x="0px"
+                y="0px"
+                viewBox="0 0 56.966 56.966"
+                style={{ enableBackground: "new 0 0 56.966 56.966" }}
+                xmlSpace="preserve"
+                width="512px"
+                height="512px">
+                <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
+              </svg>
+            </button>
+          </div>
+          {/* <div className="">广告位</div> */}
+          <div className="doc-list-wrapper w-12/12 lg:w-8/12 mx-auto">
+            {results && (
+              <>
+                <h2 className="text-xl text-yellow-500">搜索结果</h2>
+                <hr className="border-yellow-500 opacity-50 mt-1 mb-5"></hr>
+                <div className="list">
+                  {results.length === 0 && <div>没有找到匹配的结果</div>}
+                  {results.map(({ item, matches, ...params }) => {
+                    const { path, title, keywords } = item.frontmatter;
 
-                  let hlTitle = title;
-                  let hlKeywords = keywords;
-                  let hlRawBody = item.rawBody;
+                    let hlTitle = title;
+                    let hlKeywords = keywords;
+                    let hlRawBody = item.rawBody;
 
-                  console.log(matches);
-                  console.log(params);
-                  matches.forEach((match) => {
-                    const indices = match.indices;
-                    if (match.key === "frontmatter.title") {
-                      hlTitle = highlightText(title, indices);
-                    }
-                    if (match.key === "frontmatter.keywords") {
-                      hlKeywords = highlightText(keywords.join(","), indices);
-                    }
-                    if (match.key === "rawBody") {
-                      hlRawBody = highlightText(item.rawBody, indices);
-                    }
-                  });
+                    console.log(matches);
+                    console.log(params);
+                    matches.forEach((match) => {
+                      const indices = match.indices;
+                      if (match.key === "frontmatter.title") {
+                        hlTitle = highlightText(title, indices);
+                      }
+                      if (match.key === "frontmatter.keywords") {
+                        hlKeywords = highlightText(keywords.join(","), indices);
+                      }
+                      if (match.key === "rawBody") {
+                        hlRawBody = highlightText(item.rawBody, indices);
+                      }
+                    });
 
-                  return (
-                    <Link
-                      to={path || item.slug}
-                      style={{ textDecoration: "none", color: "#777" }}>
-                      <div
-                        className="text-lg text-yellow-500"
-                        dangerouslySetInnerHTML={{ __html: hlTitle }}
-                      />
-                      {keywords && (
-                        <>
-                          <p className="text-yellow-500 mt-1">关键字：</p>
-                          <div
-                            dangerouslySetInnerHTML={{ __html: hlKeywords }}
-                          />
-                        </>
-                      )}
-                      <p className="text-yellow-500 mt-1">内容：</p>
-                      <div
-                        className=""
-                        dangerouslySetInnerHTML={{ __html: hlRawBody }}
-                      />
-                      <hr className="border-yellow-500 opacity-50 mt-5 mb-5"></hr>
-                    </Link>
-                  );
-                })}
-              </div>
-            </>
-          )}
-          {!results && getIndexList()}
+                    return (
+                      <Link
+                        to={path || item.slug}
+                        style={{ textDecoration: "none", color: "#777" }}>
+                        <div
+                          className="text-lg text-yellow-500"
+                          dangerouslySetInnerHTML={{ __html: hlTitle }}
+                        />
+                        {keywords && (
+                          <>
+                            <p className="text-yellow-500 mt-1">关键字：</p>
+                            <div
+                              dangerouslySetInnerHTML={{ __html: hlKeywords }}
+                            />
+                          </>
+                        )}
+                        <p className="text-yellow-500 mt-1">内容：</p>
+
+                        <div
+                          className=""
+                          dangerouslySetInnerHTML={{ __html: hlRawBody }}
+                        />
+                        <hr className="border-yellow-500 opacity-50 mt-5 mb-5"></hr>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </>
+            )}
+            {!results && getIndexList()}
+          </div>
+          <footer className="text-gray-500 mx-auto text-center">
+            商务合作: bd@iantech.io
+          </footer>
         </div>
-      </div>
-      <img
+        {/* <img
         className="fixed to-top w-12 h-12 bottom-10 right-10"
         src={toTopIcon}
-      />
-    </main>
+      /> */}
+      </main>
+    </MDXProvider>
   );
 };
 

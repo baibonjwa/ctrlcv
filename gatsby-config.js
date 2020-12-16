@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
-    title: "CtrlCV",
-    description: "CtrlCV",
+    title: "CTRLCV",
+    description: "CTRLCV",
   },
   plugins: [
     `gatsby-plugin-postcss`,

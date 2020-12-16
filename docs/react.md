@@ -2,7 +2,9 @@
 title: React.js
 category: React
 author: lele88lala,BAI
-lang: zh-cn,en
+path: /react
+verification: BAI
+lang: zh-cn
 tags: [Featured]
 updated: 2020-07-05
 weight: -10
