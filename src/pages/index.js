@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import { graphql, Link } from "gatsby";
-import { MDXProvider } from "@mdx-js/react";
-import { MDXRenderer } from "gatsby-plugin-mdx";
-import mainLogo from "../assets/images/logo.png";
-import searchIcon from "../assets/images/search-icon.png";
-import toTopIcon from "../assets/images/to-top.png";
-import newIcon from "../assets/images/new.png";
-import MDXComponents from "../components/mdx-components";
+// import toTopIcon from "../assets/images/to-top.png";
 import Header from "../components/header";
 import { Helmet } from "react-helmet";
 
@@ -50,10 +44,9 @@ const IndexPage = ({ data }) => {
 
   useEffect(() => {
     const nodes = data.allMdx.edges.map((o) => o.node);
-    const fuse = new Fuse(nodes, options);
 
     const indexMap = new Map();
-    indexMap.set("zh-CN", { Other: [] });
+    indexMap.set(DEFAULT_LANG, { Other: [] });
     AVAIL_LANGS.forEach((lang) => {
       indexMap.set(lang, { Other: [] });
     });
@@ -63,7 +56,7 @@ const IndexPage = ({ data }) => {
       AVAIL_LANGS.forEach((lang) => {
         const key = node.fileAbsolutePath.includes(`/${lang}/`)
           ? lang
-          : "zh-CN";
+          : DEFAULT_LANG;
         indexMap.get(key)[category] = (
           indexMap.get(key)[category] || []
         ).concat(node);
@@ -71,7 +64,7 @@ const IndexPage = ({ data }) => {
     });
     // console.log(initIndexes);
     setIndexes(indexMap);
-  }, []);
+  }, [data]);
 
   const handleSearch = (e) => {
     console.log("pattern", pattern);
@@ -123,11 +116,11 @@ const IndexPage = ({ data }) => {
     let pair = indices.shift();
     for (var i = 0; i < text.length; i++) {
       var char = text.charAt(i);
-      if (pair && i == pair[0]) {
+      if (pair && i === pair[0]) {
         result.push(`<span class="bg-yellow-300">`);
       }
       result.push(char);
-      if (pair && i == pair[1]) {
+      if (pair && i === pair[1]) {
         result.push("</span>");
         pair = indices.shift();
       }
@@ -136,7 +129,7 @@ const IndexPage = ({ data }) => {
   };
 
   return (
-    <MDXProvider components={MDXComponents}>
+    <>
       <Helmet>
         <meta charSet="utf-8" />
         <meta
@@ -265,7 +258,7 @@ const IndexPage = ({ data }) => {
         src={toTopIcon}
       /> */}
       </main>
-    </MDXProvider>
+    </>
   );
 };
 

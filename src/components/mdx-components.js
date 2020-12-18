@@ -1,9 +1,20 @@
-import React, { useLayoutEffect } from "react";
+import React from "react";
 import CodeBlock from "./code-block";
 
 const MDXComponents = {
-  h2: (props) => <h2 className="text-2xl mb-2 mt-4 text-gray-500" {...props} />,
-  h3: (props) => <h3 className="text-lg mb-3 text-yellow-500" {...props} />,
+  h2: (props) => {
+    if (props["data-visible"] === "false") return null;
+    return (
+      <h2 className="text-2xl mb-2 mt-4 text-gray-500" {...props}>
+        {props.children}
+      </h2>
+    );
+  },
+  h3: (props) => (
+    <h3 className="text-lg mb-3 text-yellow-500" {...props}>
+      {props.children}
+    </h3>
+  ),
   section: ({ children, ...props }) => {
     if (props["data-section-depth"] >= 3) {
       return <section {...props}>{children}</section>;
@@ -16,6 +27,7 @@ const MDXComponents = {
     }
   },
   p: (props) => <p className="text-xs" {...props} />,
+  a: (props) => <a className="underline" {...props} />,
   pre: (props) => <div {...props} />,
   code: CodeBlock,
   table: (props) => (

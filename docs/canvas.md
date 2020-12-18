@@ -1,7 +1,7 @@
 ---
 title: Canvas
 category: JavaScript
-layout: 2017/sheet
+author: lele88lala,BAI
 ---
 
 ## 指令集
@@ -13,7 +13,7 @@ var canvas = document.getElementById('c')
 var c = canvas.getContext('2d')
 ```
 
-### 基础画法
+### 基础绘制
 
 ```js
 // x = 10, y = 20, width = 200, height = 100
@@ -45,10 +45,6 @@ c.save()
 c.restore()
 ```
 
-保存: `strokeStyle` `fillStyle` `globalAlpha` `lineWidth` `lineCap` `lineJoin` `miterLimit` `shadowOffsetX` `shadowOffsetY` `shadowBlur` `shadowColor`
-`globalCompositeOperation`, 转换 (`translate` `rotate` `scale` `transform` `setTransform`), 剪切路径
-
-
 ### 动画
 
 ```js
@@ -65,7 +61,7 @@ c.rotate(Math.PI*2/5)
 c.scale(1.0, 1.0)
 ```
 
-沿远点旋转:
+原点旋转:
 
 ```js
 c.translate(ox, oy)
@@ -73,7 +69,7 @@ c.rotate(theta)
 c.translate(-ox, -oy)
 ```
 
-沿远点放大:
+原点缩放:
 
 ```js
 c.translate(-ox*x, -oy*y)
@@ -81,12 +77,16 @@ c.scale(x, y)
 c.translate(ox/x, oy/y)
 ```
 
+详见 [MDN: Transformations][xform].
+
 ### 绘制图像
 
 ```js
 c.drawImage(image, dx, dy, [dw, dh]);
 /* `image` can be HTML Image/Canvas/Video */
 ```
+
+详见 [MDN: Images][images]
 
 ### 颜色,、样式、阴影
 
@@ -101,6 +101,8 @@ c.shadowOffsetY = 0;
 c.shadowOffsetBlur = 3.0;
 c.shadowColor = 'rgba(0,0,0,0.2)';
 ```
+
+详见 [MDN: Styles][styles]
 
 ### 渐变
 
@@ -126,3 +128,9 @@ c.arcTo(...)
 c.arc(...)
 c.closePath()
 ```
+
+### 参考
+
+[xform]: https://developer.mozilla.org/zh-CN/docs/Canvas_tutorial/Transformations
+[styles]: https://developer.mozilla.org/zh-CN/docs/Canvas_tutorial/Applying_styles_and_colors
+[images]: https://developer.mozilla.org/zh-CN/docs/Canvas_tutorial/Using_images

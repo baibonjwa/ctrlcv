@@ -17,11 +17,10 @@ intro: |
 function fn () {
   let x = 0
   if (true) {
-    let x = 1 // only inside this `if`
+    let x = 1 // let 只能生效于 if 条件语句内
   }
 }
 ```
-
 
 #### Const
 
@@ -91,7 +90,6 @@ class Circle extends Shape {
   }
 ```
 
-
 #### Methods
 
 ```js
@@ -99,7 +97,6 @@ class Circle extends Shape {
     return Math.PI * 2 * this.radius
   }
 ```
-
 
 #### Calling superclass methods
 
@@ -109,7 +106,6 @@ class Circle extends Shape {
   }
 ```
 
-
 #### Static methods
 
 ```js
@@ -118,7 +114,6 @@ class Circle extends Shape {
   }
 }
 ```
-
 
 Syntactic sugar for prototypes.
 See: [Classes](https://babeljs.io/learn-es2015/#classes)
@@ -130,10 +125,7 @@ const byte = 2 ** 8
 // Same as: Math.pow(2, 8)
 ```
 
-
-Promises
---------
-
+## Promises
 
 ### Making promises
 
@@ -143,7 +135,6 @@ new Promise((resolve, reject) => {
   else { reject(error) }
 })
 ```
-
 
 For asynchronous programming.
 See: [Promises](https://babeljs.io/learn-es2015/#promises)
@@ -156,20 +147,16 @@ promise
   .catch((error) => { ··· })
 ```
 
-
-
 ### Using promises with finally
 
 ```js
 promise
   .then((result) => { ··· })
   .catch((error) => { ··· })
-  .finally(() => { // logic independent of success/error })
+  .finally(() => { /* logic independent of success/error */ })
 ```
 
-
 The handler is called when the promise is fulfilled or rejected.
-
 
 ### Promise functions
 
@@ -190,14 +177,11 @@ async function run () {
 }
 ```
 
-
 `async` functions are another way of using functions.
 
 See: [async function](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/async_function)
 
-Destructuring
--------------
-
+## Destructuring
 
 ### Destructuring assignment
 
@@ -206,7 +190,6 @@ Destructuring
 ```js
 const [first, last] = ['Nikola', 'Tesla']
 ```
-
 
 #### Objects
 
@@ -217,7 +200,6 @@ let {title, author} = {
 }
 ```
 
-
 Supports for matching arrays and objects.
 See: [Destructuring](https://babeljs.io/learn-es2015/#destructuring)
 
@@ -226,9 +208,6 @@ See: [Destructuring](https://babeljs.io/learn-es2015/#destructuring)
 ```js
 const scores = [22, 33]
 const [math = 50, sci = 50, arts = 50] = scores
-```
-
-```js
 // Result:
 // math === 22, sci === 33, arts === 50
 ```
@@ -243,21 +222,19 @@ function greet({ name, greeting }) {
 }
 ```
 
-
 ```js
 greet({ name: 'Larry', greeting: 'Ahoy' })
 ```
 
 Destructuring of objects and arrays can also be done in function arguments.
 
-### Default values
+### Default values in function arguments
 
 ```js
 function greet({ name = 'Rauno' } = {}) {
   console.log(`Hi ${name}!`);
 }
 ```
-
 
 ```js
 greet() // Hi Rauno!
@@ -271,7 +248,6 @@ function printCoordinates({ left: x, top: y }) {
   console.log(`x: ${x}, y: ${y}`)
 }
 ```
-
 
 ```js
 printCoordinates({ left: 25, top: 90 })
@@ -287,9 +263,7 @@ for (let {title, artist} of songs) {
 }
 ```
 
-
 The assignment expressions work in loops, too.
-
 
 ### Object destructuring
 
@@ -297,16 +271,11 @@ The assignment expressions work in loops, too.
 const { id, ...detail } = song;
 ```
 
-
 Extract some keys individually and remaining keys in the object using rest (...) operator
 
-
-Spread
-------
+## Spread
 
 ### Object spread
-
-#### with Object spread
 
 ```js
 const options = {
@@ -314,9 +283,6 @@ const options = {
   visible: true
 }
 ```
-
-
-#### without Object spread
 
 ```js
 const options = Object.assign(
@@ -330,8 +296,6 @@ See: [Object spread](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Ref
 
 ### Array spread
 
-#### with Array spread
-
 ```js
 const users = [
   ...admins,
@@ -339,9 +303,6 @@ const users = [
   'rstacruz'
 ]
 ```
-
-
-#### without Array spread
 
 ```js
 const users = admins
@@ -353,12 +314,9 @@ The spread operator lets you build new arrays in the same way.
 
 See: [Spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator)
 
-Functions
----------
+## Functions
 
-### Function arguments
-
-#### Default arguments
+### Default arguments
 
 ```js
 function greet (name = 'Jerry') {
@@ -366,8 +324,7 @@ function greet (name = 'Jerry') {
 }
 ```
 
-
-#### Rest arguments
+### Rest arguments
 
 ```js
 function fn(x, ...y) {
@@ -376,21 +333,17 @@ function fn(x, ...y) {
 }
 ```
 
-
-#### Spread
+### Function Spread
 
 ```js
 fn(...[1, 2, 3])
 // same as fn(1, 2, 3)
 ```
 
-
 Default, rest, spread.
 See: [Function arguments](https://babeljs.io/learn-es2015/#default--rest--spread)
 
 ### Fat arrows
-
-#### Fat arrows
 
 ```js
 setTimeout(() => {
@@ -398,17 +351,12 @@ setTimeout(() => {
 })
 ```
 
-
-#### With arguments
-
 ```js
 readFile('text.txt', (err, data) => {
   ...
 })
 ```
 
-
-#### Implicit return
 ```js
 numbers.map(n => n * 2)
 // No curly braces = implicit return
@@ -419,12 +367,10 @@ numbers.map(n => ({
 // Implicitly returning objects requires parentheses around the object
 ```
 
-
 Like functions but with `this` preserved.
 See: [Fat arrows](https://babeljs.io/learn-es2015/#arrows-and-lexical-this)
 
-Objects
--------
+## Object
 
 ### Shorthand syntax
 
@@ -435,7 +381,7 @@ module.exports = { hello, bye }
 
 See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
 
-### Methods
+### Methods in Object
 
 ```js
 const App = {
@@ -445,7 +391,6 @@ const App = {
 }
 // Same as: App = { start: function () {···} }
 ```
-
 
 See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
 
@@ -462,7 +407,6 @@ const App = {
 }
 ```
 
-
 See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
 
 ### Computed property names
@@ -475,9 +419,7 @@ let handlers = {
 // Same as: handlers = { 'onclick': true }
 ```
 
-
 See: [Object literal enhancements](https://babeljs.io/learn-es2015/#enhanced-object-literals)
-
 
 ### Extract values
 
@@ -490,10 +432,7 @@ Object.entries(fatherJS)
 // [["age", 57], ["name", "Brendan Eich"]]
 ```
 
-
-
-Modules
--------
+## Modules
 
 ### Imports
 
@@ -545,10 +484,7 @@ export const pi = 3.14159
 `export` is the new `module.exports`.
 See: [Module exports](https://babeljs.io/learn-es2015/#modules)
 
-Generators
-----------
-
-### Generators
+## Generators
 
 ```js
 function* idMaker () {

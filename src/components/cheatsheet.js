@@ -19,7 +19,7 @@ export default function Layout({ children, data: { mdx }, ...props }) {
       doms.forEach((dom, index) => {
         dom.id = `section-container-${index}`;
         const columns = dom.previousSibling.dataset.columns || 2;
-        const macy = Macy({
+        Macy({
           container: `#${dom.id}`,
           trueOrder: false,
           waitForImages: false,
