@@ -1,17 +1,15 @@
 ---
-title: Promises
+title: Promise
 category: JavaScript
-layout: 2017/sheet
 ---
 
 ## Reference
 
-
 ### Introduction
 
+intro: A quick reference to the JavaScript
 
-intro: A quick reference to the JavaScript [Promise API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise).
-
+- [Promise API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise)
 - [Using Promises guide](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises) _(developer.mozilla.org)_
 - [Promise documentation](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) _(developer.mozilla.org)_
 
@@ -43,7 +41,8 @@ promise
   })
 ```
 
-[then()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) runs a function when a promise resolves. [catch()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) runs when a promise fails.
+[then()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/then) runs a function when a promise resolves.
+[catch()](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise/catch) runs when a promise fails.
 
 ### Multiple promises
 

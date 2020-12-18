@@ -1,10 +1,10 @@
 ---
 title: npm
 category: JavaScript
-layout: 2017/sheet
-weight: -1
-updated: 2019-12-24
+author: lele88lala,BAI
 ---
+
+## NPM {data-visible=false}
 
 ### 包管理
 
@@ -14,7 +14,7 @@ updated: 2019-12-24
 | `npm install`                     | 安装 package.json 中的所有包                       |
 | `npm install --production`        | 安装 package.json 中除了 devDependecies 中的所有包 |
 | ---                               | ---                                                |
-| `npm install lodash`              | 安装一个包                                         |
+| `npm install lodash`              | 安装包                                         |
 | `npm install --save-dev lodash`   | 安装 dev 环境依赖的包                              |
 | `npm install --save-exact lodash` | 精确安装指定版本的包                               |
 
@@ -44,7 +44,7 @@ updated: 2019-12-24
 
 | 命令                    | 描述                               |
 | ----------------------- | ---------------------------------- |
-| `npm list`              | 列出此软件中所有依赖包的安装版本   |
+| `npm list`              | 列出此项目中所有依赖包的安装版本   |
 | `npm list -g --depth 0` | 列出所有全局安装的软件包的安装版本 |
 | `npm view`              | 列出此软件中所有依赖项的最新版本   |
 | `npm outdated`          | 仅列出此软件中已过时的依赖项       |
@@ -59,30 +59,29 @@ updated: 2019-12-24
 | ---                 | ---                |
 | `npm update lodash` | 更新一个软件包     |
 
-
 ### 其他特性
 
 ```bash
-# Add someone as an owner
+# 添加 owner
 npm owner add USERNAME PACKAGENAME
 ```
 
 ```bash
-# list packages
+# 列出包
 npm ls
 ```
 
 ```bash
-# Adds warning to those that install a package of old versions
+# 添加废弃警告
 npm deprecate PACKAGE@"< 0.2.0" "critical bug fixed in v0.2.0"
 ```
 
 ```bash
-# update all packages, or selected packages
+# 更新包
 npm update [-g] PACKAGE
 ```
 
 ```bash
-# Check for outdated packages
+# 检查过期的包
 npm outdated [PACKAGE]
 ```

@@ -2,32 +2,26 @@
 title: React.js
 category: React
 author: lele88lala,BAI
-path: /react
 verification: BAI
-lang: zh-cn
-tags: [Featured]
-updated: 2020-07-05
-weight: -10
+path: /react
+lang: zh-CN,en
+updated: 2020-12-18
 keywords:
-  - React.Component
-  - render()
-  - componentDidMount()
-  - props/state
-  - dangerouslySetInnerHTML
+  - React
 intro: |
   React 代码示例
 ---
 
-## 组件
+## React {data-visible=false}
 
-### 组件相关
+### 组件
 
-```jsx title=组件相关
+```jsx
 import React from 'react'
 import ReactDOM from 'react-dom'
 ```
 
-```jsx title=Title
+```jsx
 class Hello extends React.Component {
   render () {
     return <div className='message-box'>
@@ -42,9 +36,7 @@ const el = document.body
 ReactDOM.render(<Hello name='John' />, el)
 ```
 
-可以使用 [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) (或者 [jsbin](http://jsbin.com/yafixat/edit?js,output)) 进行代码调试。
-
-### 引入多个输出
+可以使用 [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) 
 
 ```jsx
 import React, {Component} from 'react'
@@ -57,7 +49,7 @@ class Hello extends Component {
 }
 ```
 
-### Properties
+### 属性（Property）
 
 ```html
 <Video fullscreen={true} autoplay={false} />
@@ -73,9 +65,9 @@ render () {
 
 使用 this.props 获取传递给组件的属性。
 
-查看: [Properties](https://reactjs.org/docs/tutorial.html#using-props)
+详见: [Properties](https://reactjs.org/docs/tutorial.html#using-props)
 
-### States
+### 状态（State）
 
 ```jsx
 constructor(props) {
@@ -85,7 +77,7 @@ constructor(props) {
 ```
 
 ```jsx
-this.setState({ username: 'rstacruz' })
+this.setState({ username: 'bai' })
 ```
 
 ```jsx
@@ -96,9 +88,9 @@ render () {
 }
 ```
 
-使用 states ( this.state ) 管理动态数据。
+使用 State (`this.state`) 管理动态数据。
 
-通过 [Babel](https://babeljs.io/) 您可以使用  [proposal-class-fields](https://github.com/tc39/proposal-class-fields) 并摆脱构造函数。
+通过 [Babel](https://babeljs.io/) 您可以使用  [proposal-class-fields](https://github.com/tc39/proposal-class-fields) 并去除构造函数。
 
 ```jsx
 class Hello extends Component {
@@ -107,9 +99,9 @@ class Hello extends Component {
 }
 ```
 
-查看: [States](https://reactjs.org/docs/tutorial.html#reactive-state)
+详见: [States](https://reactjs.org/docs/tutorial.html#reactive-state)
 
-### 组合组件
+### 组合嵌套
 
 ```jsx
 class Info extends Component {
@@ -124,7 +116,7 @@ class Info extends Component {
 }
 ```
 
-从React v16.2.0开始，Fragment可以用于返回多个子组件，而无需向DOM添加额外的包装节点。
+从React v16.2.0 开始，Fragment 可以用于返回多个子组件，而无需向DOM添加额外的包装节点。
 
 ```jsx
 import React, {
@@ -170,7 +162,7 @@ class AlertBox extends Component {
 
 每个组件都可以获取到 this.props.children，它包含组件的开始标签和结束标签之间的内容。
 
-## Defaults
+## 默认值
 
 ### 设置默认props
 
@@ -180,7 +172,7 @@ Hello.defaultProps = {
 }
 ```
 
-See: [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
+详见: [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
 
 ### 设置默认state
 
@@ -203,7 +195,7 @@ class Hello extends Component {
 }
 ```
 
-查看: [Setting the default state](https://reactjs.org/docs/react-without-es6.html#setting-the-initial-state)
+详见: [Setting the default state](https://reactjs.org/docs/react-without-es6.html#setting-the-initial-state)
 
 ## 其它组件 {data-columns="3"}
 
@@ -217,27 +209,22 @@ function MyComponent ({ name }) {
 }
 ```
 
-Functional components have no state. Also, their `props` are passed as the first parameter to a function.
-
 函数组件没有状态。此外，它们的`props`是以函数的第一个参数的形式来传递的。
 
-查看: [Function and Class Components](https://reactjs.org/docs/components-and-props.html#functional-and-class-components)
+详见: [Function and Class Components](https://reactjs.org/docs/components-and-props.html#functional-and-class-components)
 
-### PureComponent
+### Pure Component
 
 ```jsx
-import React, {PureComponent} from 'react'
+import React, { PureComponent } from 'react'
 
 class MessageBox extends PureComponent {
   ···
 }
 ```
 
-PureComponent是React 组件性能优化的版本，如果props 或者 state 不变的话不进行渲染。
-
-React 组件性能优化的版本，如果props 或者 state 不变的话不进行渲染。
-
-查看: [Pure components](https://reactjs.org/docs/react-api.html#react.purecomponent)
+PureComponent 是 React 组件性能优化的版本，如果 props 或者 state 不变的话不进行渲染。
+详见: [Pure components](https://reactjs.org/docs/react-api.html#react.purecomponent)
 
 ### 组件 API
 
@@ -256,29 +243,25 @@ this.props
 ```
 
 这些方法和属性可以用于组件实例。
-
-查看: [Component API](http://facebook.github.io/react/docs/component-api.html)
+详见: [Component API](http://facebook.github.io/react/docs/component-api.html)
 
 ## 生命周期
 
-### Mounting
+### 组件加载
 
 | Method                   | Description                                                  |
 | ------------------------ | ------------------------------------------------------------ |
-| `constructor` _(props)_  | Before rendering [#](https://reactjs.org/docs/react-component.html#constructor) |
-| `componentWillMount()`   | _Don't use this_ [#](https://reactjs.org/docs/react-component.html#componentwillmount) |
-| `render()`               | Render [#](https://reactjs.org/docs/react-component.html#render) |
-| `componentDidMount()`    | After rendering (DOM available) [#](https://reactjs.org/docs/react-component.html#componentdidmount) |
-| ---                      | ---                                                          |
-| `componentWillUnmount()` | Before DOM removal [#](https://reactjs.org/docs/react-component.html#componentwillunmount) |
-| ---                      | ---                                                          |
+| `constructor` _(props)_  | 在渲染之前 [#](https://reactjs.org/docs/react-component.html#constructor) |
+| `render()`               | 渲染 【[#](https://reactjs.org/docs/react-component.html#render) |
+| `componentDidMount()`    | 在渲染之后(DOM 可用的状态) [#](https://reactjs.org/docs/react-component.html#componentdidmount) |
+| `componentWillUnmount()` | 在 DOM 移除之前 [#](https://reactjs.org/docs/react-component.html#componentwillunmount) |
 | `componentDidCatch()`    | Catch errors (16+) [#](https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html) |
 
 在 `constructor()` 中设置初始状态。
 
 在`componentDidMount()`上添加DOM事件处理程序，计时器（等），然后在`componentWillUnmou()`上删除它们。
 
-### Updating
+### 组件更新
 
 | 方法                                                    | Description                                          |
 | ------------------------------------------------------- | ---------------------------------------------------- |
@@ -292,146 +275,6 @@ Called when parents change properties and `.setState()`. These are not called fo
 当父组件更改属性和`.setState（）`时调用。在初始渲染的时候不被调用。
 
 查看: [Component specs](http://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops)
-
-## Hooks (新特征)  {data-columns="2"}
-
-### State Hook
-
-```jsx
-import React, { useState } from 'react';
-
-function Example() {
-  // Declare a new state variable, which we'll call "count"
-  const [count, setCount] = useState(0);
-
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
-  );
-}
-```
-
-*Hook* 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。
-
-查看: [Hooks at a Glance](https://reactjs.org/docs/hooks-overview.html)
-
-### 声明多 state 变量
-
-```jsx
-function ExampleWithManyStates() {
-  // Declare multiple state variables!
-  const [age, setAge] = useState(42);
-  const [fruit, setFruit] = useState('banana');
-  const [todos, setTodos] = useState([{ text: 'Learn Hooks' }]);
-  // ...
-}
-```
-
-### Effect hook
-
-```jsx
-import React, { useState, useEffect } from 'react';
-
-function Example() {
-  const [count, setCount] = useState(0);
-
-  // Similar to componentDidMount and componentDidUpdate:
-  useEffect(() => {
-    // Update the document title using the browser API
-    document.title = `You clicked ${count} times`;
-  }, [count]);
-
-  return (
-    <div>
-      <p>You clicked {count} times</p>
-      <button onClick={() => setCount(count + 1)}>
-        Click me
-      </button>
-    </div>
-  );
-}
-```
-
-如果您熟悉React类的生命周期方法，则可以将`useEffect Hook 视为` componentDidMount`，`componentDidUpdate`和`componentWillUnmount 的组合。
-
-默认情况下，React在每个渲染后（包括第一个渲染）运行effects。
-
-### 构建自己的 hooks
-
-#### 定义 FriendStatus
-
-```jsx
-import React, { useState, useEffect } from 'react';
-
-function FriendStatus(props) {
-  const [isOnline, setIsOnline] = useState(null);
-
-  useEffect(() => {
-    function handleStatusChange(status) {
-      setIsOnline(status.isOnline);
-    }
-
-    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
-    return () => {
-      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
-    };
-  }, [props.friend.id]);
-
-  if (isOnline === null) {
-    return 'Loading...';
-  }
-  return isOnline ? 'Online' : 'Offline';
-}
-```
-
-Effects 也可以有选择地指定如何通过返回函数来进行“清理”。
-
-#### 使用 FriendStatus
-
-```jsx
-function FriendStatus(props) {
-  const isOnline = useFriendStatus(props.friend.id);
-
-  if (isOnline === null) {
-    return 'Loading...';
-  }
-  return isOnline ? 'Online' : 'Offline';
-}
-```
-
-查看: [Building Your Own Hooks](https://reactjs.org/docs/hooks-custom.html)
-
-### Hooks API 参照
-
-也可以查看: [Hooks FAQ](https://reactjs.org/docs/hooks-faq.html)
-
-#### Basic Hooks
-
-| Hook                         | Description                               |
-| ---------------------------- | ----------------------------------------- |
-| `useState`_(initialState)_   |                                           |
-| `useEffect`_(() => { ... })_ |                                           |
-| `useContext`_(MyContext)_    | value returned from `React.createContext` |
-
-查看更多: [Basic Hooks](https://reactjs.org/docs/hooks-reference.html#basic-hooks)
-
-#### 额外的 Hooks
-
-| Hook                                        | Description                                                  |
-| ------------------------------------------- | ------------------------------------------------------------ |
-| `useReducer`_(reducer, initialArg, init)_   |                                                              |
-| `useCallback`_(() => { ... })_              |                                                              |
-| `useMemo`_(() => { ... })_                  |                                                              |
-| `useRef`_(initialValue)_                    |                                                              |
-| `useImperativeHandle`_(ref, () => { ... })_ |                                                              |
-| `useLayoutEffect`                           | identical to `useEffect`, but it fires synchronously after all DOM mutations |
-| `useDebugValue`_(value)_                    | display a label for custom hooks in React DevTools           |
-
-查看更多: [Additional Hooks](https://reactjs.org/docs/hooks-reference.html#additional-hooks)
 
 ## DOM 元素
 
