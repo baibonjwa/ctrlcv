@@ -1,6 +1,7 @@
 ---
 title: npm
-category: JavaScript
+categories:
+  - JavaScript
 author: lele88lala,BAI
 ---
 
@@ -14,11 +15,11 @@ author: lele88lala,BAI
 | `npm install`                     | 安装 package.json 中的所有包                       |
 | `npm install --production`        | 安装 package.json 中除了 devDependecies 中的所有包 |
 | ---                               | ---                                                |
-| `npm install lodash`              | 安装包                                         |
+| `npm install lodash`              | 安装包                                             |
 | `npm install --save-dev lodash`   | 安装 dev 环境依赖的包                              |
 | `npm install --save-exact lodash` | 精确安装指定版本的包                               |
 
-从 npm @ 5开始，默认为 --save。之前的版本，使用不带 --save 的 npm install 不会更新 package.json
+从 npm @ 5 开始，默认为 --save。之前的版本，使用不带 --save 的 npm install 不会更新 package.json
 
 ### 安装名称
 

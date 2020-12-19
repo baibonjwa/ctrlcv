@@ -1,6 +1,7 @@
 ---
 title: Canvas
-category: JavaScript
+categories:
+  - JavaScript
 author: lele88lala,BAI
 ---
 
@@ -9,40 +10,40 @@ author: lele88lala,BAI
 ### 获取 context
 
 ```js
-var canvas = document.getElementById('c')
-var c = canvas.getContext('2d')
+var canvas = document.getElementById("c");
+var c = canvas.getContext("2d");
 ```
 
 ### 基础绘制
 
 ```js
 // x = 10, y = 20, width = 200, height = 100
-c.fillStyle = '#ff0000'
-c.strokeStyle = '#ff00ff'
+c.fillStyle = "#ff0000";
+c.strokeStyle = "#ff00ff";
 ```
 
 ```js
-c.lineWidth = 5
-c.lineCap = 'round'
+c.lineWidth = 5;
+c.lineCap = "round";
 ```
 
 ```js
-c.fillRect(10, 20, 200, 100)
+c.fillRect(10, 20, 200, 100);
 ```
 
 ```js
-c.stroke()
-c.fill()
+c.stroke();
+c.fill();
 ```
 
 ### 保存与还原
 
 ```js
-c.save()
+c.save();
 ```
 
 ```js
-c.restore()
+c.restore();
 ```
 
 ### 动画
@@ -56,25 +57,25 @@ onframe: function() {
 ### 转换
 
 ```js
-c.translate(0, 0)
-c.rotate(Math.PI*2/5)
-c.scale(1.0, 1.0)
+c.translate(0, 0);
+c.rotate((Math.PI * 2) / 5);
+c.scale(1.0, 1.0);
 ```
 
 原点旋转:
 
 ```js
-c.translate(ox, oy)
-c.rotate(theta)
-c.translate(-ox, -oy)
+c.translate(ox, oy);
+c.rotate(theta);
+c.translate(-ox, -oy);
 ```
 
 原点缩放:
 
 ```js
-c.translate(-ox*x, -oy*y)
-c.scale(x, y)
-c.translate(ox/x, oy/y)
+c.translate(-ox * x, -oy * y);
+c.scale(x, y);
+c.translate(ox / x, oy / y);
 ```
 
 详见 [MDN: Transformations][xform].
@@ -91,15 +92,15 @@ c.drawImage(image, dx, dy, [dw, dh]);
 ### 颜色,、样式、阴影
 
 ```js
-c.strokeStyle = '#ff00ff';
-c.fillStyle = '#ff00ff';
+c.strokeStyle = "#ff00ff";
+c.fillStyle = "#ff00ff";
 ```
 
 ```js
 c.shadowOffsetX = 0;
 c.shadowOffsetY = 0;
 c.shadowOffsetBlur = 3.0;
-c.shadowColor = 'rgba(0,0,0,0.2)';
+c.shadowColor = "rgba(0,0,0,0.2)";
 ```
 
 详见 [MDN: Styles][styles]
@@ -107,13 +108,13 @@ c.shadowColor = 'rgba(0,0,0,0.2)';
 ### 渐变
 
 ```js
-gr = c.createLinearGradient(x0,y0,x1,y1)
-gr = c.createRadialGradient(x0,y0,r0,x1,y1,r1)
-pat = c.createPattern(image, 'repeat-x')
+gr = c.createLinearGradient(x0, y0, x1, y1);
+gr = c.createRadialGradient(x0, y0, r0, x1, y1, r1);
+pat = c.createPattern(image, "repeat-x");
 ```
 
 ```js
-c.fillStyle = gr
+c.fillStyle = gr;
 ```
 
 ### 绘图

@@ -1,27 +1,27 @@
 ---
 title: npm
-category: JavaScript
+categories:
+  - JavaScript
 ---
 
 ### Package management
 
 | Command                           | Description                                               |
-| ---                               | ---                                                       |
+| --------------------------------- | --------------------------------------------------------- |
 | `npm i`                           | Alias for `npm install`                                   |
 | `npm install`                     | Install everything in package.json                        |
 | `npm install --production`        | Install everything in package.json, except devDependecies |
-| ---                               | ---                                                       |  
+| ---                               | ---                                                       |
 | `npm install lodash`              | Install a package                                         |
 | `npm install --save-dev lodash`   | Install as devDependency                                  |
 | `npm install --save-exact lodash` | Install with exact                                        |
-
 
 `--save` is the default as of npm@5. Previously, using `npm install` without `--save` doesn't update package.json.
 
 ### Install names
 
 | Command                              | Description             |
-| ---                                  | ---                     |
+| ------------------------------------ | ----------------------- |
 | `npm i sax`                          | NPM package             |
 | `npm i sax@latest`                   | Specify tag `latest`    |
 | `npm i sax@3.0.0`                    | Specify version `3.0.0` |
@@ -40,23 +40,22 @@ category: JavaScript
 
 ### Listing
 
-| Command                 | Description                                                         |
-| ---                     | ---                                                                 |
-| `npm list`              | Lists the installed versions of all dependencies in this software   | 
-| `npm list -g --depth 0` | Lists the installed versions of all globally installed packages     | 
-| `npm view`              | Lists the latest versions of all dependencies in this software      | 
-| `npm outdated`          | Lists only the dependencies in this software which are outdated     |
+| Command                 | Description                                                       |
+| ----------------------- | ----------------------------------------------------------------- |
+| `npm list`              | Lists the installed versions of all dependencies in this software |
+| `npm list -g --depth 0` | Lists the installed versions of all globally installed packages   |
+| `npm view`              | Lists the latest versions of all dependencies in this software    |
+| `npm outdated`          | Lists only the dependencies in this software which are outdated   |
 
 ### Updating
 
 | Command             | Description                |
-| ---                 | ---                        |
+| ------------------- | -------------------------- |
 | `npm update`        | Update production packages |
 | `npm update --dev`  | Update dev packages        |
 | `npm update -g`     | Update global packages     |
 | ---                 | ---                        |
 | `npm update lodash` | Update a package           |
-
 
 ### Misc features
 

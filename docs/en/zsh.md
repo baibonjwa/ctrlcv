@@ -1,6 +1,7 @@
 ---
 title: zsh
-category: CLI
+categories:
+  - CLI
 layout: 2017/sheet
 ---
 

@@ -1,6 +1,7 @@
 ---
 title: zsh
-category: CLI
+categories:
+  - CLI
 ---
 
 ### 表达式

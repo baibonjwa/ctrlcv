@@ -1,6 +1,7 @@
 ---
 title: Promises
-category: JavaScript
+categories:
+  - JavaScript
 author: lele88lala,BAI
 ---
 
@@ -20,12 +21,12 @@ author: lele88lala,BAI
 new Promise((resolve, reject) => {
   doStuff(() => {
     if (success) {
-      resolve('good')
+      resolve("good");
     } else {
-      reject(new Error('oops'))
+      reject(new Error("oops"));
     }
-  })
-})
+  });
+});
 ```
 
 用 [new Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise#Contstructor) 创建新的 Promise.
@@ -39,7 +40,7 @@ promise
   })
   .catch((error) => {
     /* failure */
-  })
+  });
 ```
 
 当 promise 操作完成时执行 [then()](https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/Promise/then)
@@ -48,35 +49,35 @@ promise
 ### 多 promises
 
 ```js
-const promises = [promise1(), promise2() /* ... */]
+const promises = [promise1(), promise2() /* ... */];
 ```
 
 ```js
 // 当所有 Promise 均执行成功时， 执行 then
 Promise.all(promises).then((results) => {
   /* ... */
-})
+});
 ```
 
 ```js
 // 当有一个 Promise 执行完成时，执行 then
 Promise.race(promises).then((result) => {
   /* ... */
-})
+});
 ```
 
 ### 转换其它 promises
 
 ```js
-return Promise.resolve('result')
-return Promise.resolve(promise)
-return Promise.resolve(thenable)
+return Promise.resolve("result");
+return Promise.resolve(promise);
+return Promise.resolve(thenable);
 
-return Promise.reject('reason')
+return Promise.reject("reason");
 
 Promise.resolve(result).then(() => {
   /* ... */
-})
+});
 ```
 
-`Promise.resolve(val)`将返回一个promise，该promise将解决为其赋予的值.
+`Promise.resolve(val)`将返回一个 promise，该 promise 将解决为其赋予的值.

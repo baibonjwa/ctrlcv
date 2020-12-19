@@ -1,6 +1,7 @@
 ---
 title: Vue.js
-category: JavaScript
+categories:
+  - JavaScript
 ---
 
 ## 表达式

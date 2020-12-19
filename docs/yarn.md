@@ -1,9 +1,13 @@
 ---
 title: Yarn
-category: JavaScript libraries
+categories:
+  - JavaScript
+  - Libraries
 ---
 
-### npm equivalents
+## Yarn
+
+### 与 npm 对照表
 
 | npm                                        | yarn                          |
 | ------------------------------------------ | ----------------------------- |
@@ -17,7 +21,9 @@ category: JavaScript libraries
 
 ### yarn install
 
-```
+`yarn install` 的参数
+
+```shell
 --no-lockfile
 --pure-lockfile
 --frozen-lockfile
@@ -32,11 +38,9 @@ category: JavaScript libraries
 --production[=true|false]
 ```
 
-These options are available for `yarn install`.
-
 ### yarn add
 
-```
+```shell
 --dev
 --peer
 --optional
@@ -56,7 +60,7 @@ In `package.json`:
 ]
 ```
 
-```
+```text
 jest/
 ├─ package.json
 └─ packages/
@@ -66,9 +70,7 @@ jest/
       └─ package.json
 ```
 
-(New in 1.0) Allows monorepos to share packages with each other. See: [Introducing workspaces](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/)
-
-### Selective version resolution
+### Resolution
 
 In `package.json`:
 
@@ -78,12 +80,8 @@ In `package.json`:
 }
 ```
 
-(New in 1.0) Allows you to specify versions for sub-dependencies. See: [Selective version resolutions](https://github.com/yarnpkg/yarn/pull/4105)
-
 ### Create
 
 ```bash
 yarn create react-app hello
 ```
-
-Install `create-react-app` and runs it. See: [yarn create](https://github.com/yarnpkg/rfcs/blob/master/implemented/0000-yarn-create.md)

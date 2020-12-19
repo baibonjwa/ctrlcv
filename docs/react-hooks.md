@@ -1,6 +1,7 @@
 ---
 title: React Hooks
-category: React
+categories:
+  - React
 ---
 
 ## React Hooks

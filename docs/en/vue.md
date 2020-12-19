@@ -1,6 +1,7 @@
 ---
 title: Vue.js
-category: JavaScript
+categories:
+  - JavaScript
 intro: |
   [Vue.js](https://vuejs.org/) is an open-source Model–view–viewmodel JavaScript framework for building user interfaces and single-page applications.
 ---

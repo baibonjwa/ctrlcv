@@ -1,6 +1,8 @@
 ---
 title: Yarn
-category: JavaScript libraries
+category:
+  - JavaScript
+  - Libraries
 layout: 2017/sheet
 weight: -3
 updated: 2019-09-30
@@ -10,16 +12,15 @@ tags: [Featurable]
 
 ### npm equivalents
 
-| npm | yarn |
-| --- | ---- |
-| `npm init` | `yarn init` |
-| `npm install` | `yarn` |
-| `npm install gulp --save` | `yarn add gulp` |
+| npm                                        | yarn                          |
+| ------------------------------------------ | ----------------------------- |
+| `npm init`                                 | `yarn init`                   |
+| `npm install`                              | `yarn`                        |
+| `npm install gulp --save`                  | `yarn add gulp`               |
 | `npm install gulp --save-dev --save-exact` | `yarn add gulp --dev --exact` |
-| `npm install -g gulp` | `yarn global add gulp` |
-| `npm update` | `yarn upgrade` |
-| `./node_modules/.bin/gulp` | `yarn run gulp` |
-
+| `npm install -g gulp`                      | `yarn global add gulp`        |
+| `npm update`                               | `yarn upgrade`                |
+| `./node_modules/.bin/gulp`                 | `yarn run gulp`               |
 
 ### yarn install
 
@@ -56,7 +57,6 @@ These options are available for `yarn add`.
 
 In `package.json`:
 
-
 ```json
 "workspaces": [
   "packages/*"
@@ -73,13 +73,11 @@ jest/
       └─ package.json
 ```
 
-
 (New in 1.0) Allows monorepos to share packages with each other. See: [Introducing workspaces](https://yarnpkg.com/blog/2017/08/02/introducing-workspaces/)
 
 ### Selective version resolution
 
 In `package.json`:
-
 
 ```json
 "resolutions": {

@@ -1,6 +1,7 @@
 ---
 title: React.js
-category: React
+categories:
+  - React
 author: lele88lala,BAI
 verification: BAI
 path: /react

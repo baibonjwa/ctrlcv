@@ -1,6 +1,7 @@
 ---
 title: React.js
-category: React
+categories:
+  - React
 intro: |
   [React](https://reactjs.org/) is a JavaScript library for building user interfaces. This guide targets React v15 to v16.
 ---

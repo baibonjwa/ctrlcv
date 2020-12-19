@@ -7,7 +7,7 @@ export const frontmatterFields = graphql`
     author
     verification
     lang
-    category
+    categories
     layout
     updated
     keywords

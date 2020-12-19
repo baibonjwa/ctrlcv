@@ -33,7 +33,6 @@ exports.createPages = async ({ graphql, actions, reporter }) => {
             frontmatter {
               path
               title
-              category
             }
           }
         }
