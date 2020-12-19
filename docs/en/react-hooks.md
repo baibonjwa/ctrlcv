@@ -1,11 +1,6 @@
----
-title: React Hooks
-category: React
----
+## Hooks (New)
 
-## React Hooks
-
-_Hook_ 是 React 16.8 的新增特性。它可以让你在不编写 class 的情况下使用 state 以及其他的 React 特性。
+### State Hook
 
 ```jsx
 import React, { useState } from "react";
@@ -23,7 +18,21 @@ function Example() {
 }
 ```
 
-详见: [Hooks at a Glance](https://reactjs.org/docs/hooks-overview.html)
+Hooks are a new addition in React 16.8.
+
+See: [Hooks at a Glance](https://reactjs.org/docs/hooks-overview.html)
+
+### Declaring multiple state variables
+
+```jsx
+function ExampleWithManyStates() {
+  // Declare multiple state variables!
+  const [age, setAge] = useState(42);
+  const [fruit, setFruit] = useState("banana");
+  const [todos, setTodos] = useState([{ text: "Learn Hooks" }]);
+  // ...
+}
+```
 
 ### Effect hook
 
@@ -33,8 +42,9 @@ import React, { useState, useEffect } from "react";
 function Example() {
   const [count, setCount] = useState(0);
 
-  // 与 componentDidMount 和 componentDidUpdate 作用相似
+  // Similar to componentDidMount and componentDidUpdate:
   useEffect(() => {
+    // Update the document title using the browser API
     document.title = `You clicked ${count} times`;
   }, [count]);
 
@@ -47,12 +57,13 @@ function Example() {
 }
 ```
 
-如果您熟悉 React 类的生命周期方法，则可以将`useEffect Hook 视为` componentDidMount`，`componentDidUpdate`和`componentWillUnmount 的组合。
-默认情况下，React 在每个渲染后（包括第一个渲染）运行 effects。
+If you’re familiar with React class lifecycle methods, you can think of `useEffect` Hook as `componentDidMount`, `componentDidUpdate`, and `componentWillUnmount` combined.
 
-### 构建自己的 hooks
+By default, React runs the effects after every render — including the first render.
 
-#### 定义 FriendStatus
+### Building your own hooks
+
+#### Define FriendStatus
 
 ```jsx
 import React, { useState, useEffect } from "react";
@@ -78,9 +89,9 @@ function FriendStatus(props) {
 }
 ```
 
-Effects 也可以有选择地指定如何通过返回函数来进行“清理”。
+Effects may also optionally specify how to “clean up” after them by returning a function.
 
-#### 使用 FriendStatus
+#### Use FriendStatus
 
 ```jsx
 function FriendStatus(props) {
@@ -93,11 +104,11 @@ function FriendStatus(props) {
 }
 ```
 
-详见: [Building Your Own Hooks](https://reactjs.org/docs/hooks-custom.html)
+See: [Building Your Own Hooks](https://reactjs.org/docs/hooks-custom.html)
 
-### Hooks API 参照
+### Hooks API Reference
 
-也可以查看: [Hooks FAQ](https://reactjs.org/docs/hooks-faq.html)
+Also see: [Hooks FAQ](https://reactjs.org/docs/hooks-faq.html)
 
 #### Basic Hooks
 
@@ -107,9 +118,9 @@ function FriendStatus(props) {
 | `useEffect`_(() => { ... })_ |                                           |
 | `useContext`_(MyContext)_    | value returned from `React.createContext` |
 
-查看更多: [Basic Hooks](https://reactjs.org/docs/hooks-reference.html#basic-hooks)
+Full details: [Basic Hooks](https://reactjs.org/docs/hooks-reference.html#basic-hooks)
 
-#### 额外的 Hooks
+#### Additional Hooks
 
 | Hook                                        | Description                                                                  |
 | ------------------------------------------- | ---------------------------------------------------------------------------- |
@@ -121,16 +132,4 @@ function FriendStatus(props) {
 | `useLayoutEffect`                           | identical to `useEffect`, but it fires synchronously after all DOM mutations |
 | `useDebugValue`_(value)_                    | display a label for custom hooks in React DevTools                           |
 
-查看更多: [Additional Hooks](https://reactjs.org/docs/hooks-reference.html#additional-hooks)
-
-### 声明多 state 变量
-
-```jsx
-function ExampleWithManyStates() {
-  // Declare multiple state variables!
-  const [age, setAge] = useState(42);
-  const [fruit, setFruit] = useState("banana");
-  const [todos, setTodos] = useState([{ text: "Learn Hooks" }]);
-  // ...
-}
-```
+Full details: [Additional Hooks](https://reactjs.org/docs/hooks-reference.html#additional-hooks)

@@ -17,30 +17,28 @@ intro: |
 ### 组件
 
 ```jsx
-import React from 'react'
-import ReactDOM from 'react-dom'
+import React from "react";
+import ReactDOM from "react-dom";
 ```
 
 ```jsx
 class Hello extends React.Component {
-  render () {
-    return <div className='message-box'>
-      Hello {this.props.name}
-    </div>
+  render() {
+    return <div className="message-box">Hello {this.props.name}</div>;
   }
 }
 ```
 
 ```jsx
-const el = document.body
-ReactDOM.render(<Hello name='John' />, el)
+const el = document.body;
+ReactDOM.render(<Hello name="John" />, el);
 ```
 
-可以使用 [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/) 
+可以使用 [React.js jsfiddle](http://jsfiddle.net/reactjs/69z2wepo/)
 
 ```jsx
-import React, {Component} from 'react'
-import ReactDOM from 'react-dom'
+import React, { Component } from "react";
+import ReactDOM from "react-dom";
 ```
 
 ```jsx
@@ -52,7 +50,7 @@ class Hello extends Component {
 ### 属性（Property）
 
 ```html
-<Video fullscreen={true} autoplay={false} />
+<video fullscreen="{true}" autoplay="{false}" />
 ```
 
 ```jsx
@@ -77,7 +75,7 @@ constructor(props) {
 ```
 
 ```jsx
-this.setState({ username: 'bai' })
+this.setState({ username: "bai" });
 ```
 
 ```jsx
@@ -88,9 +86,9 @@ render () {
 }
 ```
 
-使用 State (`this.state`) 管理动态数据。
+使用 State (`this.state`) 管理动态的数据。
 
-通过 [Babel](https://babeljs.io/) 您可以使用  [proposal-class-fields](https://github.com/tc39/proposal-class-fields) 并去除构造函数。
+通过 [Babel](https://babeljs.io/) 您可以使用 [proposal-class-fields](https://github.com/tc39/proposal-class-fields) 并去除构造函数。
 
 ```jsx
 class Hello extends Component {
@@ -105,35 +103,34 @@ class Hello extends Component {
 
 ```jsx
 class Info extends Component {
-  render () {
-    const { avatar, username } = this.props
+  render() {
+    const { avatar, username } = this.props;
 
-    return <div>
-      <UserAvatar src={avatar} />
-      <UserProfile username={username} />
-    </div>
+    return (
+      <div>
+        <UserAvatar src={avatar} />
+        <UserProfile username={username} />
+      </div>
+    );
   }
 }
 ```
 
-从React v16.2.0 开始，Fragment 可以用于返回多个子组件，而无需向DOM添加额外的包装节点。
+从 React v16.2.0 开始，Fragment 可以用于返回多个子组件，而无需向 DOM 添加额外的包装节点。
 
 ```jsx
-import React, {
-  Component,
-  Fragment
-} from 'react'
+import React, { Component, Fragment } from "react";
 
 class Info extends Component {
-  render () {
-    const { avatar, username } = this.props
+  render() {
+    const { avatar, username } = this.props;
 
     return (
       <Fragment>
         <UserAvatar src={avatar} />
         <UserProfile username={username} />
       </Fragment>
-    )
+    );
   }
 }
 ```
@@ -152,10 +149,8 @@ class Info extends Component {
 
 ```jsx
 class AlertBox extends Component {
-  render () {
-    return <div className='alert-box'>
-      {this.props.children}
-    </div>
+  render() {
+    return <div className="alert-box">{this.props.children}</div>;
   }
 }
 ```
@@ -164,34 +159,34 @@ class AlertBox extends Component {
 
 ## 默认值
 
-### 设置默认props
+### 设置默认 props
 
 ```jsx
 Hello.defaultProps = {
-  color: 'blue'
-}
+  color: "blue",
+};
 ```
 
 详见: [defaultProps](https://reactjs.org/docs/react-component.html#defaultprops)
 
-### 设置默认state
+### 设置默认 state
 
 ```jsx
 class Hello extends Component {
-  constructor (props) {
-    super(props)
-    this.state = { visible: true }
+  constructor(props) {
+    super(props);
+    this.state = { visible: true };
   }
 }
 ```
 
 在`constructor()`中设置默认状态。
 
-在没有构造函数的情况下可以使用 [Babel 和  [proposal-class-fields](https://github.com/tc39/proposal-class-fields).。
+在没有构造函数的情况下可以使用 [Babel 和 [proposal-class-fields](https://github.com/tc39/proposal-class-fields).。
 
 ```jsx
 class Hello extends Component {
-  state = { visible: true }
+  state = { visible: true };
 }
 ```
 
@@ -202,10 +197,8 @@ class Hello extends Component {
 ### 函数式组件
 
 ```jsx
-function MyComponent ({ name }) {
-  return <div className='message-box'>
-    Hello {name}
-  </div>
+function MyComponent({ name }) {
+  return <div className="message-box">Hello {name}</div>;
 }
 ```
 
@@ -229,7 +222,7 @@ PureComponent 是 React 组件性能优化的版本，如果 props 或者 state 
 ### 组件 API
 
 ```jsx
-this.forceUpdate()
+this.forceUpdate();
 ```
 
 ```jsx
@@ -238,8 +231,8 @@ this.setState(state => { ... })
 ```
 
 ```jsx
-this.state
-this.props
+this.state;
+this.props;
 ```
 
 这些方法和属性可以用于组件实例。
@@ -249,32 +242,30 @@ this.props
 
 ### 组件加载
 
-| Method                   | Description                                                  |
-| ------------------------ | ------------------------------------------------------------ |
-| `constructor` _(props)_  | 在渲染之前 [#](https://reactjs.org/docs/react-component.html#constructor) |
-| `render()`               | 渲染 【[#](https://reactjs.org/docs/react-component.html#render) |
+| 方法                     | 描述                                                                                            |
+| ------------------------ | ----------------------------------------------------------------------------------------------- |
+| `constructor` _(props)_  | 在渲染之前 [#](https://reactjs.org/docs/react-component.html#constructor)                       |
+| `render()`               | 渲染 【[#](https://reactjs.org/docs/react-component.html#render)                                |
 | `componentDidMount()`    | 在渲染之后(DOM 可用的状态) [#](https://reactjs.org/docs/react-component.html#componentdidmount) |
-| `componentWillUnmount()` | 在 DOM 移除之前 [#](https://reactjs.org/docs/react-component.html#componentwillunmount) |
-| `componentDidCatch()`    | Catch errors (16+) [#](https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html) |
+| `componentWillUnmount()` | 在 DOM 移除之前 [#](https://reactjs.org/docs/react-component.html#componentwillunmount)         |
+| `componentDidCatch()`    | Catch errors (16+) [#](https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html)     |
 
 在 `constructor()` 中设置初始状态。
 
-在`componentDidMount()`上添加DOM事件处理程序，计时器（等），然后在`componentWillUnmou()`上删除它们。
+在`componentDidMount()`上添加 DOM 事件处理程序，计时器（等），然后在`componentWillUnmou()`上删除它们。
 
 ### 组件更新
 
-| 方法                                                    | Description                                          |
-| ------------------------------------------------------- | ---------------------------------------------------- |
-| `componentDidUpdate` _(prevProps, prevState, snapshot)_ | Use `setState()` here, but remember to compare props |
-| `shouldComponentUpdate` _(newProps, newState)_          | Skips `render()` if returns false                    |
-| `render()`                                              | Render                                               |
-| `componentDidUpdate` _(prevProps, prevState)_           | Operate on the DOM here                              |
+| 方法                                                    | 描述                                                |
+| ------------------------------------------------------- | --------------------------------------------------- |
+| `componentDidUpdate` _(prevProps, prevState, snapshot)_ | 可以在这里使用 setState() 方法，记得比较 props 的值 |
+| `shouldComponentUpdate` _(newProps, newState)_          | 当返回 fasle 的时候会跳过 render 渲染               |
+| `render()`                                              | Render                                              |
+| `componentDidUpdate` _(prevProps, prevState)_           | Operate on the DOM here                             |
 
-Called when parents change properties and `.setState()`. These are not called for initial renders.
+当父级组件属性更改和调用`.setState（）`时。在初始渲染的时候不会被调用。
 
-当父组件更改属性和`.setState（）`时调用。在初始渲染的时候不被调用。
-
-查看: [Component specs](http://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops)
+详见: [Component specs](http://facebook.github.io/react/docs/component-specs.html#updating-componentwillreceiveprops)
 
 ## DOM 元素
 
@@ -282,41 +273,45 @@ Called when parents change properties and `.setState()`. These are not called fo
 
 ```jsx
 class MyComponent extends Component {
-  render () {
-    return <div>
-      <input ref={el => this.input = el} />
-    </div>
+  render() {
+    return (
+      <div>
+        <input ref={(el) => (this.input = el)} />
+      </div>
+    );
   }
 
-  componentDidMount () {
-    this.input.focus()
+  componentDidMount() {
+    this.input.focus();
   }
 }
 ```
 
 允许访问 DOM 元素
 
-查看: [Refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html)
+详见: [Refs and the DOM](https://reactjs.org/docs/refs-and-the-dom.html)
 
 ### DOM 事件
 
 ```jsx
 class MyComponent extends Component {
-  render () {
-    <input type="text"
-        value={this.state.value}
-        onChange={event => this.onChange(event)} />
+  render() {
+    <input
+      type="text"
+      value={this.state.value}
+      onChange={(event) => this.onChange(event)}
+    />;
   }
 
-  onChange (event) {
-    this.setState({ value: event.target.value })
+  onChange(event) {
+    this.setState({ value: event.target.value });
   }
 }
 ```
 
-以属性的方式传递函数，例如上述 onChange
+传递函数至属性中，例如上述 `onChange`
 
-查看: [Events](https://reactjs.org/docs/events.html)
+详见: [Events](https://reactjs.org/docs/events.html)
 
 ## 其他特性
 
@@ -328,15 +323,15 @@ class MyComponent extends Component {
 
 ```jsx
 class VideoPlayer extends Component {
-  render () {
-    return <VideoEmbed {...this.props} />
+  render() {
+    return <VideoEmbed {...this.props} />;
   }
 }
 ```
 
 将 src =“ ...” 向下传递到子组件。
 
-查看： [Transferring props](http://facebook.github.io/react/docs/transferring-props.html)
+详见： [Transferring props](http://facebook.github.io/react/docs/transferring-props.html)
 
 ### 顶层 API
 
@@ -346,71 +341,72 @@ React.isValidElement(c)
 ```
 
 ```jsx
-ReactDOM.render(<Component />, domnode, [callback])
-ReactDOM.unmountComponentAtNode(domnode)
+ReactDOM.render(<Component />, domnode, [callback]);
+ReactDOM.unmountComponentAtNode(domnode);
 ```
 
 ```jsx
-ReactDOMServer.renderToString(<Component />)
-ReactDOMServer.renderToStaticMarkup(<Component />)
+ReactDOMServer.renderToString(<Component />);
+ReactDOMServer.renderToStaticMarkup(<Component />);
 ```
 
-含有很多，列出的几种是最常见的。
+还有很多 API，仅列出的几种最常见的。
 
-查看: [React top-level API](https://reactjs.org/docs/react-api.html)
+详见: [React top-level API](https://reactjs.org/docs/react-api.html)
 
 ## JSX 模式
 
 ### Style 简写
 
 ```jsx
-const style = { height: 10 }
-return <div style={style}></div>
+const style = { height: 10 };
+return <div style={style}></div>;
 ```
 
 ```jsx
-return <div style={{ margin: 0, padding: 0 }}></div>
+return <div style={{ margin: 0, padding: 0 }}></div>;
 ```
 
-更多: [Inline styles](https://reactjs.org/tips/inline-styles.html)
+详见: [Inline styles](https://reactjs.org/tips/inline-styles.html)
 
 ### Inner HTML
 
 ```jsx
-function markdownify() { return "<p>...</p>"; }
-<div dangerouslySetInnerHTML={{__html: markdownify()}} />
+function markdownify() {
+  return "<p>...</p>";
+}
+<div dangerouslySetInnerHTML={{ __html: markdownify() }} />;
 ```
 
-See: [Dangerously set innerHTML](https://reactjs.org/tips/dangerously-set-inner-html.html)
+详见: [Dangerously set innerHTML](https://reactjs.org/tips/dangerously-set-inner-html.html)
 
 ### 列表
 
 ```jsx
 class TodoList extends Component {
-  render () {
-    const { items } = this.props
+  render() {
+    const { items } = this.props;
 
-    return <ul>
-      {items.map(item =>
-        <TodoItem item={item} key={item.key} />)}
-    </ul>
+    return (
+      <ul>
+        {items.map((item) => (
+          <TodoItem item={item} key={item.key} />
+        ))}
+      </ul>
+    );
   }
 }
 ```
 
-列表项要包含一个 key 属性
+列表项需要包含一个 key 属性
 
 ### 条件渲染
 
 ```jsx
-<Fragment>
-  {showMyComponent
-    ? <MyComponent />
-    : <OtherComponent />}
-</Fragment>
+<Fragment>{showMyComponent ? <MyComponent /> : <OtherComponent />}</Fragment>
 ```
 
-### 短路求值
+### 短路求值（Short-circuit evaluation）
 
 ```jsx
 <Fragment>
@@ -423,7 +419,7 @@ class TodoList extends Component {
 
 ### 返回多个元素
 
-您可以将多个元素作为 arrays或fragments返回。
+您可以将多个元素作为 arrays 或 fragments 返回。
 
 #### Arrays
 
@@ -451,7 +447,7 @@ render () {
 }
 ```
 
-查看: [Fragments and strings](https://reactjs.org/blog/2017/09/26/react-v16.0.html#new-render-return-types-fragments-and-strings)
+详见: [Fragments and strings](https://reactjs.org/blog/2017/09/26/react-v16.0.html#new-render-return-types-fragments-and-strings)
 
 ### 返回字符串
 
@@ -478,7 +474,7 @@ class MyComponent extends Component {
 
 通过`componentDidCatch`捕获 errors。 (React 16+)
 
-查看: [Error handling in React 16](https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html)
+详见: [Error handling in React 16](https://reactjs.org/blog/2017/07/26/error-handling-in-react-16.html)
 
 ### Portals
 
@@ -498,8 +494,8 @@ render () {
 ### Hydration
 
 ```js
-const el = document.getElementById('app')
-ReactDOM.hydrate(<App />, el)
+const el = document.getElementById("app");
+ReactDOM.hydrate(<App />, el);
 ```
 
 与 [`render()`](https://zh-hans.reactjs.org/docs/react-dom.html#render) 相同，但它用于在 [`ReactDOMServer`](https://zh-hans.reactjs.org/docs/react-dom-server.html) 渲染的容器中对 HTML 的内容进行 hydrate 操作
@@ -511,100 +507,95 @@ ReactDOM.hydrate(<App />, el)
 ### PropTypes
 
 ```js
-import PropTypes from 'prop-types'
+import PropTypes from "prop-types";
 ```
 
 查看: [Typechecking with PropTypes](https://reactjs.org/docs/typechecking-with-proptypes.html)
 
 | Key   | Description |
 | ----- | ----------- |
-| `any` | Anything    |
+| `any` |             |
 
-#### Basic
+#### 基础类型
 
 | Key      | Description   |
 | -------- | ------------- |
 | `string` |               |
 | `number` |               |
-| `func`   | Function      |
-| `bool`   | True or false |
+| `func`   |
+| `bool`   | true 或 false |
 
-#### Enum
+#### 枚举
 
 | Key                       | Description |
 | ------------------------- | ----------- |
-| `oneOf`_(any)_            | Enum types  |
-| `oneOfType`_(type array)_ | Union       |
+| `oneOf`_(any)_            |             |
+| `oneOfType`_(type array)_ |             |
 
-#### Array
+#### 数组
 
 | Key              | Description |
 | ---------------- | ----------- |
 | `array`          |             |
 | `arrayOf`_(...)_ |             |
 
-#### Object
+#### 对象
 
-| Key                 | Description                          |
-| ------------------- | ------------------------------------ |
-| `object`            |                                      |
-| `objectOf`_(...)_   | Object with values of a certain type |
-| `instanceOf`_(...)_ | Instance of a class                  |
-| `shape`_(...)_      |                                      |
+| Key                 | Description        |
+| ------------------- | ------------------ |
+| `object`            |                    |
+| `objectOf`_(...)_   | 指定确定类型的对象 |
+| `instanceOf`_(...)_ | 指定一个类的实例   |
+| `shape`_(...)_      |                    |
 
-#### Elements
+#### 元素
 
-| Key       | Description   |
-| --------- | ------------- |
-| `element` | React element |
-| `node`    | DOM node      |
+| Key       | Description |
+| --------- | ----------- |
+| `element` | React 元素  |
+| `node`    | DOM 节点    |
 
-#### Required
+#### 是否必需
 
 | Key                | Description |
 | ------------------ | ----------- |
 | `(···).isRequired` | Required    |
 
-### 基础类型
+### 基本类型
 
 ```jsx
 MyComponent.propTypes = {
-  email:      PropTypes.string,
-  seats:      PropTypes.number,
-  callback:   PropTypes.func,
-  isClosed:   PropTypes.bool,
-  any:        PropTypes.any
-}
+  email: PropTypes.string,
+  seats: PropTypes.number,
+  callback: PropTypes.func,
+  isClosed: PropTypes.bool,
+  any: PropTypes.any,
+};
 ```
 
 ### 必填类型
 
 ```jsx
 MyCo.propTypes = {
-  name:  PropTypes.string.isRequired
-}
+  name: PropTypes.string.isRequired,
+};
 ```
 
 ### 元素类型
 
 ```jsx
 MyCo.propTypes = {
-  // React element
   element: PropTypes.element,
-
-  // num, string, element, or an array of those
-  node: PropTypes.node
-}
+  node: PropTypes.node,
+};
 ```
 
 ### 枚举 (oneOf)
 
 ```jsx
 MyCo.propTypes = {
-  direction: PropTypes.oneOf([
-    'left', 'right'
-  ])
-}
+  direction: PropTypes.oneOf(["left", "right"]),
+};
 ```
 
 ### 数组和对象
@@ -615,17 +606,17 @@ MyCo.propTypes = {
   ages: PropTypes.arrayOf(PropTypes.number),
   user: PropTypes.object,
   user: PropTypes.objectOf(PropTypes.number),
-  message: PropTypes.instanceOf(Message)
-}
+  message: PropTypes.instanceOf(Message),
+};
 ```
 
 ```jsx
 MyCo.propTypes = {
   user: PropTypes.shape({
     name: PropTypes.string,
-    age:  PropTypes.number
-  })
-}
+    age: PropTypes.number,
+  }),
+};
 ```
 
 用 `.array[Of]`, `.object[Of]`, `.instanceOf`, `.shape`.
@@ -636,15 +627,15 @@ MyCo.propTypes = {
 MyCo.propTypes = {
   customProp: (props, key, componentName) => {
     if (!/matchme/.test(props[key])) {
-      return new Error('Validation failed!')
+      return new Error("Validation failed!");
     }
-  }
-}
+  },
+};
 ```
 
 ## 另见
 
-* [React website](https://reactjs.org) _(reactjs.org)_
-* [React cheatsheet](https://reactcheatsheet.com/) _(reactcheatsheet.com)_
-* [Awesome React](https://github.com/enaqx/awesome-react) _(github.com)_
-* [React v0.14 cheatsheet](react@0.14) _Legacy version_
+- [React website](https://reactjs.org) _(reactjs.org)_
+- [React cheatsheet](https://reactcheatsheet.com/) _(reactcheatsheet.com)_
+- [Awesome React](https://github.com/enaqx/awesome-react) _(github.com)_
+- [React v0.14 cheatsheet](react@0.14) _Legacy version_
