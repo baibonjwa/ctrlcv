@@ -6,11 +6,11 @@ import { graphql } from "gatsby";
 import MDXComponents from "./mdx-components";
 import Header from "./header";
 import { Helmet } from "react-helmet";
-
 import "../styles/cheatsheet.css";
 
 export default function Layout({ children, data: { mdx }, ...props }) {
   useLayoutEffect(() => {
+    console.log("reload");
     // TODO: https://malcolmkee.com/blog/gatsby-non-js-fallback/
     // https://stackoverflow.com/questions/61662809/gatsby-react-hook-masonry-breaks-on-build-because-there-is-no-window
     if (typeof window !== `undefined`) {
@@ -34,7 +34,7 @@ export default function Layout({ children, data: { mdx }, ...props }) {
         });
       });
     }
-  }, []);
+  });
   return (
     <MDXProvider components={MDXComponents}>
       <Helmet>

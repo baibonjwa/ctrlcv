@@ -1,8 +1,7 @@
 ---
 title: CSS
-category: CSS
-layout: 2017/sheet
-weight: -1
+categories:
+  - CSS
 keywords:
   - "margin, padding, border"
   - "div, .class, #id, [attr]"
@@ -14,7 +13,6 @@ keywords:
 
 ## Basics
 
-
 ### Selectors
 
 ```css
@@ -22,7 +20,6 @@ keywords:
   font-weight: bold;
 }
 ```
-
 
 | Selector          | Description  |
 | ----------------- | ------------ |
@@ -45,55 +42,53 @@ keywords:
 
 ### Attribute selectors
 
-| Selector           | Description                         |
-| ------------------ | ----------------------------------- |
-| `[role="dialog"]`  | `=` Exact                           |
-| `[class~="box"]`   | `~=` Has word                       |
-| `[class|="box"]`   | `|=` Exact or prefix (eg, `value-`) |
-| `[href$=".doc"]`   | `$=` Ends in                        |
-| `[href^="/index"]` | `^=` Begins with                    |
-| `[class*="-is-"]`  | `*=` Contains                       |
+| Selector | Description |
+| -------- | ----------- || |
+| `[role="dialog"]` | `=` Exact |
+| `[class~="box"]` | `~=` Has word |
+| `[class | ="box"]` | `| =`Exact or prefix (eg,`value-`) |
+| `[href$=".doc"]` | `$=` Ends in |
+| `[href^="/index"]` | `^=` Begins with |
+| `[class*="-is-"]` | `*=` Contains |
 
 ### Pseudo-classes
 
-| Selector             | Description                                |
-| -------------------- | ------------------------------------------ |
-| `:target`            | eg, `h2#foo:target`                        |
-| ---                  | ---                                        |
-| `:disabled`          |                                            |
-| `:focus`             |                                            |
-| `:active`            |                                            |
-| ---                  | ---                                        |
-| `:nth-child(3)`      | 3rd child                                  |
-| `:nth-child(3n+2)`   | 2nd child in groups of 3                   |
-| `:nth-child(-n+4)`   |                                            |
-| ---                  | ---                                        |
-| `:nth-last-child(2)` |                                            |
-| `:nth-of-type(2)`    |                                            |
-| ---                  | ---                                        |
-| `:checked`           | Checked inputs                             |
-| `:disabled`          | Disabled elements                          |
-| `:default`           | Default element in a group                 |
-| ---                  | ---                                        |
-| `:empty`             | Elements without children                  |
+| Selector             | Description                |
+| -------------------- | -------------------------- |
+| `:target`            | eg, `h2#foo:target`        |
+| ---                  | ---                        |
+| `:disabled`          |                            |
+| `:focus`             |                            |
+| `:active`            |                            |
+| ---                  | ---                        |
+| `:nth-child(3)`      | 3rd child                  |
+| `:nth-child(3n+2)`   | 2nd child in groups of 3   |
+| `:nth-child(-n+4)`   |                            |
+| ---                  | ---                        |
+| `:nth-last-child(2)` |                            |
+| `:nth-of-type(2)`    |                            |
+| ---                  | ---                        |
+| `:checked`           | Checked inputs             |
+| `:disabled`          | Disabled elements          |
+| `:default`           | Default element in a group |
+| ---                  | ---                        |
+| `:empty`             | Elements without children  |
 
 ### Pseudo-class variations
 
-| Selector          |
-| ----------------- |
-| `:first-of-type`  |
-| `:last-of-type`   |
-| `:nth-of-type(2)` |
-| `:only-of-type`   |
-| ---               |
-| `:first-child`    |
-| `:last-child`     |
-| `:nth-child(2)`   |
-| `:only-child`     |
-
+| Selector          | Description |
+| ----------------- | ----------- |
+| `:first-of-type`  |             |
+| `:last-of-type`   |             |
+| `:nth-of-type(2)` |             |
+| `:only-of-type`   |             |
+| ---------------   |             |
+| `:first-child`    |             |
+| `:last-child`     |             |
+| `:nth-child(2)`   |             |
+| `:only-child`     |             |
 
 ## Fonts
-
 
 ### Properties
 
@@ -111,15 +106,12 @@ keywords:
 | `text-align:`      | `left` `right` `center` `justify`    |
 | `text-transform:`  | `capitalize` `uppercase` `lowercase` |
 
-
 ### Shorthand
-
 
 |         | style    | weight | size (required) |     | line-height | family            |
 | ------- | -------- | ------ | --------------- | --- | ----------- | ----------------- |
 | `font:` | `italic` | `400`  | `14px`          | `/` | `1.5`       | `sans-serif`      |
 |         | style    | weight | size (required) |     | line-height | family (required) |
-
 
 ### Example
 
@@ -141,7 +133,6 @@ text-transform: lowercase; /* hello */
 
 ## Background
 
-
 ### Properties
 
 | Property                 | Description                              |
@@ -156,7 +147,6 @@ text-transform: lowercase; /* hello */
 | `background-repeat:`     | `no-repeat` `repeat-x` `repeat-y`        |
 | `background-attachment:` | `scroll` `fixed` `local`                 |
 
-
 ### Shorthand
 
 |               | color  | image         | positionX | positionY |     | size           | repeat      | attachment |
@@ -165,16 +155,14 @@ text-transform: lowercase; /* hello */
 | `background:` | `#abc` | `url(bg.png)` | `center`  | `center`  | `/` | `cover`        | `repeat-x`  | `local;`   |
 |               | color  | image         | positionX | positionY |     | size           | repeat      | attachment |
 
-
 ### Multiple backgrounds
 
 ```css
 background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-  url('background.jpg') center center / cover, #333;
+  url("background.jpg") center center / cover, #333;
 ```
 
 ## Animation
-
 
 ### Properties
 
@@ -190,14 +178,12 @@ background: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
 | `animation-fill-mode:`       | `none` `forwards` `backwards` `both` `initial` `inherit` |
 | `animation-play-state:`      | `normal` `reverse` `alternate` `alternate-reverse`       |
 
-
 ### Shorthand
 
 |              | name     | duration | timing-function | delay   | count      | direction           | fill-mode | play-state |
 | ------------ | -------- | -------- | --------------- | ------- | ---------- | ------------------- | --------- | ---------- |
 | `animation:` | `bounce` | `300ms`  | `linear`        | `100ms` | `infinite` | `alternate-reverse` | `both`    | `reverse`  |
 |              | name     | duration | timing-function | delay   | count      | direction           | fill-mode | play-state |
-
 
 ### Example
 

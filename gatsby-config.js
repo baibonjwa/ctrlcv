@@ -1,4 +1,7 @@
 module.exports = {
+  // flags: {
+  //   FAST_REFRESH: true,
+  // },
   siteMetadata: {
     title: "CTRLCV",
     description: "CTRLCV",
