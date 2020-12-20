@@ -1,11 +1,10 @@
 ---
 title: Docker CLI
-category: Devops
-layout: 2017/sheet
+categories:
+  - Devops
 ---
 
-Manage images
--------------
+## Manage images
 
 ### `docker build`
 
@@ -17,23 +16,22 @@ docker build [options] .
 
 Create an `image` from a Dockerfile.
 
-
 ### `docker run`
 
 ```yml
 docker run [options] IMAGE
-  # see `docker create` for options
+# see `docker create` for options
 ```
 
 #### Example
 
+```shell
+docker run -it debian:buster /bin/bash
 ```
-$ docker run -it debian:buster /bin/bash
-```
+
 Run a command in an `image`.
 
-Manage containers
------------------
+## Manage containers
 
 ### `docker create`
 
@@ -51,9 +49,9 @@ docker create [options] IMAGE
   -e, --env NAME=hello       # env vars
 ```
 
-#### Example
+## Example
 
-```
+```shell
 $ docker create --name app_redis_1 \
   --expose 6379 \
   redis:3.0.2
@@ -72,13 +70,12 @@ docker exec [options] CONTAINER COMMAND
 
 #### Example
 
-```
-$ docker exec app_web_1 tail logs/development.log
-$ docker exec -t -i app_web_1 rails c
+```shell
+docker exec app_web_1 tail logs/development.log
+docker exec -t -i app_web_1 rails c
 ```
 
 Run commands in a `container`.
-
 
 ### `docker start`
 
@@ -92,43 +89,39 @@ docker stop [options] CONTAINER
 
 Start/stop a `container`.
 
-
 ### `docker ps`
 
-```
-$ docker ps
-$ docker ps -a
-$ docker kill $ID
+```shell
+docker ps
+docker ps -a
+docker kill $ID
 ```
 
 Manage `container`s using ps/kill.
 
-
 ### `docker logs`
 
-```
-$ docker logs $ID
-$ docker logs $ID 2>&1 | less
-$ docker logs -f $ID # Follow log output
+```shell
+docker logs $ID
+docker logs $ID 2>&1 | less
+docker logs -f $ID # Follow log output
 ```
 
 See what's being logged in an `container`.
 
-
-Images
-------
+## Images
 
 ### `docker images`
 
-```sh
+```shell
 $ docker images
   REPOSITORY   TAG        ID
   ubuntu       12.10      b750fe78269d
   me/myapp     latest     7b2431a8d968
 ```
 
-```sh
-$ docker images -a   # also show intermediate
+```shell
+docker images -a   # also show intermediate
 ```
 
 Manages `image`s.
@@ -145,13 +138,13 @@ Deletes `image`s.
 
 ### Clean all
 
-```sh
+```shell
 docker system prune
 ```
 
 Cleans up dangling images, containers, volumes, and networks (ie, not associated with a container)
 
-```sh
+```shell
 docker system prune -a
 ```
 
@@ -159,7 +152,7 @@ Additionally remove any stopped containers and all unused images (not just dangl
 
 ### Containers
 
-```sh
+```shell
 # Stop all running containers
 docker stop $(docker ps -a -q)
 
@@ -169,7 +162,7 @@ docker container prune
 
 ### Images
 
-```sh
+```shell
 docker image prune [-a]
 ```
 
@@ -177,13 +170,12 @@ Delete all the images
 
 ### Volumes
 
-```sh
+```shell
 docker volume prune
 ```
 
 Delete all the volumes
 
-Also see
---------
+## Also see
 
- * [Getting Started](http://www.docker.io/gettingstarted/) _(docker.io)_
+- [Getting Started](http://www.docker.io/gettingstarted/) _(docker.io)_
