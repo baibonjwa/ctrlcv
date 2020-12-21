@@ -5,7 +5,7 @@
 
 ## 项目本地搭建
 
-本项目基于 [Gatsby](https://www.gatsbyjs.com/)_www.gatsbyjs.com_ 框架
+本项目基于 [Gatsby](https://www.gatsbyjs.com/) 框架
 
 ```shell
   # 下载源代码
@@ -41,4 +41,5 @@
 `## 其它组件 {data-columns="3"}` 该标题下的内容会被分为三列展示
 
 注：若通篇没有二级标题，则默认一列显示
+
 注二：若不想显示二级标题但还想自定义布局可以通过 `{data-visible=false}` 来隐藏掉二级标题的显示，例如：`## React {data-visible=false}`
