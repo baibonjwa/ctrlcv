@@ -4,13 +4,15 @@ categories:
   - JavaScript
   - Libraries
 author: BAI
+intro: 新版本的 Node Native 的 Promise 和 Async/Await 实现已经很快了 bluebird.js 已经不再那么有必要使用了
 ---
 
-### Also see
+## 参考文档
 
-Also see the [promise cheatsheet](promise.html) and [Bluebird.js API](https://github.com/petkaantonov/bluebird/blob/master/API.md) (github.com).
+[promise cheatsheet](promise.html)
+[Bluebird.js API](https://github.com/petkaantonov/bluebird/blob/master/API.md) (github.com).
 
-### Example
+### 示例
 
 ```js
 promise
@@ -23,9 +25,9 @@ promise
   .each(function (e) { ··· }) // *
 ```
 
-Those marked with `*` are non-standard Promise API that only work with Bluebird promises.
+标记 `*` 的均不是标准的 Promise API，并且只能在 Bluebird 下使用
 
-### Multiple return values
+### 多返回值
 
 ```js
 .then(function () {
@@ -36,9 +38,9 @@ Those marked with `*` are non-standard Promise API that only work with Bluebird 
 })
 ```
 
-Use [Promise.spread](http://bluebirdjs.com/docs/api/promise.spread.html)
+详见 [Promise.spread](http://bluebirdjs.com/docs/api/promise.spread.html)
 
-### Multiple promises
+### 多个 Promise
 
 ```js
 Promise.join(
@@ -51,15 +53,15 @@ Promise.join(
 )
 ```
 
-Use [Promise.join](http://bluebirdjs.com/docs/api/promise.join.html)
+详见 [Promise.join](http://bluebirdjs.com/docs/api/promise.join.html)
 
-### Multiple promises (array)
+### 多个 Promise(数组)
 
-- [Promise.all](http://bluebirdjs.com/docs/api/promise.all.html)([p]) - expect all to pass
-- [Promise.some](http://bluebirdjs.com/docs/api/promise.some.html)([p], count) - expect `count` to pass
-- [Promise.any](http://bluebirdjs.com/docs/api/promise.any.html)([p]) - same as `some([p], 1)`
-- [Promise.race](http://bluebirdjs.com/docs/api/promise.race.html)([p], count) - use `.any` instead
-- [Promise.map](http://bluebirdjs.com/docs/api/promise.map.html)([p], fn, options) - supports concurrency
+- [Promise.all](http://bluebirdjs.com/docs/api/promise.all.html)([p]) - 全部 Promise 均执行成功
+- [Promise.some](http://bluebirdjs.com/docs/api/promise.some.html)([p], count) - count 数量的成功 expect `count` to pass
+- [Promise.any](http://bluebirdjs.com/docs/api/promise.any.html)([p]) - 相当于上面的方法 count 设置为 1，即有一个 Promise 成功
+- [Promise.race](http://bluebirdjs.com/docs/api/promise.race.html)([p], count) - 可以用 any 替代
+- [Promise.map](http://bluebirdjs.com/docs/api/promise.map.html)([p], fn, options) - 支持并行
 
 ```js
 Promise.all([promise1, promise2]).then((results) => {
@@ -67,7 +69,6 @@ Promise.all([promise1, promise2]).then((results) => {
   results[1];
 });
 
-// succeeds if one succeeds first
 Promise.any(promises).then((results) => {});
 ```
 
@@ -76,9 +77,9 @@ Promise.map(urls, url => fetch(url))
   .then(···)
 ```
 
-Use [Promise.map](http://bluebirdjs.com/docs/api/promise.map.html) to "promisify" a list of values.
+详见 [Promise.map](http://bluebirdjs.com/docs/api/promise.map.html)
 
-### Object
+### 对象
 
 ```js
 Promise.props({
@@ -90,9 +91,9 @@ Promise.props({
 });
 ```
 
-Use [Promise.props](http://bluebirdjs.com/docs/api/promise.props.html).
+详见 [Promise.props](http://bluebirdjs.com/docs/api/promise.props.html).
 
-### Chain of promises
+### Promise 链式调用
 
 ```js
 function getPhotos() {
@@ -105,18 +106,18 @@ function getPhotos() {
 getPhotos().then(···)
 ```
 
-Use [Promise.try](http://bluebirdjs.com/docs/api/promise.try.html).
+详见 [Promise.try](http://bluebirdjs.com/docs/api/promise.try.html).
 
-### Node-style functions
+### Node 风格的函数
 
 ```js
 var readFile = Promise.promisify(fs.readFile);
 var fs = Promise.promisifyAll(require("fs"));
 ```
 
-See [Promisification](http://bluebirdjs.com/docs/api/promisification.html).
+详见 [Promisification](http://bluebirdjs.com/docs/api/promisification.html).
 
-### Promise-returning methods
+### Promise 返回的方法
 
 ```js
 User.login = Promise.method((email, password) => {
@@ -126,9 +127,9 @@ User.login = Promise.method((email, password) => {
 });
 ```
 
-See [Promise.method](http://bluebirdjs.com/docs/api/promise.method.html).
+详见 [Promise.method](http://bluebirdjs.com/docs/api/promise.method.html).
 
-### Generators
+### 生成器（Generator）
 
 ```js
 User.login = Promise.coroutine(function* (email, password) {
@@ -137,8 +138,8 @@ User.login = Promise.coroutine(function* (email, password) {
 });
 ```
 
-See [Promise.coroutine](http://bluebirdjs.com/docs/api/promise.coroutine.html).
+详见 [Promise.coroutine](http://bluebirdjs.com/docs/api/promise.coroutine.html).
 
-## Reference
+## 参考
 
 <http://bluebirdjs.com/docs/api-reference.html>
