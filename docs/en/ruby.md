@@ -1,8 +1,7 @@
 ---
 title: Ruby
-category: Ruby
-tags: [WIP]
-layout: 2017/sheet
+categories:
+  - Ruby
 intro: |
   Quick reference to some features of the Ruby programming language.
 ---

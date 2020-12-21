@@ -1,9 +1,7 @@
 ---
 title: Xpath
-category: HTML
-layout: 2017/sheet
-tags: [Featured]
-weight: -5
+categories:
+  - HTML
 description: |
   $x('//div//p//*') == $('div p *'), $x('//[@id="item"]') == $('#item'), and many other Xpath examples.
 ---
@@ -12,7 +10,6 @@ description: |
 
 ### Xpath test bed
 
-
 Test queries in the Xpath test bed:
 
 - [Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_
@@ -20,7 +17,7 @@ Test queries in the Xpath test bed:
 ### Browser console
 
 ```js
-$x("//div")
+$x("//div");
 ```
 
 Works in Firefox and Chrome.
@@ -29,78 +26,72 @@ Works in Firefox and Chrome.
 
 ### Descendant selectors
 
-| CSS                          | Xpath                                                    | ?                       |
-| ----                         | ----                                                     | --                      |
-| `h1`                         | `//h1`                                                   | [?](#prefixes)          |
-| `div p`                      | `//div//p`                                               | [?](#axes)              |
-| `ul > li`                    | `//ul/li`                                                | [?](#axes)              |
-| `ul > li > a`                | `//ul/li/a`                                              |                         |
-| `div > *`                    | `//div/*`                                                |                         |
-| ----                         | ----                                                     | --                      |
-| `:root`                      | `/`                                                      | [?](#prefixes)          |
-| `:root > body`               | `/body`                                                  |                         |
-
+| CSS            | Xpath       | ?              |
+| -------------- | ----------- | -------------- |
+| `h1`           | `//h1`      | [?](#prefixes) |
+| `div p`        | `//div//p`  | [?](#axes)     |
+| `ul > li`      | `//ul/li`   | [?](#axes)     |
+| `ul > li > a`  | `//ul/li/a` |                |
+| `div > *`      | `//div/*`   |                |
+| ----           | ----        | --             |
+| `:root`        | `/`         | [?](#prefixes) |
+| `:root > body` | `/body`     |                |
 
 ### Attribute selectors
 
-| CSS                          | Xpath                                                    | ?                       |
-| ----                         | ----                                                     | --                      |
-| `#id`                        | `//*[@id="id"]`                                           | [?](#predicates)        |
-| `.class`                     | `//*[@class="class"]` *...[kinda](#class-check)*          |                         |
-| `input[type="submit"]`       | `//input[@type="submit"]`                                |                         |
-| `a#abc[for="xyz"]`           | `//a[@id="abc"][@for="xyz"]`                             | [?](#chaining-order)    |
-| `a[rel]`                     | `//a[@rel]`                                              |                         |
-| ----                         | ----                                                     | --                      |
-| `a[href^='/']`               | `//a[starts-with(@href, '/')]`                           | [?](#string-functions)  |
-| `a[href$='pdf']`             | `//a[ends-with(@href, '.pdf')]`                          |                         |
-| `a[href*='://']`             | `//a[contains(@href, '://')]`                            |                         |
-| `a[rel~='help']`             | `//a[contains(@rel, 'help')]` *...[kinda](#class-check)* |                         |
-
+| CSS                    | Xpath                                                    | ?                      |
+| ---------------------- | -------------------------------------------------------- | ---------------------- |
+| `#id`                  | `//*[@id="id"]`                                          | [?](#predicates)       |
+| `.class`               | `//*[@class="class"]` _...[kinda](#class-check)_         |                        |
+| `input[type="submit"]` | `//input[@type="submit"]`                                |                        |
+| `a#abc[for="xyz"]`     | `//a[@id="abc"][@for="xyz"]`                             | [?](#chaining-order)   |
+| `a[rel]`               | `//a[@rel]`                                              |                        |
+| ----                   | ----                                                     | --                     |
+| `a[href^='/']`         | `//a[starts-with(@href, '/')]`                           | [?](#string-functions) |
+| `a[href$='pdf']`       | `//a[ends-with(@href, '.pdf')]`                          |                        |
+| `a[href*='://']`       | `//a[contains(@href, '://')]`                            |                        |
+| `a[rel~='help']`       | `//a[contains(@rel, 'help')]` _...[kinda](#class-check)_ |                        |
 
 ### Order selectors
 
-| CSS                          | Xpath                                                    | ?                       |
-| ----                         | ----                                                     | --                      |
-| `ul > li:first-child`        | `//ul/li[1]`                                             | [?](#indexing)          |
-| `ul > li:nth-child(2)`       | `//ul/li[2]`                                             |                         |
-| `ul > li:last-child`         | `//ul/li[last()]`                                        |                         |
-| `li#id:first-child`          | `//li[@id="id"][1]`                                      |                         |
-| `a:first-child`              | `//a[1]`                                                 |                         |
-| `a:last-child`               | `//a[last()]`                                            |                         |
-
+| CSS                    | Xpath               | ?              |
+| ---------------------- | ------------------- | -------------- |
+| `ul > li:first-child`  | `//ul/li[1]`        | [?](#indexing) |
+| `ul > li:nth-child(2)` | `//ul/li[2]`        |                |
+| `ul > li:last-child`   | `//ul/li[last()]`   |                |
+| `li#id:first-child`    | `//li[@id="id"][1]` |                |
+| `a:first-child`        | `//a[1]`            |                |
+| `a:last-child`         | `//a[last()]`       |                |
 
 ### Siblings
 
-| CSS                          | Xpath                                                    | ?                       |
-| ----                         | ----                                                     | --                      |
-| `h1 ~ ul`                    | `//h1/following-sibling::ul`                             | [?](#using-axes)        |
-| `h1 + ul`                    | `//h1/following-sibling::ul[1]`                          |                         |
-| `h1 ~ #id`                   | `//h1/following-sibling::[@id="id"]`                     |                         |
-
+| CSS        | Xpath                                | ?                |
+| ---------- | ------------------------------------ | ---------------- |
+| `h1 ~ ul`  | `//h1/following-sibling::ul`         | [?](#using-axes) |
+| `h1 + ul`  | `//h1/following-sibling::ul[1]`      |                  |
+| `h1 ~ #id` | `//h1/following-sibling::[@id="id"]` |                  |
 
 ### jQuery
 
-| CSS                          | Xpath                                                    | ?                       |
-| ----                         | ----                                                     | --                      |
-| `$('ul > li').parent()`      | `//ul/li/..`                                             | [?](#other-axes)        |
-| `$('li').closest('section')` | `//li/ancestor-or-self::section`                         |                         |
-| `$('a').attr('href')`        | `//a/@href`                                              | [?](#steps)             |
-| `$('span').text()`           | `//span/text()`                                          |                         |
-
+| CSS                          | Xpath                            | ?                |
+| ---------------------------- | -------------------------------- | ---------------- |
+| `$('ul > li').parent()`      | `//ul/li/..`                     | [?](#other-axes) |
+| `$('li').closest('section')` | `//li/ancestor-or-self::section` |                  |
+| `$('a').attr('href')`        | `//a/@href`                      | [?](#steps)      |
+| `$('span').text()`           | `//span/text()`                  |                  |
 
 ### Other things
 
-| CSS                          | Xpath                                                    | ?                       |
-| ----                         | ----                                                     | --                      |
-| `h1:not([id])`               | `//h1[not(@id)]`                                         | [?](#boolean-functions) |
-| Text match                   | `//button[text()="Submit"]`                              | [?](#operators)         |
-| Text match (substring)       | `//button[contains(text(),"Go")]`                        |                         |
-| Arithmetic                   | `//product[@price > 2.50]`                               |                         |
-| Has children                 | `//ul[*]`                                                |                         |
-| Has children (specific)      | `//ul[li]`                                               |                         |
-| Or logic                     | `//a[@name or @href]`                                    | [?](#operators)         |
-| Union (joins results)        | `//a | //div`                                            | [?](#unions)            |
-
+| CSS                     | Xpath                             | ?                       |
+| ----------------------- | --------------------------------- | ----------------------- | ------------ |
+| `h1:not([id])`          | `//h1[not(@id)]`                  | [?](#boolean-functions) |
+| Text match              | `//button[text()="Submit"]`       | [?](#operators)         |
+| Text match (substring)  | `//button[contains(text(),"Go")]` |                         |
+| Arithmetic              | `//product[@price > 2.50]`        |                         |
+| Has children            | `//ul[*]`                         |                         |
+| Has children (specific) | `//ul[li]`                        |                         |
+| Or logic                | `//a[@name or @href]`             | [?](#operators)         |
+| Union (joins results)   | `//a                              | //div`                  | [?](#unions) |
 
 <!-- <style>
 /* ensure tables align */
@@ -118,33 +109,29 @@ table.xp tr>:nth-child(3) {width: 10%; text-align:right;}
 
 Xpath doesn't have the "check if part of space-separated list" operator, so this is the workaround ([source](http://pivotallabs.com/xpath-css-class-matching/)).
 
-Expressions
------------
+## Expressions
 
 ### Steps and axes
 
-| `//` | `ul` | `/`  | `a[@id='link']` |
-| Axis | Step | Axis | Step            |
-
+| `//` | `ul` | `/` | `a[@id='link']` |
+| Axis | Step | Axis | Step |
 
 ### Prefixes
 
 | Prefix | Example               | What     |
-| ---    | ---                   | ---      |
+| ------ | --------------------- | -------- |
 | `//`   | `//hr[@class='edge']` | Anywhere |
 | `./`   | `./a`                 | Relative |
 | `/`    | `/html/body/div`      | Root     |
-
 
 Begin your expression with any of these.
 
 ### Axes
 
 | Axis | Example             | What       |
-| ---  | ---                 | ---        |
+| ---- | ------------------- | ---------- |
 | `/`  | `//ul/li/a`         | Child      |
 | `//` | `//[@id="list"]//a` | Descendant |
-
 
 Separate your steps with `/`. Use two (`//`) if you don't want to select direct children.
 
@@ -165,8 +152,7 @@ They can also be these other things:
 //a/*          #=> All a's child elements
 ```
 
-Predicates
-----------
+## Predicates
 
 ### Predicates
 
@@ -239,8 +225,7 @@ Order is significant, these two are different.
 
 This returns `<section>` if it has an `<h1>` descendant with `id='hi'`.
 
-Functions
----------
+## Functions
 
 ### Node functions
 
@@ -289,8 +274,7 @@ number()
 boolean()
 ```
 
-Axes
-----
+## Axes
 
 ### Using axes
 
@@ -305,8 +289,7 @@ Axes
 Steps of an expression are separated by `/`, usually used to pick child nodes. That's not always true: you can specify a different "axis" with `::`.
 
 | `//` | `ul` | `/child::` | `li` |
-| Axis | Step | Axis       | Step |
-
+| Axis | Step | Axis | Step |
 
 ### Child axis
 
@@ -350,7 +333,7 @@ Steps of an expression are separated by `/`, usually used to pick child nodes. T
 ### Other axes
 
 | Axis                 | Abbrev | Notes                                            |
-| ---                  | ---    | ---                                              |
+| -------------------- | ------ | ------------------------------------------------ |
 | `ancestor`           |        |                                                  |
 | `ancestor-or-self`   |        |                                                  |
 | ---                  | ---    | ---                                              |
@@ -368,7 +351,6 @@ Steps of an expression are separated by `/`, usually used to pick child nodes. T
 | `preceding`          |        |                                                  |
 | `preceding-sibling`  |        |                                                  |
 
-
 There are other axes you can use.
 
 ### Unions
@@ -379,8 +361,7 @@ There are other axes you can use.
 
 Use `|` to join two expressions.
 
-More examples
--------------
+## More examples
 
 ### Examples
 
@@ -398,6 +379,7 @@ count(//*)          # count all elements
 ```bash
 //section[h1[@id='section-name']]
 ```
+
 Finds a `<section>` that directly contains `h1#section-name`
 
 ```bash
@@ -423,8 +405,6 @@ Works like jQuery's `$().closest('.box')`.
 
 Finds `<item>` and check its attributes
 
-References
-----------
+## References
 
-
-* [Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_
+- [Xpath test bed](http://www.whitebeam.org/library/guide/TechNotes/xpathtestbed.rhtm) _(whitebeam.org)_

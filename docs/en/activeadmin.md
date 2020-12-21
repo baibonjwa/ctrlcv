@@ -1,13 +1,12 @@
 ---
 title: ActiveAdmin
-category: Ruby
-layout: 2017/sheet
+categories:
+  - Ruby
 ---
 
 ### Listing scopes
 
 Allows you to filter listings by a certain scope.
-
 
 ```ruby
 scope :draft

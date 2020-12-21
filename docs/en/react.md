@@ -1,5 +1,6 @@
 ---
 title: React.js
+layout: cheatsheet
 categories:
   - React
 intro: |

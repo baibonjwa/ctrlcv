@@ -243,7 +243,7 @@ this.props;
 
 ### 组件加载
 
-| 方法                     | 描述                                                                                            |
+| 方法                     | 说明                                                                                            |
 | ------------------------ | ----------------------------------------------------------------------------------------------- |
 | `constructor` _(props)_  | 在渲染之前 [#](https://reactjs.org/docs/react-component.html#constructor)                       |
 | `render()`               | 渲染 【[#](https://reactjs.org/docs/react-component.html#render)                                |
@@ -257,7 +257,7 @@ this.props;
 
 ### 组件更新
 
-| 方法                                                    | 描述                                                |
+| 方法                                                    | 说明                                                |
 | ------------------------------------------------------- | --------------------------------------------------- |
 | `componentDidUpdate` _(prevProps, prevState, snapshot)_ | 可以在这里使用 setState() 方法，记得比较 props 的值 |
 | `shouldComponentUpdate` _(newProps, newState)_          | 当返回 fasle 的时候会跳过 render 渲染               |
