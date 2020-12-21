@@ -10,7 +10,6 @@ import "../styles/cheatsheet.css";
 
 export default function Layout({ children, data: { mdx }, ...props }) {
   useLayoutEffect(() => {
-    console.log("reload");
     // TODO: https://malcolmkee.com/blog/gatsby-non-js-fallback/
     // https://stackoverflow.com/questions/61662809/gatsby-react-hook-masonry-breaks-on-build-because-there-is-no-window
     if (typeof window !== `undefined`) {
@@ -36,7 +35,6 @@ export default function Layout({ children, data: { mdx }, ...props }) {
     }
   });
   const fileName = mdx.fileAbsolutePath.split("/").pop();
-  console.log(fileName);
   return (
     <MDXProvider components={MDXComponents}>
       <Helmet>

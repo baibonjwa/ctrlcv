@@ -6,6 +6,7 @@ import Header from "../components/header";
 import { Helmet } from "react-helmet";
 
 import Fuse from "fuse.js";
+import Footer from "../components/footer";
 
 const AVAIL_LANGS = ["en"];
 const DEFAULT_LANG = "zh-CN";
@@ -78,7 +79,6 @@ const IndexPage = ({ data }) => {
       // TODO: Not searching english document for now.
       .filter((n) => !n.fileAbsolutePath.includes("/en/"));
 
-    console.log(nodes);
     const fuse = new Fuse(nodes, options);
     const results = fuse.search(`'${pattern}`);
     setResults(results);
@@ -95,17 +95,17 @@ const IndexPage = ({ data }) => {
       .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
     for (const [key, value] of Object.entries(sortable)) {
       results.push(
-        <div className="mt-2">
+        <div key={key} className="mt-2">
           <div className="text-yellow-500 text-xl divide-y-0">{key}</div>
           <hr className="border-yellow-500 opacity-50 mb-2 mt-1"></hr>
           <div className="flex flex-wrap">
             {value.map((item) => (
               <Link
+                key={item.id}
                 className="text-gray-500 w-4/12 pt-1 pb-1 pl-2 pr-2"
                 title={item.frontmatter.intro}
                 to={item.frontmatter.path || item.slug}>
                 <span>{item.frontmatter.title}</span>
-                {/* <img className="new-icon" src={newIcon} /> */}
               </Link>
             ))}
           </div>
@@ -140,11 +140,11 @@ const IndexPage = ({ data }) => {
         <meta charSet="utf-8" />
         <meta
           name="description"
-          content="开发者代码片段整理及查询工具，复制粘贴拯救世界！"
+          content="常用代码和指令集整理及查询，复制粘贴拯救世界！"
         />
         <meta
           name="keywords"
-          content="CTRLCV 复制粘贴 代码片段 Cheatsheet 开发者 拯救世界"
+          content="CTRLCV 复制粘贴 代码片段 指令集 Cheatsheet 开发者 拯救世界"
         />
         <title>CTRLCV - 复制粘贴拯救世界</title>
       </Helmet>
@@ -174,7 +174,6 @@ const IndexPage = ({ data }) => {
             />
             <button
               type="submit"
-              autoFocus
               className="absolute right-0 top-0 mt-4 mr-5"
               onClick={handleSearch}>
               <svg
@@ -203,14 +202,14 @@ const IndexPage = ({ data }) => {
                 <div className="list">
                   {results.length === 0 && <div>没有找到匹配的结果</div>}
                   {results.map(({ item, matches, ...params }) => {
-                    const { path, title, keywords } = item.frontmatter;
+                    const { id, path, title, keywords } = item.frontmatter;
 
                     let hlTitle = title;
                     let hlKeywords = keywords;
                     let hlRawBody = item.rawBody;
 
-                    console.log(matches);
-                    console.log(params);
+                    // console.log(matches);
+                    // console.log(params);
                     matches.forEach((match) => {
                       const indices = match.indices;
                       if (match.key === "frontmatter.title") {
@@ -226,6 +225,7 @@ const IndexPage = ({ data }) => {
 
                     return (
                       <Link
+                        key={id}
                         to={path || item.slug}
                         style={{ textDecoration: "none", color: "#777" }}>
                         <div
@@ -255,13 +255,7 @@ const IndexPage = ({ data }) => {
             )}
             {!results && getIndexList()}
           </div>
-          <footer className="text-gray-500 mx-auto text-center text-sm">
-            <div>
-              <p>Copyright © 2019 IANTech. All rights reserved.</p>
-              <p>辽ICP备2020013460号</p>
-              <p>商务合作: bd@iantech.io/baibonjwa(微信)</p>
-            </div>
-          </footer>
+          <Footer />
         </div>
         {/* <img
         className="fixed to-top w-12 h-12 bottom-10 right-10"

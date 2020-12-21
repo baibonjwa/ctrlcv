@@ -27,7 +27,11 @@ const MDXComponents = {
     }
   },
   p: (props) => <p className="text-xs" {...props} />,
-  a: (props) => <a className="underline" {...props} />,
+  a: (props) => (
+    <a className="underline" {...props}>
+      {props.children}
+    </a>
+  ),
   pre: (props) => <div {...props} />,
   code: CodeBlock,
   table: (props) => (
