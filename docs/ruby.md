@@ -4,6 +4,7 @@ categories:
   - Ruby
 intro: |
   Ruby 语言的一些参考
+author: BAI
 ---
 
 ### Reference

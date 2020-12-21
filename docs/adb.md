@@ -2,80 +2,77 @@
 title: adb (Android Debug Bridge)
 categories:
   - CLI
+author: BAI
 ---
 
-### Device Basics
+## adb
 
-| 命令                    | 说明                                        |
-| ----------------------- | ------------------------------------------- |
-| `adb devices`           | Lists connected devices                     |
-| `adb devices -l`        | Lists connected devices and kind            |
-| ---                     | ---                                         |
-| `adb root`              | Restarts adbd with root permissions         |
-| `adb start-server`      | Starts the adb server                       |
-| `adb kill-server`       | Kills the adb server                        |
-| `adb remount`           | Remounts file system with read/write access |
-| `adb reboot`            | Reboots the device                          |
-| `adb reboot bootloader` | Reboots the device into fastboot            |
-| `adb disable-verity`    | Reboots the device into fastboot            |
+### 设备相关
 
-`wait-for-device` can be specified after `adb` to ensure that the command will run once the device is connected.
+| 命令                    | 说明                        |
+| ----------------------- | --------------------------- |
+| `adb devices`           | 列出所有已连接的设备        |
+| `adb devices -l`        | 列出所有已连接的设备和类型  |
+| ---                     | ---                         |
+| `adb root`              | 用 root 权限重启 adbd       |
+| `adb start-server`      | 启动 adb server             |
+| `adb kill-server`       | 杀死 adb server             |
+| `adb remount`           | 以读/写权限重新挂载文件系统 |
+| `adb reboot`            | 重启设备                    |
+| `adb reboot bootloader` | 重启至 fastboot 模式        |
+| `adb disable-verity`    | 关闭 DM-Verity              |
 
-`-s` can be used to send the commands to a specific device when multiple are connected.
+`adb` 命令后面可以添加 `wait-for-device` 来确保当设备连接后该命令会执行一次
 
-#### Examples
+`-s` 参数可以在有多设备时来指定其中某一个设备
 
-```
+```shell
 $ adb wait-for-device devices
  List of devices attached
  somedevice-1234 device
  someotherdevice-1234 device
 ```
 
-```
-$ adb -s somedevice-1234 root
+```shell
+  adb -s somedevice-1234 root
 ```
 
 ### Logcat
 
-| Command                    | Description                            |
-| -------------------------- | -------------------------------------- |
-| `adb logcat`               | Starts printing log messages to stdout |
-| `adb logcat -g`            | Displays current log buffer sizes      |
-| `adb logcat -G <size>`     | Sets the buffer size (K or M)          |
-| `adb logcat -c`            | Clears the log buffers                 |
-| `adb logcat *:V`           | Enables ALL log messages (verbose)     |
-| `adb logcat -f <filename>` | Dumps to specified file                |
+| 命令                       | 说明                           |
+| -------------------------- | ------------------------------ |
+| `adb logcat`               | 向标准输出里打印日志           |
+| `adb logcat -g`            | 显示当前的日志缓存长度         |
+| `adb logcat -G <size>`     | 设置日志缓存长度               |
+| `adb logcat -c`            | 清除日志缓存                   |
+| `adb logcat *:V`           | 开启全部的日志信息（调试信息） |
+| `adb logcat -f <filename>` | 日志输出到指定文件中           |
 
-#### Examples
-
-```
-$ adb logcat -G 16M
-$ adb logcat *:V > output.log
+```shell
+  adb logcat -G 16M
+  adb logcat *:V > output.log
 ```
 
-### File Management
+### 文件管理
 
-| Command                     | Description                                |
-| --------------------------- | ------------------------------------------ |
-| `adb push <local> <remote>` | Copies the local to the device at remote   |
-| `adb pull <remote> <local>` | Copies the remote from the device to local |
+| 命令                        | 说明                     |
+| --------------------------- | ------------------------ |
+| `adb push <local> <remote>` | 拷贝本地文件至远程的设备 |
+| `adb pull <remote> <local>` | 拷贝远程设备的文件至本地 |
 
-#### Examples
-
-```
-$ echo "This is a test" > test.txt
-$ adb push  test.txt /sdcard/test.txt
-$ adb pull /sdcard/test.txt pulledTest.txt
+```shell
+echo "This is a test" > test.txt
+adb push  test.txt /sdcard/test.txt
+adb pull /sdcard/test.txt pulledTest.txt
 ```
 
-### Remote Shell
+### 远程 Shell
 
-| Command                                | Description                                                         |
-| -------------------------------------- | ------------------------------------------------------------------- |
-| `adb shell <command>`                  | Runs the specified command on device (most unix commands work here) |
-| `adb shell wm size`                    | Displays the current screen resolution                              |
-| `adb shell wm size WxH`                | Sets the resolution to WxH                                          |
-| `adb shell pm list packages`           | Lists all installed packages                                        |
-| `adb shell pm list packages -3`        | Lists all installed 3rd-party packages                              |
-| `adb shell monkey -p app.package.name` | Starts the specified package                                        |
+| 命令                                   | 说明                                                 |
+| -------------------------------------- | ---------------------------------------------------- |
+| `adb shell <command>`                  | 在设备上运行指定的命令，大部分 Unix 的命令都可以执行 |
+| `adb shell wm size`                    | 显示当前的屏幕分辨率                                 |
+| `adb shell wm size WxH`                | 设置分辨率                                           |
+| `adb shell pm list packages`           | 列出所有已安装的包                                   |
+| `adb shell pm list packages -3`        | 列出所有已安装的第三方包                             |
+| `adb shell monkey -p app.package.name` | 启动指定的包                                         |

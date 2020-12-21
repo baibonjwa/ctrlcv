@@ -3,6 +3,7 @@ title: top
 categories:
   - CLI
 intro: Unix 系列操作系统中查看进程信息的命令
+author: BAI
 ---
 
 ### 快捷键

@@ -2,6 +2,7 @@
 title: ActiveAdmin
 categories:
   - Ruby
+author: BAI
 ---
 
 ### 根据 Scope 过滤数据
