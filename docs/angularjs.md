@@ -10,7 +10,7 @@ categories:
 <html ng-app="nameApp"></html>
 ```
 
-### Lists (ng-repeat)
+### 列表 (ng-repeat)
 
 ```html
 <ul ng-controller="MyListCtrl">
@@ -19,7 +19,7 @@ categories:
 </ul>
 ```
 
-### Model (ng-model)
+### 模型 (ng-model)
 
 ```html
 <select ng-model="orderProp">
@@ -39,7 +39,7 @@ categories:
     });
 ```
 
-### Controller with protection from minification
+### 保护的 Controller
 
 ```js
     App.controller('Name', [
@@ -56,7 +56,7 @@ categories:
     ]
 ```
 
-### Service
+### 服务
 
 ```js
 App.service("NameService", function ($http) {
@@ -68,15 +68,13 @@ App.service("NameService", function ($http) {
 });
 ```
 
-In controller you call with parameter and will use promises to return data from server.
-
 ```js
 App.controller("controllerName", function (NameService) {
   NameService.get().then(function () {});
 });
 ```
 
-### Directive
+### 指令（Directive）
 
 ```js
 App.directive("name", function () {
@@ -86,7 +84,7 @@ App.directive("name", function () {
 });
 ```
 
-In HTML will use `<name></name>` to render your template `<h1>Hello</h1>`
+在 HTML 中会用 `<name></name>` 来渲染模板 `<h1>Hello</h1>`
 
 ### HTTP
 
@@ -98,7 +96,7 @@ App.controller("PhoneListCtrl", function ($scope, $http) {
 });
 ```
 
-References:
+### 参考
 
 - https://github.com/angular/angular-seed
 - https://angularjs.org/
