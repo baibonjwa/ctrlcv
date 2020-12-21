@@ -65,17 +65,20 @@ const IndexPage = ({ data }) => {
         });
       });
     });
-    // console.log(initIndexes);
     setIndexes(indexMap);
   }, [data]);
 
   const handleSearch = (e) => {
-    console.log("pattern", pattern);
     if (!pattern) {
       setResults();
       return;
     }
-    const nodes = data.allMdx.edges.map((o) => o.node);
+    const nodes = data.allMdx.edges
+      .map((o) => o.node)
+      // TODO: Not searching english document for now.
+      .filter((n) => !n.fileAbsolutePath.includes("/en/"));
+
+    console.log(nodes);
     const fuse = new Fuse(nodes, options);
     const results = fuse.search(`'${pattern}`);
     setResults(results);
@@ -94,14 +97,13 @@ const IndexPage = ({ data }) => {
       results.push(
         <div className="mt-2">
           <div className="text-yellow-500 text-xl divide-y-0">{key}</div>
-          <hr className="border-yellow-500 opacity-50"></hr>
+          <hr className="border-yellow-500 opacity-50 mb-2 mt-1"></hr>
           <div className="flex flex-wrap">
             {value.map((item) => (
               <Link
                 className="text-gray-500 w-4/12 pt-1 pb-1 pl-2 pr-2"
                 title={item.frontmatter.intro}
-                to={item.frontmatter.path || item.slug}
-              >
+                to={item.frontmatter.path || item.slug}>
                 <span>{item.frontmatter.title}</span>
                 {/* <img className="new-icon" src={newIcon} /> */}
               </Link>
@@ -150,10 +152,10 @@ const IndexPage = ({ data }) => {
         <Header />
         <div className="container mx-auto p-3">
           <div className="text-center">
-            <h1 className="text-6xl mt-4 text-yellow-700 font-bold">
+            <h1 className="text-6xl mt-4 text-yellow-700 font-medium">
               CTRL<span className="text-yellow-500">CV</span>
             </h1>
-            <p className="mt-2 text-gray-500">复制粘贴拯救世界</p>
+            <p className="mt-3 text-gray-500">常用代码和指令集整理及查询工具</p>
           </div>
           {/* <img className="logo" src={mainLogo}></img> */}
           <div className="mt-4 mb-6 relative mx-auto text-gray-600 w-12/12 lg:w-8/12">
@@ -172,12 +174,11 @@ const IndexPage = ({ data }) => {
             />
             <button
               type="submit"
-              autofocus
+              autoFocus
               className="absolute right-0 top-0 mt-4 mr-5"
-              onClick={handleSearch}
-            >
+              onClick={handleSearch}>
               <svg
-                class="text-gray-600 h-4 w-4 fill-current"
+                className="text-gray-600 h-4 w-4 fill-current"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
                 version="1.1"
@@ -188,8 +189,7 @@ const IndexPage = ({ data }) => {
                 style={{ enableBackground: "new 0 0 56.966 56.966" }}
                 xmlSpace="preserve"
                 width="512px"
-                height="512px"
-              >
+                height="512px">
                 <path d="M55.146,51.887L41.588,37.786c3.486-4.144,5.396-9.358,5.396-14.786c0-12.682-10.318-23-23-23s-23,10.318-23,23  s10.318,23,23,23c4.761,0,9.298-1.436,13.177-4.162l13.661,14.208c0.571,0.593,1.339,0.92,2.162,0.92  c0.779,0,1.518-0.297,2.079-0.837C56.255,54.982,56.293,53.08,55.146,51.887z M23.984,6c9.374,0,17,7.626,17,17s-7.626,17-17,17  s-17-7.626-17-17S14.61,6,23.984,6z" />
               </svg>
             </button>
@@ -227,8 +227,7 @@ const IndexPage = ({ data }) => {
                     return (
                       <Link
                         to={path || item.slug}
-                        style={{ textDecoration: "none", color: "#777" }}
-                      >
+                        style={{ textDecoration: "none", color: "#777" }}>
                         <div
                           className="text-lg text-yellow-500"
                           dangerouslySetInnerHTML={{ __html: hlTitle }}
@@ -256,8 +255,12 @@ const IndexPage = ({ data }) => {
             )}
             {!results && getIndexList()}
           </div>
-          <footer className="text-gray-500 mx-auto text-center">
-            商务合作: bd@iantech.io
+          <footer className="text-gray-500 mx-auto text-center text-sm">
+            <div>
+              <p>Copyright © 2019 IANTech. All rights reserved.</p>
+              <p>辽ICP备2020013460号</p>
+              <p>商务合作: bd@iantech.io/baibonjwa(微信)</p>
+            </div>
           </footer>
         </div>
         {/* <img

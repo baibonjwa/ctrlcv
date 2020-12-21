@@ -1,7 +1,7 @@
 import React from "react";
 import githubIcon from "../assets/images/github-120.png";
 
-const Header = () => (
+const Header = ({ url = "https://github.com/BAI-Bonjwa/ctrlcv" }) => (
   <header className="mt-4 text-gray-500 text-center">
     {/* <a href="https://github.com/BAI-Bonjwa/ctrlcv">
       <img
@@ -11,7 +11,7 @@ const Header = () => (
       />
     </a> */}
     <a href="/">ctrlcv-dev.com</a>
-    <a href="https://github.com/BAI-Bonjwa/ctrlcv">
+    <a href={url}>
       <img
         src={githubIcon}
         alt="github"

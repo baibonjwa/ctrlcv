@@ -35,12 +35,16 @@ export default function Layout({ children, data: { mdx }, ...props }) {
       });
     }
   });
+  const fileName = mdx.fileAbsolutePath.split("/").pop();
+  console.log(fileName);
   return (
     <MDXProvider components={MDXComponents}>
       <Helmet>
         <title>CTRLCV - {mdx.frontmatter.title}</title>
       </Helmet>
-      <Header />
+      <Header
+        url={`https://github.com/BAI-Bonjwa/ctrlcv/tree/main/docs/${fileName}`}
+      />
       <main className="container mx-auto mt-4 p-2 text-gray-500">
         <section className="mb-8">
           <h1 className="text-xl md:text-3xl lg:text-5xl font-extralight text-gray-600 mb-4">
@@ -69,6 +73,7 @@ export const pageQuery = graphql`
   query BlogPostQuery($id: String) {
     mdx(id: { eq: $id }) {
       id
+      fileAbsolutePath
       body
       rawBody
       mdxAST

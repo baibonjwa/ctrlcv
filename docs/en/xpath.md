@@ -93,14 +93,6 @@ Works in Firefox and Chrome.
 | Or logic                | `//a[@name or @href]`             | [?](#operators)         |
 | Union (joins results)   | `//a                              | //div`                  | [?](#unions) |
 
-<!-- <style>
-/* ensure tables align */
-table.xp {table-layout: fixed;}
-table.xp tr>:nth-child(1) {width: 35%;}
-table.xp tr>:nth-child(2) {width: auto;}
-table.xp tr>:nth-child(3) {width: 10%; text-align:right;}
-</style> -->
-
 ### Class check
 
 ```bash
