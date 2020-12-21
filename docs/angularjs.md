@@ -98,5 +98,5 @@ App.controller("PhoneListCtrl", function ($scope, $http) {
 
 ### 参考
 
-- https://github.com/angular/angular-seed
-- https://angularjs.org/
+- [https://github.com/angular/angular-seed](https://github.com/angular/angular-seed)
+- [https://angularjs.org](https://angularjs.org/)
