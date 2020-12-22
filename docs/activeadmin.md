@@ -5,6 +5,8 @@ categories:
 author: BAI
 ---
 
+## ActiveAdmin
+
 ### 根据 Scope 过滤数据
 
 ```ruby
