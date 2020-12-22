@@ -38,13 +38,13 @@ author: lele88lala, BAI
 <button :disabled="isButtonDisabled">...</button>
 ```
 
-#### `:class` 设置类名，如果 isActive 返回 true，class="active"就会显示出来
+`:class` 设置类名，如果 isActive 返回 true，class="active"就会显示出来
 
 ```html
 <div :class="{ active: isActive }">...</div>
 ```
 
-#### `:style` 设置 CSS 样式，例如将颜色值设置成 activeColor 表示的值
+`:style` 设置 CSS 样式，例如将颜色值设置成 activeColor 表示的值
 
 ```html
 <div :style="{ color: activeColor }"></div>
@@ -54,7 +54,7 @@ author: lele88lala, BAI
 
 ### 指令（Directive）
 
-#### v-if 是“真正”的条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建。v-if 也是**惰性的**：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块
+v-if 是“真正”的条件渲染，因为它会确保在切换过程中条件块内的事件监听器和子组件适当地被销毁和重建。v-if 也是**惰性的**：如果在初始渲染时条件为假，则什么也不做——直到条件第一次变为真时，才会开始渲染条件块
 
 ```html
 <p v-if="inStock">{{ product }}</p>
@@ -65,7 +65,7 @@ author: lele88lala, BAI
 <p v-else>...</p>
 ```
 
-#### v-show 切换元素，不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 进行切换
+`v-show` 切换元素，不管初始条件是什么，元素总是会被渲染，并且只是简单地基于 CSS 进行切换
 
 ```html
 <p v-show="showProductDetails">...</p>
@@ -89,31 +89,31 @@ author: lele88lala, BAI
 
 ### 事件处理
 
-#### 在元素里调用 addToCart 方法
+在元素里调用 addToCart 方法
 
 ```html
 <button v-on:click="addToCart">...</button>
 ```
 
-#### v-on 简写
+v-on 简写
 
 ```html
 <button @click="addToCart">...</button>
 ```
 
-#### 方法中参数的传递方式
+方法中参数的传递方式
 
 ```html
 <button @click="addToCart(product)">...</button>
 ```
 
-#### 防止出现默认行为（例如重新加载页面）
+防止出现默认行为（例如重新加载页面）
 
 ```html
 <form @submit.prevent="addProduct">...</form>
 ```
 
-#### 事件只触发一次
+事件只触发一次
 
 ```html
 <img @mouseover.once="showImage" />...
@@ -124,13 +124,13 @@ author: lele88lala, BAI
 | `.stop` | 停止所有事件传播                   |
 | `.self` | 仅在 event.target 是元素本身时触发 |
 
-#### 键盘输入事件列子
+键盘输入事件列子
 
 ```html
 <input @keyup.enter="submit" />
 ```
 
-#### 当键盘输入 control-c 时调用 onCopy
+当键盘输入 control-c 时调用 onCopy
 
 ```html
 <input @keyup.ctrl.c="onCopy" />
@@ -140,25 +140,25 @@ author: lele88lala, BAI
 
 ### 列表渲染
 
-#### 列表渲染时候不能把 :key 属性忽略
+列表渲染时候不能把 :key 属性忽略
 
 ```html
 <li v-for="item in items" :key="item.id">{{ item }}</li>
 ```
 
-#### 获取数组位置
+获取数组位置
 
 ```html
 <li v-for="(item, index) in items">...</li>
 ```
 
-#### 遍历对象
+遍历对象
 
 ```html
 <li v-for="(value, key) in object">...</li>
 ```
 
-#### 在组件中使用 v-for
+在组件中使用 v-for
 
 ```html
 <cart-product
@@ -233,13 +233,13 @@ Vue.component('my-component', {
 
 ### 自定义事件
 
-#### 在其父级中的组件上设置侦听器
+在其父级中的组件上设置侦听器
 
 ```html
 <button-counter v-on:incrementBy="incWithVal"></button-counter>
 ```
 
-#### 在父组件内部添加事件方法
+在父组件内部添加事件方法
 
 ```js
 methods: {
@@ -247,7 +247,7 @@ methods: {
 }
 ```
 
-#### 在 button-counter 内部调用此方法
+在 button-counter 内部调用此方法
 
 ```js
 this.$emit(
@@ -303,7 +303,7 @@ this.$emit(
 
 ### 使用单个插槽
 
-#### 组件模板
+组件模板
 
 ```html
 <div>
@@ -312,7 +312,7 @@ this.$emit(
 </div>
 ```
 
-#### 组件中的内容会显示在插槽中
+组件中的内容会显示在插槽中
 
 ```html
 <my-component>
@@ -324,7 +324,7 @@ this.$emit(
 
 ### 多个插槽
 
-#### 插槽组件模板
+插槽组件模板
 
 ```html
 <div class="container">
@@ -340,7 +340,7 @@ this.$emit(
 </div>
 ```
 
-#### 组件中的内容会显示在对应的插槽中
+组件中的内容会显示在对应的插槽中
 
 ```html
 <app-layout>

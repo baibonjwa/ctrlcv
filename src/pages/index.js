@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import _ from "lodash";
 import { graphql, Link } from "gatsby";
+// import { MDXRenderer } from "gatsby-plugin-mdx";
 // import toTopIcon from "../assets/images/to-top.png";
 import Header from "../components/header";
 import { Helmet } from "react-helmet";
@@ -79,7 +80,11 @@ const IndexPage = ({ data }) => {
       // TODO: Not searching english document for now.
       .filter((n) => !n.fileAbsolutePath.includes("/en/"));
 
-    const fuse = new Fuse(nodes, options);
+    const escapedNodes = nodes.map((n) => ({
+      ...n,
+      rawBody: _.escape(n.rawBody),
+    }));
+    const fuse = new Fuse(escapedNodes, options);
     const results = fuse.search(`'${pattern}`);
     setResults(results);
   };
@@ -147,12 +152,21 @@ const IndexPage = ({ data }) => {
           content="CTRLCV 复制粘贴 代码片段 指令集 Cheatsheet 开发者 拯救世界"
         />
         <title>CTRLCV - 复制粘贴拯救世界</title>
+        <script>
+          {`var _hmt = _hmt || [];
+          (function() {
+            var hm = document.createElement("script");
+            hm.src = "https://hm.baidu.com/hm.js?7b248a30fa6e09af8a22b05183b180f5";
+            var s = document.getElementsByTagName("script")[0];
+            s.parentNode.insertBefore(hm, s);
+          })();`}
+        </script>
       </Helmet>
       <main>
         <Header />
         <div className="container mx-auto p-3">
           <div className="text-center">
-            <h1 className="text-6xl mt-4 text-yellow-700 font-medium">
+            <h1 className="text-5xl mt-4 text-yellow-700 font-medium lg:text-6xl">
               CTRL<span className="text-yellow-500">CV</span>
             </h1>
             <p className="mt-3 text-gray-500">常用代码和指令集整理及查询工具</p>
@@ -241,7 +255,6 @@ const IndexPage = ({ data }) => {
                           </>
                         )}
                         <p className="text-yellow-500 mt-1">内容：</p>
-
                         <div
                           className=""
                           dangerouslySetInnerHTML={{ __html: hlRawBody }}

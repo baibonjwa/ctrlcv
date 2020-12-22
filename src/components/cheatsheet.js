@@ -45,7 +45,7 @@ export default function Layout({ children, data: { mdx }, ...props }) {
       />
       <main className="container mx-auto mt-4 p-2 text-gray-500">
         <section className="mb-8">
-          <h1 className="text-xl md:text-3xl lg:text-5xl font-extralight text-gray-600 mb-4">
+          <h1 className="text-3xl md:text-3xl lg:text-5xl font-extralight text-gray-600 mb-4">
             {mdx.frontmatter.title}
             <span className="ml-3 text-gray-300">cheatsheet</span>
           </h1>
