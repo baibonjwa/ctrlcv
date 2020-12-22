@@ -107,7 +107,7 @@ const IndexPage = ({ data }) => {
             {value.map((item) => (
               <Link
                 key={item.id}
-                className="text-gray-500 w-4/12 pt-1 pb-1 pl-2 pr-2"
+                className="text-gray-500 w-6/12 pt-1 pb-1 pl-2 pr-2 lg:w-4/12"
                 title={item.frontmatter.intro}
                 to={item.frontmatter.path || item.slug}>
                 <span>{item.frontmatter.title}</span>
