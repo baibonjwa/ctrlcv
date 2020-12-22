@@ -10,6 +10,13 @@ module.exports = {
     `gatsby-plugin-postcss`,
     "gatsby-plugin-react-helmet",
     {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: "256882102",
+        head: false,
+      },
+    },
+    {
       resolve: "gatsby-plugin-mdx",
       options: {
         extensions: [`.mdx`, `.md`],
