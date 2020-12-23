@@ -85,7 +85,7 @@ const IndexPage = ({ data }) => {
       rawBody: _.escape(n.rawBody),
     }));
     const fuse = new Fuse(escapedNodes, options);
-    const results = fuse.search(`'${pattern}`);
+    const results = fuse.search(`'"${pattern}"`);
     setResults(results);
   };
 
@@ -122,18 +122,30 @@ const IndexPage = ({ data }) => {
 
   const highlightText = (text, originIndices = []) => {
     if (originIndices.length < 0) return;
-    const indices = _.cloneDeep(originIndices);
+    const indices = _.cloneDeep(originIndices).slice(0, 10);
     let result = [];
     let pair = indices.shift();
-    for (var i = 0; i < text.length; i++) {
-      var char = text.charAt(i);
-      if (pair && i === pair[0]) {
-        result.push(`<span class="bg-yellow-300">`);
-      }
-      result.push(char);
-      if (pair && i === pair[1]) {
-        result.push("</span>");
-        pair = indices.shift();
+    const threshold = 30;
+    for (let i = 0; i < text.length; i++) {
+      let char = text.charAt(i);
+      if (pair && (i >= pair[0] - threshold) && (i <= pair[1] + threshold)) {
+        if (pair && (i === Math.max(pair[0] - threshold, 0))) {
+        }
+
+        if (pair && i === pair[0]) {
+          result.push(`<span class="bg-yellow-300">`);
+        }
+        result.push(char);
+        if (pair && i === pair[1]) {
+          result.push("</span>");
+        }
+
+        if (pair && i === Math.min((pair[1] + threshold), text.length)) {
+          result.push(`<span class="text-yellow-600"> ...... </span>`);
+          pair = indices.shift();
+        }
+      } else {
+        result.push('');
       }
     }
     return result.join("");
