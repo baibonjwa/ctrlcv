@@ -7,7 +7,7 @@ const Footer = () => (
         <span className="mr-2">
           Copyright © 2019 IANTech. All rights reserved.
         </span>
-        <span className="ml-2">辽ICP备2020013460号</span>
+        <span className="ml-2"><a href="https://beian.miit.gov.cn">辽ICP备2020013460号</a></span>
       </p>
       {/* <p>商务合作: bd@iantech.io/baibonjwa(微信)</p> */}
     </div>
