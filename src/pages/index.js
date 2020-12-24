@@ -157,11 +157,11 @@ const IndexPage = ({ data }) => {
         <meta charSet="utf-8" />
         <meta
           name="description"
-          content="常用代码和指令集整理及查询，复制粘贴拯救世界！"
+          content="常用代码/指令集/速查表整理及查询工具，复制粘贴拯救世界！"
         />
         <meta
           name="keywords"
-          content="CTRLCV 复制粘贴 代码片段 指令集 Cheatsheet 开发者 拯救世界"
+          content="CTRLCV 复制粘贴 代码片段 速查表 指令集 Cheatsheet 开发者 拯救世界"
         />
         <title>CTRLCV - 复制粘贴拯救世界</title>
         <script>
@@ -181,7 +181,9 @@ const IndexPage = ({ data }) => {
             <h1 className="text-5xl mt-4 text-yellow-700 font-medium lg:text-6xl">
               CTRL<span className="text-yellow-500">CV</span>
             </h1>
-            <p className="mt-3 text-gray-500">常用代码和指令集整理及查询工具</p>
+            <p className="mt-3 text-gray-500">
+              常用代码/指令集/速查表整理及查询工具
+            </p>
           </div>
           {/* <img className="logo" src={mainLogo}></img> */}
           <div className="mt-10 mb-6 relative mx-auto text-gray-600 w-12/12 lg:w-9/12">
