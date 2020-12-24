@@ -128,8 +128,8 @@ const IndexPage = ({ data }) => {
     const threshold = 30;
     for (let i = 0; i < text.length; i++) {
       let char = text.charAt(i);
-      if (pair && (i >= pair[0] - threshold) && (i <= pair[1] + threshold)) {
-        if (pair && (i === Math.max(pair[0] - threshold, 0))) {
+      if (pair && i >= pair[0] - threshold && i <= pair[1] + threshold) {
+        if (pair && i === Math.max(pair[0] - threshold, 0)) {
         }
 
         if (pair && i === pair[0]) {
@@ -140,12 +140,12 @@ const IndexPage = ({ data }) => {
           result.push("</span>");
         }
 
-        if (pair && i === Math.min((pair[1] + threshold), text.length)) {
+        if (pair && i === Math.min(pair[1] + threshold, text.length)) {
           result.push(`<span class="text-yellow-600"> ...... </span>`);
           pair = indices.shift();
         }
       } else {
-        result.push('');
+        result.push("");
       }
     }
     return result.join("");
@@ -184,7 +184,7 @@ const IndexPage = ({ data }) => {
             <p className="mt-3 text-gray-500">常用代码和指令集整理及查询工具</p>
           </div>
           {/* <img className="logo" src={mainLogo}></img> */}
-          <div className="mt-4 mb-6 relative mx-auto text-gray-600 w-12/12 lg:w-8/12">
+          <div className="mt-10 mb-6 relative mx-auto text-gray-600 w-12/12 lg:w-9/12">
             <input
               className="border-2 border-gray-300 bg-white h-14 w-full px-5 pr-16 rounded-lg text-lg focus:outline-none"
               type="search"
@@ -220,7 +220,7 @@ const IndexPage = ({ data }) => {
             </button>
           </div>
           {/* <div className="">广告位</div> */}
-          <div className="doc-list-wrapper w-12/12 lg:w-8/12 mx-auto">
+          <div className="doc-list-wrapper w-12/12 lg:w-9/12 mx-auto">
             {results && (
               <>
                 <h2 className="text-xl text-yellow-500">搜索结果</h2>
