@@ -2,8 +2,6 @@
 title: Bundler
 categories:
   - Ruby
-contributors:
-  - BAI
 ---
 
 ### Commands
