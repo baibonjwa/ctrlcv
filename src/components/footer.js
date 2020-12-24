@@ -9,7 +9,7 @@ const Footer = () => (
         </span>
         <span className="ml-2">辽ICP备2020013460号</span>
       </p>
-      <p>商务合作: bd@iantech.io/baibonjwa(微信)</p>
+      {/* <p>商务合作: bd@iantech.io/baibonjwa(微信)</p> */}
     </div>
   </footer>
 );
