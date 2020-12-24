@@ -4,7 +4,8 @@ categories:
   - HTML
 description: |
   Xpath 各种示例
-author: BAI
+contributors:
+  - BAI
 ---
 
 ## 测试工具

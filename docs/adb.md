@@ -2,7 +2,8 @@
 title: adb (Android Debug Bridge)
 categories:
   - CLI
-author: BAI
+contributors:
+  - BAI
 ---
 
 ## adb

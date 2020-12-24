@@ -2,6 +2,8 @@
 title: React Hooks
 categories:
   - React
+contributors:
+  - BAI
 ---
 
 ## React Hooks

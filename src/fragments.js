@@ -4,7 +4,7 @@ export const frontmatterFields = graphql`
   fragment frontmatterFields on MdxFrontmatter {
     title
     path
-    author
+    contributors
     verification
     lang
     categories

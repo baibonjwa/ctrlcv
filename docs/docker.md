@@ -2,7 +2,8 @@
 title: Docker CLI
 categories:
   - Devops
-author: BAI
+contributors:
+  - BAI
 ---
 
 ## 管理镜像

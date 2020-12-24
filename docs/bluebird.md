@@ -3,7 +3,8 @@ title: bluebird.js
 categories:
   - JavaScript
   - Libraries
-author: BAI
+contributors:
+  - BAI
 intro: 新版本的 Node Native 的 Promise 和 Async/Await 实现已经很快了 bluebird.js 已经不再那么有必要使用了
 ---
 

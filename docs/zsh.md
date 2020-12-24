@@ -2,7 +2,8 @@
 title: zsh
 categories:
   - CLI
-author: BAI
+contributors:
+  - BAI
 ---
 
 ## Zsh

@@ -2,7 +2,9 @@
 title: Promises
 categories:
   - JavaScript
-author: lele88lala,BAI
+contributors:
+  - lele88lala
+  - BAI
 ---
 
 ## Promise

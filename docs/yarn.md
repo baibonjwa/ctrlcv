@@ -3,7 +3,8 @@ title: Yarn
 categories:
   - JavaScript
   - Libraries
-author: BAI
+contributors:
+  - BAI
 ---
 
 ## Yarn

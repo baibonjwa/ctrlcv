@@ -2,6 +2,8 @@
 title: Bulma
 categories:
   - CSS
+contributors:
+  - BAI
 ---
 
 ## Bulma { data-visible=false }

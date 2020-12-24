@@ -2,7 +2,9 @@
 title: Vue.js
 categories:
   - JavaScript
-author: lele88lala, BAI
+contributors:
+  - lele88lala
+  - BAI
 ---
 
 ## 表达式

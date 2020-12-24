@@ -2,7 +2,9 @@
 title: ES6/ES2015+
 categories:
   - JavaScript
-author: lele88lala,BAI
+contributors:
+  - lele88lala
+  - BAI
 ---
 
 ## ES2015 {data-visible=false}

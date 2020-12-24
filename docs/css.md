@@ -9,7 +9,8 @@ keywords:
   - "display: block, inline, flex"
   - Selectors
   - Properties
-author: BAI
+contributors:
+  - BAI
 ---
 
 ## 基础 CSS

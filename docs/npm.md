@@ -2,7 +2,9 @@
 title: npm
 categories:
   - JavaScript
-author: lele88lala,BAI
+contributors:
+  - lele88lala
+  - BAI
 ---
 
 ## NPM {data-visible=false}

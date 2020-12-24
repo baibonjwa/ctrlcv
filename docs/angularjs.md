@@ -3,6 +3,8 @@ title: Angular.js
 categories:
   - JavaScript
   - Libraries
+contributors:
+  - BAI
 ---
 
 ## Angular.js

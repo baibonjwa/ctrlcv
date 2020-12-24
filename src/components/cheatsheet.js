@@ -52,11 +52,11 @@ export default function Layout({ children, data: { mdx }, ...props }) {
           {mdx.frontmatter.intro && (
             <span className="text-gray-600">{mdx.frontmatter.intro}</span>
           )}
-          {mdx.frontmatter.author && (
+          {mdx.frontmatter.contributors && (
             <p className="text-gray-400 text-xs">
-              <span>文章贡献者：{mdx.frontmatter.author}</span>
+              <span>贡献者：{mdx.frontmatter.contributors.join(",")}</span>
               {mdx.frontmatter.verification && (
-                <span>, 校验: {mdx.frontmatter.verification}</span>
+                <span>, 校对: {mdx.frontmatter.verification}</span>
               )}
             </p>
           )}

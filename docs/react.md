@@ -2,7 +2,9 @@
 title: React.js
 categories:
   - React
-author: lele88lala,BAI
+contributors:
+  - lele88lala
+  - BAI
 verification: BAI
 path: /react
 lang: zh-CN,en

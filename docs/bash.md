@@ -10,6 +10,8 @@ keywords:
   - Loops
   - Conditional execution
   - Command substitution
+contributors:
+  - BAI
 ---
 
 ## Bash

@@ -2,7 +2,8 @@
 title: ActiveAdmin
 categories:
   - Ruby
-author: BAI
+contributors:
+  - BAI
 ---
 
 ## ActiveAdmin

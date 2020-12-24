@@ -2,7 +2,9 @@
 title: Canvas
 categories:
   - JavaScript
-author: lele88lala,BAI
+contributors:
+  - lele88lala
+  - BAI
 ---
 
 ## 指令集

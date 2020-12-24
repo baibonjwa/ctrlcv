@@ -3,6 +3,8 @@ title: Backbone.js
 categories:
   - JavaScript
   - Libraries
+contributors:
+  - BAI
 ---
 
 ## Backbone
