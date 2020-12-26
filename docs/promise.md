@@ -1,5 +1,5 @@
 ---
-title: Promises
+title: Promise
 categories:
   - JavaScript
 contributors:

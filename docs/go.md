@@ -34,7 +34,7 @@ func greetMe(name string) string {
 ```
 
 ```bash
-$ go build
+go build
 ```
 
 也可以在 [Go repl](https://repl.it/languages/go),或 [A Tour of Go](https://tour.golang.org/welcome/1). 做实验

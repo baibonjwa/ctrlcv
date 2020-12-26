@@ -38,9 +38,9 @@ $ git fresh-branch gh-pages
 ### Inspecting
 
 ```sh
-$ git summary   # repo age, commits, active days, etc
-$ git impact    # impact graph
-$ git effort    # commits per file
+git summary   # repo age, commits, active days, etc
+git impact    # impact graph
+git effort    # commits per file
 ```
 
 ### Github
@@ -55,14 +55,14 @@ $ git fetch upstream; git merge upstream/master
 ### Tags
 
 ```sh
-$ git release v1.0.0           # commit, tag, push-tags
-$ git delete-tag v1.0.0
+git release v1.0.0           # commit, tag, push-tags
+git delete-tag v1.0.0
 ```
 
 ### Conveniences
 
 ```sh
-$ git ignore "*.log"
+git ignore "*.log"
 ```
 
 ### Locking
@@ -70,14 +70,14 @@ $ git ignore "*.log"
 Assumes that changes will not be committed.
 
 ```sh
-$ git lock config/database.yml
-$ git unlock config/database.yml
+git lock config/database.yml
+git unlock config/database.yml
 ```
 
 ### Etc
 
 ```sh
-$ git obliterate secret.yml   # remove all references to it
+git obliterate secret.yml   # remove all references to it
 ```
 
 ### References
