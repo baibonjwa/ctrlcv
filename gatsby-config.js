@@ -3,12 +3,41 @@ module.exports = {
   //   FAST_REFRESH: true,
   // },
   siteMetadata: {
+    siteUrl: `https://ctrlcv-dev.com`,
     title: "CTRLCV",
     description: "CTRLCV",
   },
   plugins: [
     `gatsby-plugin-postcss`,
     "gatsby-plugin-react-helmet",
+    {
+      resolve: `gatsby-plugin-sitemap`,
+      options: {
+        query: `
+          {
+            site {
+              siteMetadata {
+                siteUrl
+              }
+            }
+            allSitePage {
+              nodes {
+                path
+              }
+            }
+          }
+        `,
+        resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
+        serialize: ({ site, allSitePage }) =>
+          allSitePage.nodes.map((node) => {
+            return {
+              url: `${site.siteMetadata.siteUrl}${node.path}`,
+              changefreq: `weekly`,
+              priority: 0.7,
+            };
+          }),
+      },
+    },
     // {
     //   resolve: `gatsby-plugin-google-analytics`,
     //   options: {
