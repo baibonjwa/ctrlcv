@@ -27,7 +27,7 @@
 | title        | String | 是       | 文档标题(必填)                                   |
 | categories   | Array  | 是       | 文章分类，数组格式，可以填多个分类(至少一个分类) |
 | path         | String | 否       | 自定义路径（默认值为文件名无后缀）               |
-| author       | String | 否       | 文章贡献者                                       |
+| contributors | Array  | 否       | 文章贡献者                                       |
 | verification | String | 否       | 文章校验人                                       |
 | updated      | String | 否       | 文章更新时间                                     |
 | keywords     | String | 否       | 文章关键字，用于搜索                             |
