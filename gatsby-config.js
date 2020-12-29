@@ -30,6 +30,13 @@ module.exports = {
         resolveSiteUrl: ({ site }) => site.siteMetadata.siteUrl,
         serialize: ({ site, allSitePage }) =>
           allSitePage.nodes.map((node) => {
+            if (node.path === "/") {
+              return {
+                url: `${site.siteMetadata.siteUrl}${node.path}`,
+                changefreq: `daily`,
+                priority: 1,
+              };
+            }
             return {
               url: `${site.siteMetadata.siteUrl}${node.path}`,
               changefreq: `weekly`,
