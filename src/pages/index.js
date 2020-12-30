@@ -101,13 +101,13 @@ const IndexPage = ({ data }) => {
     for (const [key, value] of Object.entries(sortable)) {
       results.push(
         <div key={key} className="mt-2">
-          <div className="text-yellow-500 text-xl divide-y-0">{key}</div>
-          <hr className="border-yellow-500 opacity-50 mb-2 mt-1"></hr>
+          <div className="text-primary-500 text-xl divide-y-0">{key}</div>
+          <hr className="border-primary-500 opacity-50 mb-2 mt-1"></hr>
           <div className="flex flex-wrap">
             {value.map((item) => (
               <Link
                 key={item.id}
-                className="text-gray-500 w-6/12 pt-1 pb-1 pl-2 pr-2 lg:w-4/12"
+                className="text-neutral-500 w-6/12 pt-1 pb-1 pl-2 pr-2 lg:w-4/12"
                 title={item.frontmatter.intro}
                 to={item.frontmatter.path || item.slug}>
                 <span>{item.frontmatter.title}</span>
@@ -133,7 +133,7 @@ const IndexPage = ({ data }) => {
         }
 
         if (pair && i === pair[0]) {
-          result.push(`<span class="bg-yellow-300">`);
+          result.push(`<span class="bg-primary-300">`);
         }
         result.push(char);
         if (pair && i === pair[1]) {
@@ -141,7 +141,7 @@ const IndexPage = ({ data }) => {
         }
 
         if (pair && i === Math.min(pair[1] + threshold, text.length)) {
-          result.push(`<span class="text-yellow-600"> ...... </span>`);
+          result.push(`<span class="text-primary-600"> ...... </span>`);
           pair = indices.shift();
         }
       } else {
@@ -178,17 +178,17 @@ const IndexPage = ({ data }) => {
         <Header />
         <div className="container mx-auto p-3">
           <div className="text-center">
-            <h1 className="text-5xl mt-4 text-yellow-700 font-medium lg:text-6xl">
-              CTRL<span className="text-yellow-500">CV</span>
+            <h1 className="text-5xl mt-4 text-primary-700 font-medium lg:text-6xl">
+              CTRL<span className="text-primary-500">CV</span>
             </h1>
-            <p className="mt-3 text-gray-500">
+            <p className="mt-3 text-neutral-500">
               常用代码/指令集/速查表整理及查询工具
             </p>
           </div>
           {/* <img className="logo" src={mainLogo}></img> */}
-          <div className="mt-10 mb-6 relative mx-auto text-gray-600 w-12/12 lg:w-9/12">
+          <div className="mt-10 mb-6 relative mx-auto text-neutral-600 w-12/12 lg:w-9/12">
             <input
-              className="border-2 border-gray-300 bg-white h-14 w-full px-5 pr-16 rounded-lg text-lg focus:outline-none"
+              className="border-2 border-primary-300 bg-white h-14 w-full px-5 pr-16 rounded-lg text-lg focus:outline-none"
               type="search"
               name="search"
               value={pattern}
@@ -205,7 +205,7 @@ const IndexPage = ({ data }) => {
               className="absolute right-0 top-0 mt-4 mr-5"
               onClick={handleSearch}>
               <svg
-                className="text-gray-600 h-4 w-4 fill-current"
+                className="text-neutral-600 h-4 w-4 fill-current"
                 xmlns="http://www.w3.org/2000/svg"
                 xmlnsXlink="http://www.w3.org/1999/xlink"
                 version="1.1"
@@ -225,8 +225,8 @@ const IndexPage = ({ data }) => {
           <div className="doc-list-wrapper w-12/12 lg:w-9/12 mx-auto">
             {results && (
               <>
-                <h2 className="text-xl text-yellow-500">搜索结果</h2>
-                <hr className="border-yellow-500 opacity-50 mt-1 mb-5"></hr>
+                <h2 className="text-xl text-primary-500">搜索结果</h2>
+                <hr className="border-primary-500 opacity-50 mt-1 mb-5"></hr>
                 <div className="list">
                   {results.length === 0 && <div>没有找到匹配的结果</div>}
                   {results.map(({ item, matches, ...params }) => {
@@ -257,23 +257,23 @@ const IndexPage = ({ data }) => {
                         to={path || item.slug}
                         style={{ textDecoration: "none", color: "#777" }}>
                         <div
-                          className="text-lg text-yellow-500"
+                          className="text-lg text-primray-500"
                           dangerouslySetInnerHTML={{ __html: hlTitle }}
                         />
                         {keywords && (
                           <>
-                            <p className="text-yellow-500 mt-1">关键字：</p>
+                            <p className="text-primary-500 mt-1">关键字：</p>
                             <div
                               dangerouslySetInnerHTML={{ __html: hlKeywords }}
                             />
                           </>
                         )}
-                        <p className="text-yellow-500 mt-1">内容：</p>
+                        <p className="text-primray-500 mt-1">内容：</p>
                         <div
                           className=""
                           dangerouslySetInnerHTML={{ __html: hlRawBody }}
                         />
-                        <hr className="border-yellow-500 opacity-50 mt-5 mb-5"></hr>
+                        <hr className="border-primary-500 opacity-50 mt-5 mb-5"></hr>
                       </Link>
                     );
                   })}

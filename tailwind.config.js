@@ -1,10 +1,19 @@
+const colors = require("tailwindcss/colors");
+
 module.exports = {
   purge: ["./src/**/*.{js,jsx,ts,tsx,md}"],
   darkMode: false, // or 'media' or 'class'
   corePlugins: {
-    container: false
+    container: false,
   },
   theme: {
+    colors: {
+      // primary: colors.purple,
+      // primary: colors.indigo,
+      primary: colors.yellow,
+      secondary: colors.yellow,
+      neutral: colors.gray,
+    },
     extend: {},
   },
   variants: {
@@ -13,22 +22,22 @@ module.exports = {
   plugins: [
     function ({ addComponents }) {
       addComponents({
-        '.container': {
-          maxWidth: '100%',
-          '@screen sm': {
-            maxWidth: '540px',
+        ".container": {
+          maxWidth: "100%",
+          "@screen sm": {
+            maxWidth: "540px",
           },
-          '@screen md': {
-            maxWidth: '720px',
+          "@screen md": {
+            maxWidth: "720px",
           },
-          '@screen lg': {
-            maxWidth: '960px',
+          "@screen lg": {
+            maxWidth: "960px",
           },
-          '@screen xl': {
-            maxWidth: '1140px',
+          "@screen xl": {
+            maxWidth: "1140px",
           },
-        }
-      })
-    }
+        },
+      });
+    },
   ],
 };
