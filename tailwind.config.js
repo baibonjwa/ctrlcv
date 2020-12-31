@@ -9,8 +9,8 @@ module.exports = {
   theme: {
     colors: {
       // primary: colors.purple,
-      // primary: colors.indigo,
-      primary: colors.yellow,
+      primary: colors.indigo,
+      // primary: colors.yellow,
       secondary: colors.yellow,
       neutral: colors.gray,
     },
