@@ -43,7 +43,7 @@ export default function Layout({ children, data: { mdx }, ...props }) {
       <Header
         url={`https://github.com/BAI-Bonjwa/ctrlcv/tree/main/docs/${fileName}`}
       />
-      <main className="container mx-auto mt-4 p-2 text-gray-500">
+      <main className="container mx-auto mt-4 p-2 text-gray-600">
         <section className="mb-8">
           <h1 className="text-3xl md:text-3xl lg:text-5xl font-extralight text-gray-600 mb-4">
             {mdx.frontmatter.title}

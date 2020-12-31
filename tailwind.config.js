@@ -7,8 +7,21 @@ module.exports = {
     container: false,
   },
   theme: {
+    fontFamily: {
+      sans: ["sans-serif", "system-ui"],
+      serif: ["serif", "Georgia"],
+      mono: ["monospace", "SFMono-Regular"],
+      // "black-bison": "Black Bison",
+      // chucklesome: "CHUCKLESOME",
+      // "kepler-296": "Kepler 296",
+      // "swera-demo": "Swera Demo",
+      // thuner: "Thuner",
+      audiowide: "Audiowide",
+      // "miss-ellen": "Miss Ellen",
+    },
     colors: {
       // primary: colors.purple,
+      gray: colors.gray,
       primary: colors.indigo,
       // primary: colors.yellow,
       secondary: colors.yellow,

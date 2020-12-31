@@ -5,15 +5,20 @@ const MDXComponents = {
   h2: (props) => {
     if (props["data-visible"] === "false") return null;
     return (
-      <h2 className="text-2xl mb-2 mt-4 text-gray-500" {...props}>
+      <h2 className="text-2xl mb-2 mt-4 text-gray-600" {...props}>
         {props.children}
       </h2>
     );
   },
   h3: (props) => (
-    <h3 className="text-lg mb-3 text-primary-500" {...props}>
+    <h3 className="text-lg mt-2 mb-3 text-primary-500" {...props}>
       {props.children}
     </h3>
+  ),
+  h4: (props) => (
+    <h4 className="mt-2 mb-2" {...props}>
+      {props.children}
+    </h4>
   ),
   section: ({ children, ...props }) => {
     if (props["data-section-depth"] >= 3) {

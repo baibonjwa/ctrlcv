@@ -178,7 +178,7 @@ const IndexPage = ({ data }) => {
         <Header />
         <div className="container mx-auto p-3">
           <div className="text-center">
-            <h1 className="text-5xl mt-4 text-primary-700 font-medium lg:text-6xl">
+            <h1 className="font-audiowide text-5xl mt-4 text-primary-700 font-medium lg:text-6xl">
               CTRL<span className="text-primary-500">CV</span>
             </h1>
             <p className="mt-3 text-neutral-500">

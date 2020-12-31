@@ -34,7 +34,7 @@ contributors:
 <a :href="url">...</a>
 ```
 
-#### `:disabled` 表达式返回的 true 或者 false 将影响此属性是否存在
+`:disabled` 表达式返回的 true 或者 false 将影响此属性是否存在
 
 ```html
 <button :disabled="isButtonDisabled">...</button>

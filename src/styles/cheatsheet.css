@@ -1,9 +1,14 @@
+@font-face {
+  font-family: Audiowide;
+  src: url('../assets/fonts/Audiowide-Regular.ttf');
+}
+
 body {
   /* background-color: #ffffee; */
   /* background-color: #EEF2FF; */
   /* background-color: #F5F3FF; */
-  /* background-color: rgba(238, 242, 255, .2); */
-  background-color: #F9FAFB;
+  background-color: rgba(238, 242, 255, .2);
+  /* background-color: #F9FAFB; */
 }
 
 a.anchor {
@@ -47,7 +52,8 @@ h3::after {
 
 .ctrlcv-cheatsheet-code-title {
   display: inline-block;
-  background-color: #fdf6e3;
+  /* background-color: #fdf6e3; */
+  background-color: #dfe2f1;
   padding: 3px 0.75rem 2px;
   font-size: 12px;
 }
@@ -71,11 +77,14 @@ h3::after {
 
 .ctrlcv-cheatsheet-table th {
   padding: 5px;
-  background-color :rgba(180, 83, 9, .12)
+  /* background-color :rgba(180, 83, 9, .12) */
+  /* background-color: #dfe2f1; */
+  background-color: rgba(223, 226, 241, .5);
 }
 
 .ctrlcv-cheatsheet-table td {
   padding: 5px;
   /* background-color: #eeeeee; */
-  background-color: #fdf6e3;
+  /* background-color: #fdf6e3; */
+  background-color: #f5f7ff;
 }
