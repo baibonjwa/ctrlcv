@@ -38,7 +38,25 @@ const options = {
   ],
 };
 
-const IndexPage = ({ data }) => {
+const IndexPage = ({}) => {
+  const data = useStaticQuery(graphql`
+    query {
+      allMdx {
+        edges {
+          node {
+            id
+            fileAbsolutePath
+            rawBody
+            slug
+            frontmatter {
+              ...frontmatterFields
+            }
+          }
+        }
+      }
+    }
+  `);
+
   const nodes = data.allMdx.edges.map((o) => o.node);
   const indexMap = new Map();
   indexMap.set(DEFAULT_LANG, { Other: [] });
@@ -176,7 +194,7 @@ const IndexPage = ({ data }) => {
             </p>
           </div>
           {/* <img className="logo" src={mainLogo}></img> */}
-          <div className="mt-10 mb-6 relative mx-auto text-neutral-600 w-12/12 lg:w-9/12">
+          <div className="mt-10 mb-6 relative mx-auto text-neutral-600 w-12/12 lg:w-10/12">
             <input
               className="border-2 border-primary-300 bg-white h-14 w-full px-5 pr-16 rounded-lg text-lg focus:outline-none"
               type="search"
@@ -212,7 +230,7 @@ const IndexPage = ({ data }) => {
             </button>
           </div>
           {/* <div className="">广告位</div> */}
-          <div className="doc-list-wrapper w-12/12 lg:w-9/12 mx-auto">
+          <div className="doc-list-wrapper w-12/12 lg:w-10/12 mx-auto">
             {results && (
               <>
                 <h2 className="text-xl text-primary-500">搜索结果</h2>
@@ -283,22 +301,22 @@ const IndexPage = ({ data }) => {
   );
 };
 
-export const query = graphql`
-  query {
-    allMdx {
-      edges {
-        node {
-          id
-          fileAbsolutePath
-          rawBody
-          slug
-          frontmatter {
-            ...frontmatterFields
-          }
-        }
-      }
-    }
-  }
-`;
+// export const query = graphql`
+//   query {
+//     allMdx {
+//       edges {
+//         node {
+//           id
+//           fileAbsolutePath
+//           rawBody
+//           slug
+//           frontmatter {
+//             ...frontmatterFields
+//           }
+//         }
+//       }
+//     }
+//   }
+// `;
 
 export default IndexPage;
