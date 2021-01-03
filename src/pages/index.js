@@ -38,7 +38,7 @@ const options = {
   ],
 };
 
-const IndexPage = ({}) => {
+const IndexPage = () => {
   const data = useStaticQuery(graphql`
     query {
       allMdx {

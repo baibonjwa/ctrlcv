@@ -12,7 +12,6 @@ contributors:
 ### HTML
 
 ```html
-   
 <html ng-app="nameApp"></html>
 ```
 

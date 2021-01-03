@@ -1,8 +1,15 @@
 import React from "react";
 import Highlight, { defaultProps } from "prism-react-renderer";
+import Prism from "prism-react-renderer/prism";
 
 import Copy from "./copy";
 import normalize from "./normalize";
+
+(typeof global !== "undefined" ? global : window).Prism = Prism;
+
+require("prismjs/components/prism-ruby");
+require("prismjs/components/prism-elixir");
+require("prismjs/components/prism-haml");
 
 const getParams = (name = ``) => {
   const [lang, params = ``] = name.split(`:`);
@@ -27,6 +34,7 @@ export default ({
   ...props
 }) => {
   const [language] = getParams(className);
+  const params = getParams(className);
   const [content, highlights] = normalize(
     children.props && children.props.children
       ? children.props.children
@@ -37,6 +45,7 @@ export default ({
   return (
     <Highlight
       {...defaultProps}
+      Prise={Prism}
       code={content}
       language={language}
       theme={undefined}>
