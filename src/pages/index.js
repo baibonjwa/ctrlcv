@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import _ from "lodash";
-import { graphql, Link } from "gatsby";
+import { graphql, Link, useStaticQuery } from "gatsby";
 // import { MDXRenderer } from "gatsby-plugin-mdx";
 // import toTopIcon from "../assets/images/to-top.png";
 import Header from "../components/header";
@@ -39,36 +39,57 @@ const options = {
 };
 
 const IndexPage = ({ data }) => {
-  // console.log(data.allMdx.edges);
-  const [pattern, setPattern] = useState();
-  const [results, setResults] = useState();
-  const [indexes, setIndexes] = useState();
+  const nodes = data.allMdx.edges.map((o) => o.node);
+  const indexMap = new Map();
+  indexMap.set(DEFAULT_LANG, { Other: [] });
+  AVAIL_LANGS.forEach((lang) => {
+    indexMap.set(lang, { Other: [] });
+  });
 
-  useEffect(() => {
-    const nodes = data.allMdx.edges.map((o) => o.node);
-
-    const indexMap = new Map();
-    indexMap.set(DEFAULT_LANG, { Other: [] });
+  nodes.forEach((node) => {
+    const categories = node.frontmatter.categories || ["Other"];
     AVAIL_LANGS.forEach((lang) => {
-      indexMap.set(lang, { Other: [] });
-    });
+      const key = node.fileAbsolutePath.includes(`/${lang}/`)
+        ? lang
+        : DEFAULT_LANG;
 
-    nodes.forEach((node) => {
-      const categories = node.frontmatter.categories || ["Other"];
-      AVAIL_LANGS.forEach((lang) => {
-        const key = node.fileAbsolutePath.includes(`/${lang}/`)
-          ? lang
-          : DEFAULT_LANG;
-
-        categories.forEach((category) => {
-          indexMap.get(key)[category] = (
-            indexMap.get(key)[category] || []
-          ).concat(node);
-        });
+      categories.forEach((category) => {
+        indexMap.get(key)[category] = (
+          indexMap.get(key)[category] || []
+        ).concat(node);
       });
     });
-    setIndexes(indexMap);
-  }, [data]);
+  });
+
+  const indexes = [];
+  const sortable = Object.entries(indexMap.get("zh-CN"))
+    .sort(([, a], [, b]) => {
+      if (a === "Other") return -1;
+      return b.length - a.length;
+    })
+    .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
+  for (const [key, value] of Object.entries(sortable)) {
+    indexes.push(
+      <div key={key} className="mt-2">
+        <div className="text-primary-500 text-xl divide-y-0">{key}</div>
+        <hr className="border-primary-500 opacity-50 mb-2 mt-1"></hr>
+        <div className="flex flex-wrap">
+          {value.map((item) => (
+            <Link
+              key={item.id}
+              className="text-neutral-500 w-6/12 pt-1 pb-1 pl-2 pr-2 lg:w-4/12"
+              title={item.frontmatter.intro}
+              to={item.frontmatter.path || item.slug}>
+              <span>{item.frontmatter.title}</span>
+            </Link>
+          ))}
+        </div>
+      </div>
+    );
+  }
+
+  const [pattern, setPattern] = useState();
+  const [results, setResults] = useState();
 
   const handleSearch = (e) => {
     if (!pattern) {
@@ -87,37 +108,6 @@ const IndexPage = ({ data }) => {
     const fuse = new Fuse(escapedNodes, options);
     const results = fuse.search(`'"${pattern}"`);
     setResults(results);
-  };
-
-  const getIndexList = () => {
-    if (!indexes) return [];
-    const results = [];
-    const sortable = Object.entries(indexes.get("zh-CN"))
-      .sort(([, a], [, b]) => {
-        if (a === "Other") return -1;
-        return b.length - a.length;
-      })
-      .reduce((r, [k, v]) => ({ ...r, [k]: v }), {});
-    for (const [key, value] of Object.entries(sortable)) {
-      results.push(
-        <div key={key} className="mt-2">
-          <div className="text-primary-500 text-xl divide-y-0">{key}</div>
-          <hr className="border-primary-500 opacity-50 mb-2 mt-1"></hr>
-          <div className="flex flex-wrap">
-            {value.map((item) => (
-              <Link
-                key={item.id}
-                className="text-neutral-500 w-6/12 pt-1 pb-1 pl-2 pr-2 lg:w-4/12"
-                title={item.frontmatter.intro}
-                to={item.frontmatter.path || item.slug}>
-                <span>{item.frontmatter.title}</span>
-              </Link>
-            ))}
-          </div>
-        </div>
-      );
-    }
-    return results;
   };
 
   const highlightText = (text, originIndices = []) => {
@@ -280,7 +270,7 @@ const IndexPage = ({ data }) => {
                 </div>
               </>
             )}
-            {!results && getIndexList()}
+            {!results && indexes}
           </div>
           <Footer />
         </div>
