@@ -26,7 +26,7 @@ export default function Layout({ children, data: { mdx }, ...props }) {
           columns,
           breakAt: {
             1200: columns,
-            940: columns >= 2 ? 2 : columns,
+            940: 1,
             720: 1,
             400: 1,
           },
