@@ -47,7 +47,7 @@ categories:
 
 ## Controllers
 
-http://apidock.com/rails/ActionController/Base
+<http://apidock.com/rails/ActionController/Base>
 
     class ProjectsController
       layout 'project'   # Actually defaults to `projects` based

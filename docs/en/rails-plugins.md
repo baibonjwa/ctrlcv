@@ -80,7 +80,9 @@ Example with a block:
 
 ### Generating a generator
 
-    $ rails generate generator initializer
+```
+    rails generate generator initializer
+```
 
 ### NamedBase
 
