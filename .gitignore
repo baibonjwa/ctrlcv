@@ -70,4 +70,5 @@ yarn-error.log
 .yarn-integrity
 
 todos/
-deploy/
+deploy.rb
+docs/en/
