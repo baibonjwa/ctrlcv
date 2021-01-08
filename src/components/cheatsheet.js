@@ -50,7 +50,10 @@ export default function Layout({ children, data: { mdx }, ...props }) {
             <span className="ml-3 text-gray-300">cheatsheet</span>
           </h1>
           {mdx.frontmatter.intro && (
-            <span className="text-gray-600">{mdx.frontmatter.intro}</span>
+            <div
+              className="text-gray-600"
+              dangerouslySetInnerHTML={{ __html: mdx.frontmatter.intro }}
+            />
           )}
           {mdx.frontmatter.contributors && (
             <p className="text-gray-400 text-xs">

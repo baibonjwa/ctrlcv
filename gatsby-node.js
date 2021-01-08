@@ -1,18 +1,22 @@
 const path = require("path");
 const _ = require("lodash");
 
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  // console.log(node);
-  // const { createNodeField } = actions;
-  // if (node.internal.type === `MarkdownRemark`) {
-  //   const parent = getNode(node.parent);
-  //   let collection = parent.sourceInstanceName;
-  //   createNodeField({
-  //     node,
-  //     name: "collection",
-  //     value: collection,
-  //   });
-  // }
+const remarkParse = require(`remark-parse`);
+const html = require(`remark-html`);
+const remark = require(`remark`);
+
+exports.onCreateNode = ({ node }) => {
+  if (node.frontmatter && node.frontmatter.intro) {
+    const mdx = node.frontmatter.intro;
+    // console.log("before", mdx);
+    // console.log("after", content);
+    node.frontmatter.intro = remark()
+      .use(remarkParse)
+      .use(html)
+      .processSync(mdx)
+      .toString();
+    return node;
+  }
 };
 
 exports.onCreatePage = ({ page, actions }) => {
