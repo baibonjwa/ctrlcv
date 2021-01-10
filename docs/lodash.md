@@ -7,8 +7,6 @@ intro: |
   完整列表详见官网 <https://lodash.com/docs>
 ---
 
-完整列表详见官网 <https://lodash.com/docs>
-
 ## 集合
 
 ### 查找

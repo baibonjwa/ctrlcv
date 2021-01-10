@@ -38,7 +38,7 @@ body {
 }
 
 a {
-  text-decoration: underline;
+  /* text-decoration: underline; */
 }
 
 a.anchor {
@@ -117,4 +117,8 @@ h3::after {
   /* background-color: #eeeeee; */
   /* background-color: #fdf6e3; */
   background-color: #f5f7ff;
+}
+
+.ctrlcv-intro a {
+  text-decoration: underline;
 }

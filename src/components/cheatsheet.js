@@ -51,7 +51,7 @@ export default function Layout({ children, data: { mdx }, ...props }) {
           </h1>
           {mdx.frontmatter.intro && (
             <div
-              className="text-gray-600"
+              className="text-gray-600 ctrlcv-intro"
               dangerouslySetInnerHTML={{ __html: mdx.frontmatter.intro }}
             />
           )}
