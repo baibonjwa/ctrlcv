@@ -13,6 +13,7 @@ contributors:
 ### Xpath 测试工具
 
 - [Xpath 测试工具](http://xpather.com) _(xpather.com)_
+- [Xpath 测试工具](https://extendsclass.com/xpath-tester.html) _(https://extendsclass.com/xpath-tester.html)_
 
 ### 在浏览器的 Console 中测试
 
